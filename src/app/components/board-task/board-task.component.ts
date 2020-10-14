@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { fillTask } from '../../mockup.db';
 
 @Component({
   selector: 'app-board-task',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardTaskComponent implements OnInit {
 
-  constructor() { }
+  tasks = [];
+
+  constructor() {
+      this.tasks = fillTask(20);
+   }
 
   ngOnInit(): void {
+
+    console.log(`tareas = ${JSON.stringify(this.tasks)}`);
+
   }
 
 }
