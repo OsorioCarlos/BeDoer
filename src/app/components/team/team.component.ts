@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./team.component.css']
 })
 export class TeamComponent implements OnInit {
-
+  team: string[] = ['1', '2'];
   constructor() { }
 
   ngOnInit(): void {
