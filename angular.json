@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "beDoer"
+    }
+  },
+  "defaultProject": "beDoer",
+  "cli": {
+    "analytics": "ed74dbd0-80ba-497c-8614-e4d3f5c676eb"
+  }
 }
