@@ -1,0 +1,13 @@
+/* CSS PARA EL BOARD */
+/* Buscador  */
+
+.form-control{
+    border-color: #0E3E70;
+    outline: 0;
+    background: #ffffff;
+    }   
+    .searchbar .search_icon{
+    background: #ffffff;
+    color:#E55E17
+    }
+/*board*/

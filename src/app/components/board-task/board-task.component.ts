@@ -21,3 +21,5 @@ export class BoardTaskComponent implements OnInit {
   }
 
 }
+
+
