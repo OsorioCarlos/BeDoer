@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BoardTaskComponent } from './components/board-task/board-task.component';
 import { TeamComponent } from './components/team/team.component';
 import { BoardTaskTeamComponent } from './components/board-task-team/board-task-team.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BoardTaskTeamComponent } from './components/board-task-team/board-task-
     NavbarComponent,
     BoardTaskComponent,
     TeamComponent,
-    BoardTaskTeamComponent
+    BoardTaskTeamComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
