@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { fillTask } from '../../mockup.db';
+import { fillTask, CATEGORIES } from '../../mockup.db';
 
 @Component({
   selector: 'app-board-task',
@@ -9,6 +9,7 @@ import { fillTask } from '../../mockup.db';
 export class BoardTaskComponent implements OnInit {
 
   tasks = [];
+  categories = [];
 
   constructor() {
       this.tasks = fillTask(20);
@@ -17,7 +18,12 @@ export class BoardTaskComponent implements OnInit {
   ngOnInit(): void {
 
     console.log(`tareas = ${JSON.stringify(this.tasks)}`);
+    //this.getCategories();
 
+  }
+
+  getCategories(): void {
+    this.categories = CATEGORIES;
   }
 
 }
