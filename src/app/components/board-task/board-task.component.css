@@ -1,25 +1,72 @@
 /* CSS PARA EL BOARD */
 /* Buscador  */
-
-.form-control{
+.form-control
+{
     border-color: #0E3E70;
     outline: 0;
     background: #ffffff;
-    }   
-    .searchbar .search_icon{
-    background: #ffffff;
-    color:#E55E17
-    }
-/*contenedores*/
-.container
+}   
+/* Botón de buscador */
+#buscador
 {
+    border-radius: 0px 5px 5px 0px;
+    border-left: none;
+}
+/* Botón categotría */
+#categoria
+{
+    background-color: #E55E17;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    
+}
+/* Botón crear */
+#btncrear
+{
+    border: none;
+    background:#E55E17;
+    color:#FFF9F3;
+    margin-left: 10px;
+}
+
+/*Botón tareas y boton visto*/
+#btntarea
+{
+ color:#F6901B;
+ border-radius: 0px 10px 10px 0px;
+}
+#btntarea-task
+{
+    border-radius: 10px 0px 0px 10px;
+    color: #0E3E70;
+}
+/*Eqtiquetas */
+label
+{
+    border-radius: 0px;
+}
+
+span
+{
+    background-color: #F6901B ;
+    color: #FFF9F3; 
+    border-radius: 50%;
+}
+
+
+/*contenedores*/
+#container-task
+{
+    border: 1px solid;
     border-color: #0E3E70;
+}
+#container-task
+{
     padding: 10px;
 }
-/*botones*/
+/*clase btn botones*/
 .btn{
     background-color:#ffffff;
-    color: #0E3E70 ;
     border-color: #0E3E70 ; ;
-    border-radius: 10px;
 }
