@@ -39,3 +39,5 @@ export function fillTeams(numero){
     }
     return teams;
 }
+
+export const CATEGORIES = [{id: 1, name: 'Educación'}, {id: 2, name: 'Salud'}, {id: 3, name: 'Trabajo'}];
