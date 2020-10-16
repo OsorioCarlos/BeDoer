@@ -1,4 +1,3 @@
-import { DeclareVarStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { fillTask, CATEGORIES } from '../../mockup.db';
 
@@ -11,6 +10,7 @@ declare let $: any;
 })
 export class BoardTaskComponent implements OnInit {
 
+  edit = true;
   tasks = [];
   categories = [];
 
@@ -21,7 +21,7 @@ export class BoardTaskComponent implements OnInit {
   ngOnInit(): void {
 
     console.log(`tareas = ${JSON.stringify(this.tasks)}`);
-    //this.getCategories();
+    this.getCategories();
 
   }
 
@@ -32,6 +32,7 @@ export class BoardTaskComponent implements OnInit {
   tarea(){
     $('#tarea').modal();
   }
+  
   salir()
   {
     setTimeout(() => {

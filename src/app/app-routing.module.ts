@@ -1,7 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BoardTaskTeamComponent } from './components/board-task-team/board-task-team.component';
+import { BoardTaskComponent } from './components/board-task/board-task.component';
+import { TeamComponent } from './components/team/team.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: 'user/tareas', component: BoardTaskComponent},
+  {path: 'user/equipos', component: TeamComponent},
+  {path: 'user/mi-perfil', component: UserProfileComponent},
+  {path: 'team/tareas', component: BoardTaskTeamComponent}
+  //{path: 'user/sugerencias', component: }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
