@@ -1,76 +1,217 @@
-<p>board-task-team works!</p>
 <br />
 <div class="container">
   <div class="row ">
+    <!-- Buscador-->
     <div class="col-sm">
-      <div class="searchbar input-group">
+      <div class="input-group">
         <input class="form-control" type="text" name="" placeholder="Buscar...">
         <span>
-          <button class="btn" type="button" style="border-color: #26517C;">
-            <a href="#" class="search_icon">
-              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
-                <path fill-rule="evenodd"
-                  d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
-              </svg>
-            </a>
+          <button class="btn" id="buscador" type="button">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+              <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+            </svg>
           </button>
         </span>
       </div>
     </div>
+    <!-- Boton para filtrar por categorías -->
     <div class="col-sm">
       <div class="dropdown">
-        <button class="btn dropdown-toggle" style="background:#E55E17;color:#FFF9F3;" type="button"
-          id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Categorías
+        <button class="btn " id="categoria" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categorías 
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-funnel-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+          </svg>    
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Entretenimiento</a>
-        </div>
       </div>
     </div>
+    <!-- Barra de progreso -->
     <div class="col-sm">
       <h6 style="color: #26517C;">Progreso</h6>
       <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 50%;background-color: #F6901B;" aria-valuenow="25"
-          aria-valuemin="0" aria-valuemax="100">50%</div>
+        <div class="progress-bar" role="progressbar" style="width: 95%;background-color: #F6901B;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">95%</div>
       </div>
-
     </div>
   </div>
 </div>
 <br />
+<!-- Grupo de botones -->
 <div class="container ">
   <div class="btn-group">
-    <label type="button" class="btn border" style="color:#26517C">
-      Por Hacer <span class="badge badge-light"
-        style="background-color: #F6901B ;color: #FFF9F3; border-radius: 50%;">9</span>
+    <label id="do" type="button" class="btn">
+      Por Hacer <span class="badge badge-light">9</span>
     </label>
-    <label type="button" class="btn border" style="color:#26517C">
-      Haciendo <span class="badge badge-light"
-        style="background-color: #F6901B ;color: #FFF9F3; border-radius: 50%;">9</span>
+    <label id="doing" type="button" class="btn" >
+      Haciendo <span class="badge badge-light">9</span>
     </label>
-    <label type="button" class="btn border" style="color:#26517C">
-      Hecho <span class="badge badge-light"
-        style="background-color: #F6901B ;color: #FFF9F3; border-radius: 50%;">9</span>
+    <label id="done" type="button" class="btn">
+      Hecho <span class="badge badge-light">9</span>
     </label>
     <div class="dropdown">
-      <button class="btn dropdown-toggle" style="background:#E55E17;color:#FFF9F3;" type="button"
-        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button  id="btncrear" class="btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Crear
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
       </button>
-      <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Tarea</a>
-      </div>
     </div>
   </div>
 </div>
-<div class="container border">
-  <div class="row" data-spy="scroll" data-target="#navbar-example3" data-offset="0">
-    <button type="button" class="btn">Tarea 1 </button>
-    <button type="button" class="btn">Tarea 2</button>
-    <button type="button" class="btn">Tarea 3</button>
+<!-- Contenedor que contiene las tareas -->
+<div class="container" id="container-task">
+  <div class="row text-center" data-spy="scroll" data-target="#navbar-example3" data-offset="0">
+  <div class="col-sm-3">
+    <div class="label-group">
+      <!-- Boton para abrir el modal-->
+      <button (click)="tarea()" class="btn" id="btntarea-task" type="button" >
+        Tarea 1
+      </button>
+      <span>
+      <button class="btn" id="btntarea" type="button">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+      </button>
+      </span>
+    </div>
+    <!-- Modal de la Tarea-->
+    <div class="modal fade" id="tarea" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="container ">
+            <div class="modal-body text-center">
+              <h4>
+                <u>Nombre de la tarea?</u>
+              </h4>
+              <p class="font-wight-light text-justify">
+                Aqui va el formulario con el contenido de la tarea del usuario
+              </p>
+              <div class="container text-center">
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Editar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Cancelar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Borrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <!-- BORRAR----------------------- -->
+  <div class="col-sm-3">
+    <div class="label-group">
+      <!-- Boton para abrir el modal-->
+      <button (click)="tarea()" class="btn" id="btntarea-task" type="button" >
+        Tarea 1
+      </button>
+      <span>
+      <button class="btn" id="btntarea" type="button">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+      </button>
+      </span>
+    </div>
+    <!-- Modal de la Tarea-->
+    <div class="modal fade" id="tarea" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="container ">
+            <div class="modal-body text-center">
+              <h4>
+                <u>Nombre de la tarea?</u>
+              </h4>
+              <p class="font-wight-light text-justify">
+                Aqui va el formulario con el contenido de la tarea del usuario
+              </p>
+              <div class="container text-center">
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Editar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Cancelar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Borrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><div class="col-sm-3">
+    <div class="label-group">
+      <!-- Boton para abrir el modal-->
+      <button (click)="tarea()" class="btn" id="btntarea-task" type="button" >
+        Tarea 1
+      </button>
+      <span>
+      <button class="btn" id="btntarea" type="button">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+      </button>
+      </span>
+    </div>
+    <!-- Modal de la Tarea-->
+    <div class="modal fade" id="tarea" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="container ">
+            <div class="modal-body text-center">
+              <h4>
+                <u>Nombre de la tarea?</u>
+              </h4>
+              <p class="font-wight-light text-justify">
+                Aqui va el formulario con el contenido de la tarea del usuario
+              </p>
+              <div class="container text-center">
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Editar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Cancelar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Borrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><div class="col-sm-3">
+    <div class="label-group">
+      <!-- Boton para abrir el modal-->
+      <button (click)="tarea()" class="btn" id="btntarea-task" type="button" >
+        Tarea 1
+      </button>
+      <span>
+      <button class="btn" id="btntarea" type="button">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+      </button>
+      </span>
+    </div>
+    <!-- Modal de la Tarea-->
+    <div class="modal fade" id="tarea" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="container ">
+            <div class="modal-body text-center">
+              <h4>
+                <u>Nombre de la tarea?</u>
+              </h4>
+              <p class="font-wight-light text-justify">
+                Aqui va el formulario con el contenido de la tarea del usuario
+              </p>
+              <div class="container text-center">
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Editar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Cancelar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Borrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- BORRAR----------------------- -->
+</div>
 </div>
