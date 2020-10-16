@@ -10,4 +10,16 @@
     background: #ffffff;
     color:#E55E17
     }
-/*board*/
+/*contenedores*/
+.container
+{
+    border-color: #0E3E70;
+    padding: 10px;
+}
+/*botones*/
+.btn{
+    background-color:#ffffff;
+    color: #0E3E70 ;
+    border-color: #0E3E70 ; ;
+    border-radius: 10px;
+}

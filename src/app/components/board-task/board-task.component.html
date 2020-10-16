@@ -66,13 +66,150 @@
     </div>
   </div>
 </div>
+<!-- Contenedor que contiene las tareas -->
 <div class="container border">
-  <div class="row" data-spy="scroll" data-target="#navbar-example3" data-offset="0">
-    <button type="button" class="btn">Tarea 1 </button>
-    <button type="button" class="btn">Tarea 2</button>
-    <button type="button" class="btn">Tarea 3</button>
+  <div class="row text-center" data-spy="scroll" data-target="#navbar-example3" data-offset="0">
+  <div class="col-sm-3">
+    <!-- Boton para abrir el modal-->
+    <button (click)="tarea()" class="btn" type="button" >
+      Tarea 1
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2" fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+      </svg>
+    </button>
+    <!-- Modal de la Tarea-->
+    <div class="modal fade" id="tarea" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="container ">
+            <div class="modal-body text-center">
+              <h4>
+                <u>Nombre de la tarea?</u>
+              </h4>
+              <p class="font-wight-light text-justify">
+                Aqui va el formulario con el contenido de la tarea del usuario
+              </p>
+              <div class="container text-center">
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Editar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Cancelar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Borrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <!-- BORRAR----------------------- -->
+  <div class="col-sm-3">
+    <!-- Boton para abrir el modal-->
+    <button (click)="tarea()" class="btn" type="button" >
+      Tarea 1
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2" fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+      </svg>
+    </button>
+    <!-- Modal de la Tarea-->
+    <div class="modal fade" id="tarea" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="container ">
+            <div class="modal-body text-center">
+              <h4>
+                <u>Nombre de la tarea?</u>
+              </h4>
+              <p class="font-wight-light text-justify">
+                Aqui va el formulario con el contenido de la tarea del usuario
+              </p>
+              <div class="container text-center">
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Editar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Cancelar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Borrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <!-- Boton para abrir el modal-->
+    <button (click)="tarea()" class="btn" type="button" >
+      Tarea 1
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2" fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+      </svg>
+    </button>
+    <!-- Modal de la Tarea-->
+    <div class="modal fade" id="tarea" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="container ">
+            <div class="modal-body text-center">
+              <h4>
+                <u>Nombre de la tarea?</u>
+              </h4>
+              <p class="font-wight-light text-justify">
+                Aqui va el formulario con el contenido de la tarea del usuario
+              </p>
+              <div class="container text-center">
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Editar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Cancelar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Borrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <!-- Boton para abrir el modal-->
+    <button (click)="tarea()" class="btn" type="button" >
+      Tarea 1
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2" fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+      </svg>
+    </button>
+    <!-- Modal de la Tarea-->
+    <div class="modal fade" id="tarea" data-backdrop="static" data-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="container ">
+            <div class="modal-body text-center">
+              <h4>
+                <u>Nombre de la tarea?</u>
+              </h4>
+              <p class="font-wight-light text-justify">
+                Aqui va el formulario con el contenido de la tarea del usuario
+              </p>
+              <div class="container text-center">
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Editar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Cancelar</button>
+                <button (click)="salir()" class="btn btn-outline-warning colorName3" type="button">Borrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- BORRAR----------------------- -->
 </div>
+</div>
+
 
 <!--Categorías-->
 <!--

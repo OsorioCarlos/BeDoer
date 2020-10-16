@@ -1,5 +1,8 @@
+import { DeclareVarStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { fillTask, CATEGORIES } from '../../mockup.db';
+
+declare let $: any;
 
 @Component({
   selector: 'app-board-task',
@@ -24,6 +27,16 @@ export class BoardTaskComponent implements OnInit {
 
   getCategories(): void {
     this.categories = CATEGORIES;
+  }
+
+  tarea(){
+    $('#tarea').modal();
+  }
+  salir()
+  {
+    setTimeout(() => {
+      $('#tarea').modal('hide');
+    },300);
   }
 
 }
