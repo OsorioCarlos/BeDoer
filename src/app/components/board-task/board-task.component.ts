@@ -28,9 +28,11 @@ export class BoardTaskComponent implements OnInit {
   getCategories(): void {
     this.categories = CATEGORIES;
   }
-
   tarea(){
     $('#tarea').modal();
+  }
+  etiqueta(){
+    $('#etiqueta').modal();
   }
   salir()
   {
@@ -40,5 +42,3 @@ export class BoardTaskComponent implements OnInit {
   }
 
 }
-
-

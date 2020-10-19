@@ -68,5 +68,67 @@ span
 /*clase btn botones*/
 .btn{
     background-color:#ffffff;
-    border-color: #0E3E70 ; ;
+    border-color: #0E3E70 ;
+}
+/* ----------ESTILOS PARA EL MODAL DE LAS TAREAS---------- */
+
+#btnedit
+{
+    color: #707070;
+    width: 47%;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    border-color: #40FB32 ;
+}
+#btncancel
+{
+    color: #707070;
+    width: 46%;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    border-color: #26517C ;
+}
+#btndelete
+{
+    color: #707070;
+    width: 100%;
+    border-color: #FB3830 ;
+}
+
+/* ----------ESTILOS PARA EL MODAL DE LA CREACIÓN DE ETIQUETAS--------- */
+#btncreate
+{
+    background-color: #E55E17;
+    color: #ffffff;
+    width: 50%;
+    border-color: none;
+    border: none;
+}
+#btn-tag
+{
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+#btn-edit-tag
+{
+    border: none;
+    float: right;
+}
+#btn-cancel-tag
+{
+    border:none;
+    float: right;
+}
+
+/*correguir estos dos*/
+#prueba-etiqueta
+{
+    border: 1px solid #0E3E70;
+
+}
+#prueba-boton-etiqueta
+{
+    border: none;
 }
