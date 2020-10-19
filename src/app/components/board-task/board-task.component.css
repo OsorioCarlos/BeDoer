@@ -1,19 +1,74 @@
-/* CSS PARA EL BOARD */
+/* -------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------- CSS PARA EL BOARD ------------------------------------ */
+/* -------------------------------------------------------------------------------------------------- */
+
+
 /* Buscador  */
-.form-control
-{
+
+.we-form-control{
     border-color: #0E3E70;
     outline: 0;
     background: #ffffff;
-}   
-/* Botón de buscador */
-#buscador
-{
+}
+
+.we-btn{
+    background-color:#ffffff;
+    border-color: #0E3E70 ; ;
     border-radius: 0px 5px 5px 0px;
     border-left: none;
 }
+
+/* -------------------------------------------------------------------------------------------------- */
+/* estilos de las tasks */
+/* -------------------------------------------------------------------------------------------------- */
+.task{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 10rem;
+    /* text-decoration: none; */
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.task-left{
+    margin: 0;
+    display: inline-block;
+    text-decoration: none;
+    color: #0E3E70;
+    padding: 0.5rem;
+    width: 80%;
+    border: #0E3E70 solid 1.7px;
+    border-radius: 10px 0 0 10px;
+}
+
+.task-left:hover{
+    background-color: #e9ecef;
+    color: #0E3E70;
+    cursor: pointer;
+}
+
+.task-right{
+    padding: 0;
+    margin: 0;
+    width: 18%;
+    border: none;
+    background-color: #FFFFFF;
+    color: #f6901b;
+    border: #0E3E70 solid 1.7px;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+}
+
+.task-right:hover{
+    background-color: #E55E17;
+    color: #ffffff;
+}
+/* -------------------------------------------------------------------------------------------------- */
+/* estilos en los botones de la pantalla de tareas*/
+/* -------------------------------------------------------------------------------------------------- */
 /* Botón categotría */
-#categoria
+.we-btn-categoria
 {
     background-color: #E55E17;
     border: none;
@@ -22,54 +77,60 @@
     
 }
 /* Botón crear */
-#btncrear
+.we-btn-crear
 {
     border: none;
     background:#E55E17;
     color:#FFF9F3;
     margin-left: 10px;
+    padding: 10px;
+}
+/* Botones por hacer, haciendo y hecho*/
+.w-container-do
+{
+    margin: 0 auto;
+    padding: 0 ;
 }
 
-/*Botón tareas y boton visto*/
-#btntarea
+.container .btn-group .btn-do
 {
- color:#F6901B;
- border-radius: 0px 10px 10px 0px;
-}
-#btntarea-task
-{
-    border-radius: 10px 0px 0px 10px;
-    color: #0E3E70;
-}
-/*Eqtiquetas */
-label
-{
-    border-radius: 0px;
-}
+    justify-content: center;
+    align-items: center;
+    border: var(--we-blue) solid 1px;
+    padding: 10px;
 
-span
+}
+.container .btn-group .btn-do span
 {
-    background-color: #F6901B ;
-    color: #FFF9F3; 
+    display: inline-block;
+    min-width: 1px; /* pixel unit */
+    padding: 4px 8px; /* pixel unit */
     border-radius: 50%;
+    font-size:15px;
+    text-align: center;
+    background: var(--navbar);
+    color: #fefefe;
 }
 
+/* -------------------------------------------------------------------------------------------------- */
+/* Contenedor de las tareas*/
+/* -------------------------------------------------------------------------------------------------- */
 
-/*contenedores*/
-#container-task
+.we-container-task
 {
     border: 1px solid;
     border-color: #0E3E70;
 }
-#container-task
+.we-container-task
 {
-    padding: 10px;
+    width: 100%;
+    height: 350px;
+    overflow: auto;
 }
-/*clase btn botones*/
-/*
-.btn{
-    background-color:#ffffff;
-    border-color: #0E3E70 ;
+/* Estilos al scroll de las tareas */
+.we-container-task::-webkit-scrollbar
+{
+    display: none; 
 }
 /* ----------ESTILOS PARA EL MODAL DE LAS TAREAS---------- */
 
@@ -123,14 +184,28 @@ span
     float: right;
 }
 
-/*correguir estos dos*/
-#prueba-etiqueta
-{
-    border: 1px solid #0E3E70;
 
+
+
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------- Estilos de ventanas modales ------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+.we-btn-danger{
+    border: #FB3830 solid 2px;
 }
-#prueba-boton-etiqueta
-{
-    border: none;
+
+.we-btn-success{
+    border: #40FB32 solid 2px;
+}
+
+.we-modal-footer{
+    border-top: none;
+}
+
+.we-modal-header{
+    border-bottom: none;
 }
 
