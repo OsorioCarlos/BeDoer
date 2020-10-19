@@ -14,14 +14,20 @@ export class BoardTaskComponent implements OnInit {
   tasks = [];
   categories = [];
 
+  tasksToDo = [];
+  tasksDoing = [];
+  tasksDone = [];
+
+
   constructor() {
-      this.tasks = fillTask(20);
-   }
+    this.tasks = fillTask(70);
+    //console.log(JSON.stringify(this.tasks));
+  }
 
   ngOnInit(): void {
-
-    console.log(`tareas = ${JSON.stringify(this.tasks)}`);
+    
     this.getCategories();
+    this.getTasks();  
 
   }
 
@@ -29,15 +35,61 @@ export class BoardTaskComponent implements OnInit {
     this.categories = CATEGORIES;
   }
 
-  tarea(){
+  tarea() {
     $('#tarea').modal();
   }
-  
-  salir()
-  {
+
+  salir() {
     setTimeout(() => {
       $('#tarea').modal('hide');
-    },300);
+    }, 300);
+  }
+
+
+  getTasks() {
+
+    for (const task of this.tasks) {
+      if (task.state == 1) {
+        this.tasksToDo.push(task);
+      } else if (task.state == 2) {
+        this.tasksDoing.push(task);
+      } else {
+        this.tasksDone.push(task);
+      }
+    }
+
+  }
+
+  createTask(task) {
+    let newTask = {
+      "id": this.tasks.length + 1,
+      "created_by": null,
+      "teamspace": null,
+      "title": task.title,
+      "description": task.description,
+      "is_delete": false,
+      "state": "1",
+      "expiration_date": "13/11/20",
+      "create_at": null,
+      "update_at": null
+    }
+
+    this.tasksToDo.push(newTask);
+  }
+
+  updateTask(oldTask) {
+  
+    let auxiliar;
+
+    for (const task of this.tasks) {
+      if (task.id === oldTask.id) {
+        auxiliar = task
+      }
+    }
+
+    auxiliar.title = oldTask.title;
+    auxiliar.description = oldTask.description;
+
   }
 
 }
