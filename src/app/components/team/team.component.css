@@ -1,0 +1,20 @@
+.container{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+ul li{
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+button{
+    background-color: var(--boton);
+    color: white;
+    border-color: var(--boton);
+}
+
+div svg{
+    cursor: pointer;
+}

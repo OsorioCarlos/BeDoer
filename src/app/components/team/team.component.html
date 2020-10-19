@@ -1,7 +1,7 @@
 <div class="container">
     <div class="d-flex justify-content-between">
         <h4>Equipos creados por mi</h4>
-        <button type="button" class="btn btn-warning">
+        <button type="button" class="btn btn-warming">
             Nuevo equipo
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
@@ -12,8 +12,8 @@
     </div>
     <br>
     <ul class="list-group">
-        <li class="list-group-item d-flex" *ngFor="let i of team">
-            <div class="p-2 flex-grow-1">Equipo {{i}}</div>
+        <li class="list-group-item d-flex" *ngFor="let team of teams">
+            <div class="p-2 flex-grow-1">{{team.name}}</div>
             <div class="p-2">
                 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-kanban-fill" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
@@ -44,8 +44,8 @@
     <h4>Equipos a los que pertenezco</h4>
     <br>
     <ul class="list-group">
-        <li class="list-group-item d-flex" *ngFor="let i of team">
-            <div class="p-2 flex-grow-1">Equipo {{i}}</div>
+        <li class="list-group-item d-flex" *ngFor="let team of teams">
+            <div class="p-2 flex-grow-1">{{team.name}}</div>
             <div class="p-2">
                 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-kanban-fill" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">

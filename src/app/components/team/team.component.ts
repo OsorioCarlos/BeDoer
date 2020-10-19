@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { fillTeams } from 'src/app/mockup.db';
 
 @Component({
   selector: 'app-team',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamComponent implements OnInit {
 
-  team: string[] = ['1', '2'];
+  teams: string[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    this.getTeams();
+  }
+
+  getTeams(): void {
+    this.teams = fillTeams(5);
   }
 
 }
