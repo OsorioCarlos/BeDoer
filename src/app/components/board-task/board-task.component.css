@@ -44,6 +44,15 @@
     color:#FFF9F3;
 }
 
+@media (max-width: 520px){
+
+    .board-nav-container a{
+        width: 100%;
+        border-bottom:  #0E3E70 solid 1.7px;
+    }
+
+}
+
 /* -------------------------------------------------------------------------------------------------- */
 /* estilos del tablero */
 /* -------------------------------------------------------------------------------------------------- */
@@ -51,6 +60,33 @@
 .board-task{
     border: #0E3E70 solid 1.7px;
     padding: 2%;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* propiedades del scroll */
+/* -------------------------------------------------------------------------------------------------- */
+.scroll{
+    overflow: auto;
+    height: 500px;
+}
+
+.scroll::-webkit-scrollbar {
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: var(--secundary) solid 1px;
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: var(--secundary) solid 1px;
+    background: var(--navbar);
+}
+
+.scroll::-webkit-scrollbar:horizontal {
+    display: none;
 }
 
 /* -------------------------------------------------------------------------------------------------- */
@@ -125,11 +161,6 @@
 .we-btn-secundary{
     border: var(--secundary) solid 2px;
 }
-
-
-
-
-
 
 /* -------------------------------------------------------------------------------------------------- */
 /* -------------------------------------------- Estilos de Javi ------------------------------------- */
