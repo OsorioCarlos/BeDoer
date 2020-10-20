@@ -20,7 +20,7 @@ export class BoardTaskComponent implements OnInit {
 
 
   constructor() {
-    this.tasks = fillTask(70);
+    this.tasks = fillTask(150);
     //console.log(JSON.stringify(this.tasks));
   }
 
@@ -35,16 +35,13 @@ export class BoardTaskComponent implements OnInit {
     this.categories = CATEGORIES;
   }
 
-  tarea() {
-    $('#tarea').modal();
+  openCreateModal() {
+    $('#modalCreateTask').modal();
   }
 
-  salir() {
-    setTimeout(() => {
-      $('#tarea').modal('hide');
-    }, 300);
+  openEditModal() {
+    $('#modalEditTask').modal();
   }
-
 
   getTasks() {
 
@@ -93,5 +90,3 @@ export class BoardTaskComponent implements OnInit {
   }
 
 }
-
-
