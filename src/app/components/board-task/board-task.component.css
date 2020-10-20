@@ -17,6 +17,43 @@
 }
 
 /* -------------------------------------------------------------------------------------------------- */
+/* estilos los botones de navegación de tablero */
+/* -------------------------------------------------------------------------------------------------- */
+
+.board-nav-container{
+    border: none;
+    /* border: #0E3E70 solid 1.7px; */
+}
+
+.board-nav {
+    border: #0E3E70 solid 1.7px;
+    border-bottom: none;
+    border-radius: 0;
+}
+
+.board-nav span{
+    background-color: #F6901B ;
+    color: #FFF9F3; 
+    border-radius: 50%;
+}
+
+.we-btn-crear{
+    display: inline-block;
+    border: none;
+    background:#E55E17;
+    color:#FFF9F3;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* estilos del tablero */
+/* -------------------------------------------------------------------------------------------------- */
+
+.board-task{
+    border: #0E3E70 solid 1.7px;
+    padding: 2%;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
 /* estilos de las tasks */
 /* -------------------------------------------------------------------------------------------------- */
 .task{
@@ -38,6 +75,7 @@
     width: 80%;
     border: #0E3E70 solid 1.7px;
     border-radius: 10px 0 0 10px;
+    font-weight: 500;
 }
 
 .task-left:hover{
@@ -63,6 +101,39 @@
     color: #ffffff;
 }
 
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------- Estilos de ventanas modales ------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+.we-modal-header{
+    border-bottom: none;
+
+}
+
+.we-modal-footer{
+    border-top: none;
+}
+
+.we-btn-danger{
+    border: #FB3830 solid 2px;
+}
+
+.we-btn-success{
+    border: #40FB32 solid 2px;
+}
+
+.we-btn-secundary{
+    border: var(--secundary) solid 2px;
+}
+
+
+
+
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------- Estilos de Javi ------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
 
 /* Botón de buscador */
 #buscador
@@ -78,14 +149,6 @@
     border-radius: 5px;
     color: white;
     
-}
-/* Botón crear */
-#btncrear
-{
-    border: none;
-    background:#E55E17;
-    color:#FFF9F3;
-    margin-left: 10px;
 }
 
 /*Botón tareas y boton visto*/
@@ -105,14 +168,6 @@ label
     border-radius: 0px;
 }
 
-span
-{
-    background-color: #F6901B ;
-    color: #FFF9F3; 
-    border-radius: 50%;
-}
-
-
 /*contenedores*/
 #container-task
 {
@@ -129,22 +184,3 @@ span
 
 
 
-/* -------------------------------------------------------------------------------------------------- */
-/* -------------------------------------- Estilos de ventanas modales ------------------------------- */
-/* -------------------------------------------------------------------------------------------------- */
-
-.we-btn-danger{
-    border: #FB3830 solid 2px;
-}
-
-.we-btn-success{
-    border: #40FB32 solid 2px;
-}
-
-.we-modal-footer{
-    border-top: none;
-}
-
-.we-modal-header{
-    border-bottom: none;
-}

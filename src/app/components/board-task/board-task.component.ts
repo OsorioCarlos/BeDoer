@@ -35,15 +35,19 @@ export class BoardTaskComponent implements OnInit {
     this.categories = CATEGORIES;
   }
 
-  tarea() {
-    $('#tarea').modal();
+  openCreateModal() {
+    $('#modalCreateTask').modal();
   }
 
-  salir() {
-    setTimeout(() => {
-      $('#tarea').modal('hide');
-    }, 300);
+  openEditModal() {
+    $('#modalEditTask').modal();
   }
+
+  // salir() {
+  //   setTimeout(() => {
+  //     $('#tarea').modal('hide');
+  //   }, 300);
+  // }
 
 
   getTasks() {
