@@ -8,15 +8,15 @@
     <div class="d-flex flex-row">
       <div class="p-2 dropdown" (click)="getNotifications()">
         <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-bell-fill dropdown-toggle" fill="White"
-          xmlns="http://www.w3.org/2000/svg" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+          xmlns="http://www.w3.org/2000/svg" id="notifications" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
           <path
             d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
         </svg>
-        <ul class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="dropdownMenuButton">
-          <li class="dropdown-item" *ngFor="let notification of notifications">{{notification}}</li>
-          <p class="text-center" *ngIf="notifications.length==0">No tienes notificaciones</p>
-        </ul>
+        <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="notifications">
+          <span class="dropdown-item-text" *ngIf="notifications.length==0">No tienes notificaciones</span>
+          <a class="dropdown-item" *ngFor="let notification of notifications">{{notification}}</a>
+        </div>
       </div>
       <div class="p-2">
         <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="White"

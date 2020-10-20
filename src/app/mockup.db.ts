@@ -47,5 +47,5 @@ function getRandomInt(min, max) {
     return (Math.floor(Math.random() * (max - min)) + min);
 }
 
-export const CATEGORIES = [{id: 1, name: 'Educación'}, {id: 2, name: 'Salud'}, {id: 3, name: 'Trabajo'}];
+export const CATEGORIES = [{id: 1, name: 'Educación'}, {id: 2, name: 'Salud'}, {id: 3, name: 'Trabajo'}, {id: 4, name: 'Creatividad'}];
 export const NOTIFICATIONS = ['Notificación 1', 'Notificación 2', 'Notificación 3', 'Notificación 4'];

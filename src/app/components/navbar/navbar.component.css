@@ -1,12 +1,6 @@
 nav {
     background-color: var(--navbar);
 }
-
-ul{
-    max-height: 20em;
-    overflow: auto;
-}
-
-ul li{
-    font-size: .75em;
+.dropdown-item{
+    cursor: pointer;
 }

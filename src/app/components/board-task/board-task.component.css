@@ -71,14 +71,17 @@
     border-left: none;
 }
 /* Botón categotría */
-#categoria
+#categories
 {
     background-color: #E55E17;
     border: none;
     border-radius: 5px;
     color: white;
-    
 }
+div[aria-labelledby="categories"]{
+    padding-left: 5px;
+}
+
 /* Botón crear */
 #btncrear
 {
@@ -105,7 +108,7 @@ label
     border-radius: 0px;
 }
 
-span
+.badge
 {
     background-color: #F6901B ;
     color: #FFF9F3; 

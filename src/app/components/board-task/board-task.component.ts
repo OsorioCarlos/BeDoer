@@ -10,7 +10,7 @@ declare let $: any;
 })
 export class BoardTaskComponent implements OnInit {
 
-  edit = true;
+  editCategories = false;
   tasks = [];
   categories = [];
 
