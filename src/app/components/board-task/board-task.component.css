@@ -14,8 +14,79 @@
 .we-btn{
     background-color:#ffffff;
     border-color: #0E3E70 ; ;
-    border-radius: 0px 5px 5px 0px;
-    border-left: none;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* estilos los botones de navegación de tablero */
+/* -------------------------------------------------------------------------------------------------- */
+
+.board-nav-container{
+    border: none;
+    /* border: #0E3E70 solid 1.7px; */
+}
+
+.board-nav {
+    border: #0E3E70 solid 1.7px;
+    border-bottom: none;
+    border-radius: 0;
+}
+
+.board-nav span{
+    background-color: #F6901B ;
+    color: #FFF9F3; 
+    border-radius: 50%;
+}
+
+.we-btn-crear{
+    display: inline-block;
+    border: none;
+    background:#E55E17;
+    color:#FFF9F3;
+}
+
+@media (max-width: 520px){
+
+    .board-nav-container a{
+        width: 100%;
+        border-bottom:  #0E3E70 solid 1.7px;
+    }
+
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* estilos del tablero */
+/* -------------------------------------------------------------------------------------------------- */
+
+.board-task{
+    border: #0E3E70 solid 1.7px;
+    padding: 2%;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* propiedades del scroll */
+/* -------------------------------------------------------------------------------------------------- */
+.scroll{
+    overflow: auto;
+    height: 500px;
+}
+
+.scroll::-webkit-scrollbar {
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: var(--secundary) solid 1px;
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: var(--secundary) solid 1px;
+    background: var(--navbar);
+}
+
+.scroll::-webkit-scrollbar:horizontal {
+    display: none;
 }
 
 /* -------------------------------------------------------------------------------------------------- */
@@ -40,6 +111,7 @@
     width: 80%;
     border: #0E3E70 solid 1.7px;
     border-radius: 10px 0 0 10px;
+    font-weight: 500;
 }
 
 .task-left:hover{
@@ -64,134 +136,19 @@
     background-color: #E55E17;
     color: #ffffff;
 }
-/* -------------------------------------------------------------------------------------------------- */
-/* estilos en los botones de la pantalla de tareas*/
-/* -------------------------------------------------------------------------------------------------- */
-/* Botón categotría */
-.we-btn-categoria
-{
-    background-color: #E55E17;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    
-}
-/* Botón crear */
-.we-btn-crear
-{
-    border: none;
-    background:#E55E17;
-    color:#FFF9F3;
-    margin-left: 10px;
-    padding: 10px;
-}
-/* Botones por hacer, haciendo y hecho*/
-.w-container-do
-{
-    margin: 0 auto;
-    padding: 0 ;
-}
-
-.container .btn-group .btn-do
-{
-    justify-content: center;
-    align-items: center;
-    border: var(--we-blue) solid 1px;
-    padding: 10px;
-
-}
-.container .btn-group .btn-do span
-{
-    display: inline-block;
-    min-width: 1px; /* pixel unit */
-    padding: 4px 8px; /* pixel unit */
-    border-radius: 50%;
-    font-size:15px;
-    text-align: center;
-    background: var(--navbar);
-    color: #fefefe;
-}
-
-/* -------------------------------------------------------------------------------------------------- */
-/* Contenedor de las tareas*/
-/* -------------------------------------------------------------------------------------------------- */
-
-.we-container-task
-{
-    border: 1px solid;
-    border-color: #0E3E70;
-}
-.we-container-task
-{
-    width: 100%;
-    height: 350px;
-    overflow: auto;
-}
-/* Estilos al scroll de las tareas */
-.we-container-task::-webkit-scrollbar
-{
-    display: none; 
-}
-/* ----------ESTILOS PARA EL MODAL DE LAS TAREAS---------- */
-
-#btnedit
-{
-    color: #707070;
-    width: 47%;
-    margin-right: 15px;
-    margin-bottom: 10px;
-    border-color: #40FB32 ;
-}
-#btncancel
-{
-    color: #707070;
-    width: 46%;
-    margin-left: 15px;
-    margin-bottom: 10px;
-    border-color: #26517C ;
-}
-#btndelete
-{
-    color: #707070;
-    width: 100%;
-    border-color: #FB3830 ;
-}
-
-/* ----------ESTILOS PARA EL MODAL DE LA CREACIÓN DE ETIQUETAS--------- */
-#btncreate
-{
-    background-color: #E55E17;
-    color: #ffffff;
-    width: 50%;
-    border-color: none;
-    border: none;
-}
-#btn-tag
-{
-    width: 100%;
-    text-align: left;
-    margin-bottom: 10px;
-}
-
-#btn-edit-tag
-{
-    border: none;
-    float: right;
-}
-#btn-cancel-tag
-{
-    border:none;
-    float: right;
-}
-
-
-
-
-
 
 /* -------------------------------------------------------------------------------------------------- */
 /* -------------------------------------- Estilos de ventanas modales ------------------------------- */
 /* -------------------------------------------------------------------------------------------------- */
+
+.we-modal-header{
+    border-bottom: none;
+
+}
+
+.we-modal-footer{
+    border-top: none;
+}
 
 .we-btn-danger{
     border: #FB3830 solid 2px;
@@ -201,11 +158,54 @@
     border: #40FB32 solid 2px;
 }
 
-.we-modal-footer{
-    border-top: none;
+.we-btn-secundary{
+    border: var(--secundary) solid 2px;
 }
 
-.we-modal-header{
-    border-bottom: none;
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------- Estilos de Javi ------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+/* Botón de buscador */
+#buscador
+{
+    border-radius: 0px 5px 5px 0px;
+    border-left: none;
+}
+/* Botón categotría */
+#categoria
+{
+    background-color: #E55E17;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    
 }
 
+/*Botón tareas y boton visto*/
+#btntarea
+{
+ color:#F6901B;
+ border-radius: 0px 10px 10px 0px;
+}
+#btntarea-task
+{
+    border-radius: 10px 0px 0px 10px;
+    color: #0E3E70;
+}
+/*Eqtiquetas */
+label
+{
+    border-radius: 0px;
+}
+
+/*contenedores*/
+#container-task
+{
+    border: 1px solid;
+    border-color: #0E3E70;
+}
+#container-task
+{
+    padding: 10px;
+}
