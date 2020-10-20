@@ -20,7 +20,7 @@ export class BoardTaskComponent implements OnInit {
 
 
   constructor() {
-    this.tasks = fillTask(200);
+    this.tasks = fillTask(150);
     //console.log(JSON.stringify(this.tasks));
   }
 
