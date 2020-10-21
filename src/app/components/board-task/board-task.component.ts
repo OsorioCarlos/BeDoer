@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { fillTask, CATEGORIES } from '../../mockup.db';
+import { fillTask, CATEGORIES, Task, I_Task } from '../../mockup.db';
 
 declare let $: any;
 
@@ -10,52 +10,58 @@ declare let $: any;
 })
 export class BoardTaskComponent implements OnInit {
 
+  // -------------------------------------------------------------------------------
+  // Atributos de la clase.
+  // -------------------------------------------------------------------------------
+
   edit = true;
-  tasks = [];
+  tasks: I_Task[] = [];
   categories = [];
 
-  tasksToDo = [];
-  tasksDoing = [];
-  tasksDone = [];
+  editableTask: I_Task = new Task();
+  tasksToDo: I_Task[] = [];
+  tasksDoing: I_Task[] = [];
+  tasksDone: I_Task[] = [];
 
-
-  constructor() {
-    this.tasks = fillTask(200);
-    //console.log(JSON.stringify(this.tasks));
-  }
+  // -------------------------------------------------------------------------------
+  // Métodos del componente.
+  // -------------------------------------------------------------------------------
+  constructor() {}
 
   ngOnInit(): void {
-    
     this.getCategories();
     this.getTasks();  
 
   }
 
-  getCategories(): void {
-    this.categories = CATEGORIES;
-  }
+  // -------------------------------------------------------------------------------
+  // Métodos de lo modales.
+  // -------------------------------------------------------------------------------
 
   openCreateModal() {
-    $('#modalCreateTask').modal();
+    $('#modalCreateTask').modal('show');
   }
 
-  openEditModal() {
-    $('#modalEditTask').modal();
+  openEditModal(task) {  
+    $('#modalEditTask').modal('show');
+    // this.updateTask(task);
   }
 
-  // salir() {
-  //   setTimeout(() => {
-  //     $('#tarea').modal('hide');
-  //   }, 300);
-  // }
+  openConfirmModal(){
+    $('#confirmDeleteModal').modal('show');
+  }
 
+  // -------------------------------------------------------------------------------
+  // Métodos CRUD de las tareas.
+  // -------------------------------------------------------------------------------
 
   getTasks() {
+    this.tasks = fillTask(100);
 
     for (const task of this.tasks) {
-      if (task.state == 1) {
+      if (task.state == '1') {
         this.tasksToDo.push(task);
-      } else if (task.state == 2) {
+      } else if (task.state == '2') {
         this.tasksDoing.push(task);
       } else {
         this.tasksDone.push(task);
@@ -64,36 +70,35 @@ export class BoardTaskComponent implements OnInit {
 
   }
 
-  createTask(task) {
-    let newTask = {
-      "id": this.tasks.length + 1,
-      "created_by": null,
-      "teamspace": null,
-      "title": task.title,
-      "description": task.description,
-      "is_delete": false,
-      "state": "1",
-      "expiration_date": "13/11/20",
-      "create_at": null,
-      "update_at": null
-    }
+  createTask(title, description, expiration_date) {
+    let newTask: I_Task = new Task();
+
+    newTask.title = title;
+    newTask.description = description;
+    newTask.expiration_date = expiration_date;
+    newTask.state = '1';
 
     this.tasksToDo.push(newTask);
+    console.log(newTask);
+    $('#modalCreateTask').modal('hide');
   }
 
-  updateTask(oldTask) {
-  
-    let auxiliar;
+  // updateTask(task) {
+  //   let editableTask: Task = new Task();
 
-    for (const task of this.tasks) {
-      if (task.id === oldTask.id) {
-        auxiliar = task
-      }
-    }
+  //   editableTask.title = title;
+  //   editableTask.description = description;
+  //   editableTask.expiration_date = expiration_date;
+  //   editableTask.state = '1';
 
-    auxiliar.title = oldTask.title;
-    auxiliar.description = oldTask.description;
+  // }
 
+  // -------------------------------------------------------------------------------
+  // Métodos para las categorias.
+  // -------------------------------------------------------------------------------
+
+  getCategories(): void {
+    this.categories = CATEGORIES;
   }
 
 }

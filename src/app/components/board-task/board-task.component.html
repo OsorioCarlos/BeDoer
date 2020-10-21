@@ -90,6 +90,7 @@
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 -->
 
+<!-- tablero -->
 <div class="container">
 
   <!-- Navegación del tablero -->
@@ -128,7 +129,7 @@
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
       <div class="card-deck">
         <div class="task mt-1 mb-1 mr-1 ml-1" *ngFor="let task of tasksToDo">
-          <a class="task-left" (click)="openEditModal();"> {{ task.title }} </a>
+          <a class="task-left" (click)="openEditModal(task);"> {{ task.title }} </a>
           <button class="task-right" type="button">
             <svg width="50%" height="50%" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg0">
               <path fill-rule="evenodd"
@@ -143,7 +144,7 @@
     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
       <div class="card-deck">
         <div class="task mt-1 mb-1 mr-1 ml-1" (click)="tarea()" *ngFor="let task of tasksDoing">
-          <a class="task-left" (click)="openEditModal();"> {{ task.title }} </a>
+          <a class="task-left" (click)="openEditModal(task);"> {{ task.title }} </a>
           <button class="task-right" type="button">
             <svg width="50%" height="50%" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg0">
               <path fill-rule="evenodd"
@@ -154,11 +155,11 @@
       </div>
     </div>
 
-    <!-- contenedor de tareas en "" -->
+    <!-- contenedor de tareas en tasksDone -->
     <div class="tab-pane fade " id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
       <div class="card-deck">
         <div class="task mt-1 mb-1 mr-1 ml-1" (click)="tarea()" *ngFor="let task of tasksDone">
-          <a class="task-left" (click)="openEditModal();"> {{ task.title }} </a>
+          <a class="task-left" (click)="openEditModal(task);"> {{ task.title }} </a>
           <button class="task-right" type="button">
             <svg width="50%" height="50%" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg0">
               <path fill-rule="evenodd"
@@ -180,7 +181,7 @@
 -->
 
 <!-- Modal para crear tareas -->
-<div class="modal fade" id="modalCreateTask" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalCreateTask" tabindex="-1" >
 
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -192,17 +193,16 @@
       </div>
 
       <div class="modal-body">
-
         <form>
           <div class="form-group">
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titulo">
+            <input type="text" class="form-control" placeholder="Titulo" name="title" #title>
           </div>
           <div class="form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Descripción"
-              rows="3"></textarea>
+            <textarea class="form-control" placeholder="Descripción" 
+              rows="3" #description></textarea>
           </div>
           <div class="form-group">
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control">
               <option>Categorías</option>
               <option>2</option>
               <option>3</option>
@@ -211,11 +211,10 @@
             </select>
           </div>
           <div class="form-group">
-            <input class="form-control" type="datetime-local" width="100%" id="example-datetime-local-input"
-              placeholder="Fecha">
+            <input class="form-control" type="datetime-local" width="100%" placeholder="Fecha" #expiration_date>
           </div>
           <div class="form-group">
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control">
               <option>Etiquetas</option>
               <option>2</option>
               <option>3</option>
@@ -228,7 +227,7 @@
       </div>
 
       <div class="modal-footer we-modal-footer justify-content-center">
-        <button type="button" class="btn we-btn-success mr-5" style="width: 30%;">Crear</button>
+        <button type="button" class="btn we-btn-success mr-5" style="width: 30%;" (click)="createTask(title.value, description.value, expiration_date.value )" >Crear</button>
         <button type="button" class="btn we-btn-danger ml-5" data-dismiss="modal" style="width: 30%;">Cancelar</button>
       </div>
 
@@ -253,14 +252,14 @@
 
         <form>
           <div class="form-group">
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titulo">
+            <input type="text" class="form-control" placeholder="Titulo" #title>
           </div>
           <div class="form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Descripción"
-              rows="3"></textarea>
+            <textarea class="form-control" placeholder="Descripción"
+              rows="3" #description></textarea>
           </div>
           <div class="form-group">
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control">
               <option>Categorías</option>
               <option>2</option>
               <option>3</option>
@@ -269,11 +268,10 @@
             </select>
           </div>
           <div class="form-group">
-            <input class="form-control" type="datetime-local" width="100%" id="example-datetime-local-input"
-              placeholder="Fecha">
+            <input class="form-control" type="datetime-local" width="100%" placeholder="Fecha" #expiration_date>
           </div>
           <div class="form-group">
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control">
               <option>Etiquetas</option>
               <option>2</option>
               <option>3</option>
@@ -289,11 +287,27 @@
           <button type="button" class="btn we-btn-success mr-4" style="width: 30%;">Crear</button>
           <button type="button" class="btn we-btn-secundary ml-4" data-dismiss="modal"
             style="width: 30%;">Cancelar</button>
-          <button type="button" class="btn we-btn-danger" data-dismiss="modal" style="width: 80%;">Cancelar</button>
+          <button type="button" class="btn we-btn-danger" data-dismiss="modal" style="width: 80%;" (click)="openConfirmModal()">Eliminar </button>
         
       </div>
 
     </div>
   </div>
 
+</div>
+
+
+<!-- Modal para la confirmacion de eliminar tareas-->
+<div class="modal fade" id="confirmDeleteModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        ¿Estas seguro de eliminar esta tarea?
+      </div>
+      <div class="modal-footer we-modal-footer justify-content-center">
+        <button type="button" class="btn we-btn-danger w-25" data-dismiss="modal">Si</button>
+        <button type="button" class="btn we-btn-success w-25"  data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
 </div>

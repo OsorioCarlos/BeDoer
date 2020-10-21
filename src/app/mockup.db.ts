@@ -1,9 +1,6 @@
-//export var equipo = [];
-//export var tareas_equipos = [];
-
 export function fillTask(numero) {
 
-    var tasks = [];
+    var tasks: Task[] = [];
     var states = ["1", "2", "3"]
 
     for (let i = 0; i < numero; i++) {
@@ -48,3 +45,36 @@ function getRandomInt(min, max) {
 }
 
 export const CATEGORIES = [{id: 1, name: 'Educación'}, {id: 2, name: 'Salud'}, {id: 3, name: 'Trabajo'}];
+
+
+
+
+// -------------------------------------------------------------------------
+// Interfaces
+// -------------------------------------------------------------------------
+
+export class Task{
+    id: number;
+    created_by: string;
+    teamspace: string;
+    title: string;
+    description: string;
+    is_delete: boolean;
+    state: string;
+    expiration_date: string; 
+    create_at: string;
+    update_at: string;
+} 
+
+export interface I_Task{
+    id: number;
+    created_by: string;
+    teamspace: string;
+    title: string;
+    description: string;
+    is_delete: boolean;
+    state: string;
+    expiration_date: string; 
+    create_at: string;
+    update_at: string;
+} 

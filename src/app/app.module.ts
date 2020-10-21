@@ -5,6 +5,9 @@ import { NgModule } from '@angular/core';
 // importacion del routing
 import { AppRoutingModule } from './app-routing.module';
 
+//Modulo para formularios
+import { FormsModule } from '@angular/forms';
+
 // componentes de mi app
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -24,7 +27,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
