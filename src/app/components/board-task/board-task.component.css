@@ -171,7 +171,7 @@
 }
 
 /* -------------------------------------------------------------------------------------------------- */
-/* -------------------------------------------- Estilos de Javi ------------------------------------- */
+/* -------------------------- Estilos buscador y boton categoria------------------------------------- */
 /* -------------------------------------------------------------------------------------------------- */
 
 /* Botón de buscador */
@@ -188,37 +188,99 @@
     border-radius: 5px;
     color: white;
 }
+/* -------------------------------------------------------------------------------------------------- */
+/* Estilos para el crud de las etiquetas */
+/* -------------------------------------------------------------------------------------------------- */
 
-/*Botón tareas y boton visto*/
-#btntarea
+.we-form-group-tag
 {
- color:#F6901B;
- border-radius: 0px 10px 10px 0px;
+    width: 100%;
 }
-#btntarea-task
+.we-form-group-tag .we-form-control-tag
 {
-    border-radius: 10px 0px 0px 10px;
-    color: #0E3E70;
+    width: 80%;
+    float: left;
+    border: var(--we-blue) solid 1px;
 }
-/*Eqtiquetas */
-label
+.we-form-group-tag .we-btn-tag
 {
+    width: 20%;
+    float: right;
+    border: var(--we-blue) solid 1px;
+}
+
+/*Estilo para tag list*/
+.we-form-control-tag
+{
+    width: 100%;
+}
+
+.we-form-control-tag .we-btn-taglist
+{
+    width: 80%;
+    float: left;
+    border: var(--we-blue) solid 1px;
+    margin-bottom: 5px;
     border-radius: 0px;
+    border-right: 0px;
+    text-align: left;
+    
 }
 
-/*contenedores*/
-#container-task
+.we-btn-close-taglist
 {
-    border: 1px solid;
-    border-color: #0E3E70;
+    border: #FB3830 solid 1px;
+    color: #FB3830;
 }
-#container-task
+
+.we-btn-create-taglist
 {
-    padding: 10px;
+    background: var(--boton);
+    color: white;
+    margin-bottom: 10px;
 }
 
-/*clase btn botones*/
+.we-btn-edit-tag
+{
+    border: var(--we-blue) solid 1px;
+    margin-bottom: 10px;
+    width: 10%;
+    border-radius: 0px;
+    border-right: 0px ;
+    border-left: 0px ;
+}
+.we-btn-delete-tag
+{
+    border: var(--we-blue) solid 1px;
+    margin-bottom: 10px;
+    width: 10%;
+    border-radius: 0px;
+    border-left: 0px ;
+}
 
+.we-btn-edittag
+{
+    border: var(--we-blue) solid 1px;
+    border-radius: 0px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+}
 
+.we-btn-save-edittag
+{
+    width: 100%;
+    border-radius: 0px;
+    border: #40FB32 solid 1px;
+    color: #40FB32;
+    margin-bottom: 10px;
+}
 
+.we-btn-cancel-edittag
+{
+    width: 100%;
+    border-radius: 0px;
+    border: #FB3830 solid 1px;
+    color: #FB3830;
+}
 

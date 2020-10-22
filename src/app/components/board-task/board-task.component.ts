@@ -37,6 +37,16 @@ export class BoardTaskComponent implements OnInit {
   // -------------------------------------------------------------------------------
   // Métodos de lo modales.
   // -------------------------------------------------------------------------------
+  tagList() {
+    $('#tagModal').modal('show');
+  }
+  openEditModalTag() {
+    $('#editModalTag').modal('show');
+  }
+
+  opencreateModalTag() {
+    $('#createModalTag').modal('show');
+  }
 
   openCreateModal() {
     $('#modalCreateTask').modal('show');

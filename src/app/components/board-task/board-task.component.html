@@ -241,14 +241,20 @@
           <div class="form-group">
             <input class="form-control" type="datetime-local" width="100%" placeholder="Fecha" #expiration_date>
           </div>
-          <div class="form-group">
-            <select class="form-control">
-              <option>Etiquetas</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+          <div class="form-group we-form-group-tag">
+              <select class="form-control we-form-control-tag">
+                <option>Etiquetas</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+              <button class="btn we-btn-tag" (click)="tagList()">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tags-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M3 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 7.586 1H3zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                  <path d="M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/>
+                </svg>
+              </button>
           </div>
         </form>
 
@@ -284,3 +290,117 @@
     </div>
   </div>
 </div>
+<!-- 
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////// modales para el CRUD de las etiquetas////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+-->
+<!-- Modal lista de etiquetas -->
+<div class="modal" id="tagModal"   >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header we-modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4 class="text-center" style="color: var(--we-blue);">Mis etiquetas</h4>
+        <form class="we-form-control-tag">
+          <!-- Primera Etiqueta-->
+          <input class="btn we-btn-taglist" type="button" value="Etiqueta 1">
+          <button (click)="openEditModalTag()" class="btn we-btn-edit-tag">       
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+            </svg>
+          </button>
+          <button class="btn we-btn-delete-tag">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+            </svg>
+          </button>
+          <!-- Segunda Etiqueta -->
+          <input class="btn we-btn-taglist" type="button" value="Etiqueta 2">
+          <button (click)="openEditModalTag()" class="btn we-btn-edit-tag">       
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+            </svg>
+          </button>
+          <button class="btn we-btn-delete-tag">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+            </svg>
+          </button>
+          <!-- Tercera Equiteta -->
+          <input  class="btn we-btn-taglist" type="button" value="Etiqueta 3">
+          <button (click)="openEditModalTag()" class="btn we-btn-edit-tag">       
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+            </svg>
+          </button>
+          <button class="btn we-btn-delete-tag">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+      <!-- Botones de la lista de etiquetas-->
+      <div class="text-center">
+        <button (click)="opencreateModalTag()" type="button" class="btn we-btn-create-taglist"> Crear etiqueta</button>
+      </div>
+    </div>  
+  </div>
+</div>  
+
+<!-- Modal Editar las etiquetas -->
+<div class="modal" id="editModalTag">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header we-modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4 class="text-center" style="color: var(--we-blue);">Editar Etiqueta</h4>
+        <form class="we-form-control-tag">
+          <!-- Nombre de la etiqueta-->
+          <input class="btn we-btn-edittag" type="text" value="nombre de la etiqueta">
+          <input class="btn we-btn-edittag" type="button" value="Personalizar color">
+          <div class="text-center">
+            <button type="button" class="btn we-btn-save-edittag"> Guardar</button>
+            <button type="button" class="btn we-btn-cancel-edittag"> Cancelar</button>
+          </div>
+        </form>
+      </div>
+      <!-- Botones de la lista de etiquetas-->
+    </div>  
+  </div>
+</div>  
+
+<!-- Modal Crear las etiquetas -->
+<div class="modal" id="createModalTag">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header we-modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4 class="text-center" style="color: var(--we-blue);">Crear etiqueta</h4>
+        <form class="we-form-control-tag">
+          <!-- Nombre de la etiqueta-->
+          <input class="btn we-btn-edittag" type="text" value="nombre de la etiqueta">
+          <input class="btn we-btn-edittag" type="button" value="Personalizar color">
+          <div class="text-center">
+            <button type="button" class="btn we-btn-save-edittag"> Crear</button>
+            <button type="button" class="btn we-btn-cancel-edittag"> Cancelar</button>
+          </div>
+        </form>
+      </div>
+      <!-- Botones de la lista de etiquetas-->
+    </div>  
+  </div>
+</div>  
