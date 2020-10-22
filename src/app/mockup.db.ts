@@ -75,3 +75,16 @@ export interface I_Task{
 } 
 export const CATEGORIES = [{id: 1, name: 'Educación'}, {id: 2, name: 'Salud'}, {id: 3, name: 'Trabajo'}, {id: 4, name: 'Creatividad'}];
 export const NOTIFICATIONS = ['Notificación 1', 'Notificación 2', 'Notificación 3', 'Notificación 4'];
+
+export function fillMembers(numero){
+var members =[];
+for (let i = 0; i < numero; i++) {
+
+    members.push({
+        "id": i,
+        "name": `User Name ${i}`,
+    })
+}
+return members;
+
+}

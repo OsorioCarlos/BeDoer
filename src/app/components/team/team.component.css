@@ -9,7 +9,7 @@ ul li{
     padding-right: 10px;
 }
 
-button{
+.btn-warming{
     background-color: var(--boton);
     color: white;
     border-color: var(--boton);
@@ -18,3 +18,29 @@ button{
 div svg{
     cursor: pointer;
 }
+/* estilos de modal */
+.we-modal-header{
+    border-bottom: none;
+
+}
+
+.we-modal-footer{
+    border-top: none;
+}
+
+.we-btn-danger{
+    border: #FB3830 solid 2px;
+}
+
+.we-btn-success{
+    border: #40FB32 solid 2px;
+}
+
+.we-btn-secundary{
+    border: var(--secundary) solid 2px;
+}
+
+
+
+
+
