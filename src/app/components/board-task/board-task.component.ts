@@ -45,7 +45,7 @@ export class BoardTaskComponent implements OnInit {
 
   openEditModal(task) {
     $('#modalEditTask').modal('show');
-    // this.updateTask(task);
+    this.updateStateDelete(task);
   }
 
   openConfirmModal() {
@@ -102,6 +102,12 @@ export class BoardTaskComponent implements OnInit {
       this.getTasks();
     }
 
+  }
+
+  updateStateDelete(task){
+    if(task.is_delete === false){
+      task.is_delete = true;
+    }
   }
 
   // updateTask(task) {
