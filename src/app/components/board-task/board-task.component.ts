@@ -26,12 +26,12 @@ export class BoardTaskComponent implements OnInit {
   // -------------------------------------------------------------------------------
   // Métodos del componente.
   // -------------------------------------------------------------------------------
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
+    this.tasks = fillTask(100);
     this.getCategories();
-    this.getTasks();  
-
+    this.getTasks();
   }
 
   // -------------------------------------------------------------------------------
@@ -40,14 +40,15 @@ export class BoardTaskComponent implements OnInit {
 
   openCreateModal() {
     $('#modalCreateTask').modal('show');
+    $('.toast').toast('show');
   }
 
-  openEditModal(task) {  
+  openEditModal(task) {
     $('#modalEditTask').modal('show');
     // this.updateTask(task);
   }
 
-  openConfirmModal(){
+  openConfirmModal() {
     $('#confirmDeleteModal').modal('show');
   }
 
@@ -56,7 +57,10 @@ export class BoardTaskComponent implements OnInit {
   // -------------------------------------------------------------------------------
 
   getTasks() {
-    this.tasks = fillTask(100);
+
+    this.tasksToDo = [];
+    this.tasksDoing = [];
+    this.tasksDone = [];
 
     for (const task of this.tasks) {
       if (task.state == '1') {
@@ -71,16 +75,33 @@ export class BoardTaskComponent implements OnInit {
   }
 
   createTask(title, description, expiration_date) {
+
     let newTask: I_Task = new Task();
 
+    newTask.id = this.tasks.length+1;
     newTask.title = title;
     newTask.description = description;
     newTask.expiration_date = expiration_date;
     newTask.state = '1';
 
-    this.tasksToDo.push(newTask);
-    console.log(newTask);
+    this.tasks.push(newTask);
+    this.getTasks();
     $('#modalCreateTask').modal('hide');
+  }
+
+  updateStateTask(task) {
+    console.log(task);
+    if (task.state == '1') {
+      task.state = '2';
+      this.getTasks();
+    } else if (task.state == '2') {
+      task.state = '3';
+      this.getTasks();
+    } else {
+      task.state = '1';
+      this.getTasks();
+    }
+
   }
 
   // updateTask(task) {
@@ -102,5 +123,3 @@ export class BoardTaskComponent implements OnInit {
   }
 
 }
-
-

@@ -1,3 +1,6 @@
 nav {
     background-color: var(--navbar);
 }
+.dropdown-item{
+    cursor: pointer;
+}

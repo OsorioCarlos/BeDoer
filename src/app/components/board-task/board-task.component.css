@@ -181,13 +181,12 @@
     border-left: none;
 }
 /* Botón categotría */
-#categoria
+#categories
 {
     background-color: #E55E17;
     border: none;
     border-radius: 5px;
     color: white;
-    
 }
 
 /*Botón tareas y boton visto*/
