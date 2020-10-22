@@ -247,7 +247,7 @@
           </div>
           <div class="form-group">
             <select class="form-control" id="exampleFormControlSelect1">
-              <option>Etiquetas</option>
+              <option >Mis Etiquetas</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
@@ -264,6 +264,57 @@
             style="width: 30%;">Cancelar</button>
           <button type="button" class="btn we-btn-danger" data-dismiss="modal" style="width: 80%;">Cancelar</button>
         
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- 
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////modales para el CRUD de las etiquetas ///////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+-->
+
+
+<div class="modal fade" id="modalSeeTag" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header we-modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Titulo">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="datetime-local" width="100%" id="example-datetime-local-input"
+              placeholder="Fecha">
+          </div>
+          <div class="form-group">
+            <select class="form-control" id="tags-selector">
+              <option>Etiquetas</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="modal-footer we-modal-footer justify-content-center">
+        <button type="button" class="btn we-btn-success mr-5" style="width: 30%;">Crear</button>
+        <button type="button" class="btn we-btn-danger ml-5" data-dismiss="modal" style="width: 30%;">Cancelar</button>
       </div>
 
     </div>

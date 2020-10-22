@@ -43,6 +43,11 @@ export class BoardTaskComponent implements OnInit {
     $('#modalEditTask').modal();
   }
 
+  openSeeModalTag()
+  {
+    $('#modalSeeTag').modal();
+  }
+
   getTasks() {
 
     for (const task of this.tasks) {
