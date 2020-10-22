@@ -1,0 +1,19 @@
+.description{
+    color: #707070;
+}
+
+.we-styles{
+    margin: 0;
+    padding: 0;
+    color: #707070;
+}
+
+.we-form-control{
+    border-radius: 0;
+}
+
+.we-btn{
+    width: 100%;
+    background-color: #F6901B;
+    color: #ffffff;
+}

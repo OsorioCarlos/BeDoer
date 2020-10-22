@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fillTeams } from 'src/app/mockup.db';
+declare let $: any;
 
 @Component({
   selector: 'app-team',
@@ -20,4 +21,11 @@ export class TeamComponent implements OnInit {
     this.teams = fillTeams(5);
   }
 
+  openCreateModal() {
+    $('#modalCreateTeam').modal();
+  }
+  
+  openEditModal() {
+    $('#modalEditTeam').modal();
+  }
 }

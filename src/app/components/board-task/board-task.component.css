@@ -67,7 +67,7 @@
 /* -------------------------------------------------------------------------------------------------- */
 .scroll{
     overflow: auto;
-    height: 500px;
+    height: 600px;
 }
 
 .scroll::-webkit-scrollbar {
@@ -75,6 +75,14 @@
     border-top: 0;
     border-bottom: 0;
     border-left: var(--secundary) solid 1px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    border-right: 0;
+    border-top: 0;
+    border-bottom: var(--secundary) solid 1px;
+    border-left: var(--secundary) solid 1px;
+    background: var(--navbar);
 }
 
 .scroll::-webkit-scrollbar-thumb:hover {
@@ -180,9 +188,6 @@
     border-radius: 5px;
     color: white;
 }
-div[aria-labelledby="categories"]{
-    padding-left: 5px;
-}
 
 /*Botón tareas y boton visto*/
 #btntarea
@@ -211,3 +216,9 @@ label
 {
     padding: 10px;
 }
+
+/*clase btn botones*/
+
+
+
+

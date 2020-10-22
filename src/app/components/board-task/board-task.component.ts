@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { fillTask, CATEGORIES } from '../../mockup.db';
+import { fillTask, CATEGORIES, Task, I_Task } from '../../mockup.db';
 
 declare let $: any;
 
@@ -10,50 +10,62 @@ declare let $: any;
 })
 export class BoardTaskComponent implements OnInit {
 
-  editCategories = false;
-  tasks = [];
+  // -------------------------------------------------------------------------------
+  // Atributos de la clase.
+  // -------------------------------------------------------------------------------
+
+  edit = true;
+  tasks: I_Task[] = [];
   categories = [];
 
-  tasksToDo = [];
-  tasksDoing = [];
-  tasksDone = [];
+  editableTask: I_Task = new Task();
+  tasksToDo: I_Task[] = [];
+  tasksDoing: I_Task[] = [];
+  tasksDone: I_Task[] = [];
 
-
-  constructor() {
-    this.tasks = fillTask(150);
-    //console.log(JSON.stringify(this.tasks));
-  }
+  // -------------------------------------------------------------------------------
+  // Métodos del componente.
+  // -------------------------------------------------------------------------------
+  constructor() { }
 
   ngOnInit(): void {
-    
+    this.tasks = fillTask(100);
     this.getCategories();
-    this.getTasks();  
-
+    this.getTasks();
   }
 
-  getCategories(): void {
-    this.categories = CATEGORIES;
-  }
+  // -------------------------------------------------------------------------------
+  // Métodos de lo modales.
+  // -------------------------------------------------------------------------------
 
   openCreateModal() {
-    $('#modalCreateTask').modal();
+    $('#modalCreateTask').modal('show');
+    $('.toast').toast('show');
   }
 
-  openEditModal() {
-    $('#modalEditTask').modal();
+  openEditModal(task) {
+    $('#modalEditTask').modal('show');
+    this.updateStateDelete(task);
   }
 
-  openSeeModalTag()
-  {
-    $('#modalSeeTag').modal();
+  openConfirmModal() {
+    $('#confirmDeleteModal').modal('show');
   }
+
+  // -------------------------------------------------------------------------------
+  // Métodos CRUD de las tareas.
+  // -------------------------------------------------------------------------------
 
   getTasks() {
 
+    this.tasksToDo = [];
+    this.tasksDoing = [];
+    this.tasksDone = [];
+
     for (const task of this.tasks) {
-      if (task.state == 1) {
+      if (task.state == '1') {
         this.tasksToDo.push(task);
-      } else if (task.state == 2) {
+      } else if (task.state == '2') {
         this.tasksDoing.push(task);
       } else {
         this.tasksDone.push(task);
@@ -62,36 +74,58 @@ export class BoardTaskComponent implements OnInit {
 
   }
 
-  createTask(task) {
-    let newTask = {
-      "id": this.tasks.length + 1,
-      "created_by": null,
-      "teamspace": null,
-      "title": task.title,
-      "description": task.description,
-      "is_delete": false,
-      "state": "1",
-      "expiration_date": "13/11/20",
-      "create_at": null,
-      "update_at": null
-    }
+  createTask(title, description, expiration_date) {
 
-    this.tasksToDo.push(newTask);
+    let newTask: I_Task = new Task();
+
+    newTask.id = this.tasks.length+1;
+    newTask.title = title;
+    newTask.description = description;
+    newTask.expiration_date = expiration_date;
+    newTask.state = '1';
+
+    this.tasks.push(newTask);
+    this.getTasks();
+    $('#modalCreateTask').modal('hide');
   }
 
-  updateTask(oldTask) {
-  
-    let auxiliar;
-
-    for (const task of this.tasks) {
-      if (task.id === oldTask.id) {
-        auxiliar = task
-      }
+  updateStateTask(task) {
+    console.log(task);
+    if (task.state == '1') {
+      task.state = '2';
+      this.getTasks();
+    } else if (task.state == '2') {
+      task.state = '3';
+      this.getTasks();
+    } else {
+      task.state = '1';
+      this.getTasks();
     }
 
-    auxiliar.title = oldTask.title;
-    auxiliar.description = oldTask.description;
+  }
 
+  updateStateDelete(task){
+    if(task.is_delete === false){
+      task.is_delete = true;
+    }
+  }
+
+  // updateTask(task) {
+  //   let editableTask: Task = new Task();
+
+  //   editableTask.title = title;
+  //   editableTask.description = description;
+  //   editableTask.expiration_date = expiration_date;
+  //   editableTask.state = '1';
+
+  // }
+
+  // -------------------------------------------------------------------------------
+  // Métodos para las categorias.
+  // -------------------------------------------------------------------------------
+
+  getCategories(): void {
+    this.categories = CATEGORIES;
   }
 
 }
