@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 
@@ -10,8 +9,8 @@ export class MembersService {
 
   constructor(private http: HttpClient) { }
   
-  get(url: string) {
-    url = environment.API_URL + url
+  get(url: string, id: number) {
+    url = environment.API_URL + url + '/' + id;
     return this.http.get(url);
   }
 }

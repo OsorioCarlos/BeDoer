@@ -10,20 +10,21 @@ import { MembersService } from 'src/app/services/members.service';
 export class TeamDetailsComponent implements OnInit {
 
   members: string[] = [];
-miembros:any;
-  constructor(private membersService: MembersService) { }
+  miembros:any;
 
+  constructor(private membersService: MembersService) { }
   
   ngOnInit(): void {
     this.getMembers();
-    this.getM()
+    this.getM();
   }
 
   getMembers(): void {
     this.members = fillMembers(5);
   }
+
   getM(): void {
-    this.membersService.get('miembros').subscribe(miembros => {
+    this.membersService.get('members', 3).subscribe(miembros => {
       this.miembros = miembros['data'];
       console.log(this.miembros);
     });
