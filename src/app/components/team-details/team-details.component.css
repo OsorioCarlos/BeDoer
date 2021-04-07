@@ -1,0 +1,20 @@
+.we-btn-success{
+    border: #40FB32 solid 2px;
+    margin-bottom: 20px;
+}
+.we-btn-danger{
+    border: #FB3830 solid 2px;
+   
+
+
+}
+.we-btn-secundary{
+    border: var(--secundary) solid 2px;
+}
+
+.btn-block{
+    background-color: var(--boton);
+    color: white;
+    border-color: var(--boton)
+
+}

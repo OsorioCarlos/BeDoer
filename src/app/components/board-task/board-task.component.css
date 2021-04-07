@@ -1,0 +1,286 @@
+/* -------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------- CSS PARA EL BOARD ------------------------------------ */
+/* -------------------------------------------------------------------------------------------------- */
+
+
+/* Buscador  */
+
+.we-form-control{
+    border-color: #0E3E70;
+    outline: 0;
+    background: #ffffff;
+}
+
+.we-btn{
+    background-color:#ffffff;
+    border-color: #0E3E70 ; ;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* estilos los botones de navegación de tablero */
+/* -------------------------------------------------------------------------------------------------- */
+
+.board-nav-container{
+    border: none;
+    /* border: #0E3E70 solid 1.7px; */
+}
+
+.board-nav {
+    border: #0E3E70 solid 1.7px;
+    border-bottom: none;
+    border-radius: 0;
+}
+
+.board-nav span{
+    background-color: #F6901B ;
+    color: #FFF9F3; 
+    border-radius: 50%;
+}
+
+.we-btn-crear{
+    display: inline-block;
+    border: none;
+    background:#E55E17;
+    color:#FFF9F3;
+}
+
+@media (max-width: 520px){
+
+    .board-nav-container a{
+        width: 100%;
+        border-bottom:  #0E3E70 solid 1.7px;
+    }
+
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* estilos del tablero */
+/* -------------------------------------------------------------------------------------------------- */
+
+.board-task{
+    border: #0E3E70 solid 1.7px;
+    padding: 2%;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* propiedades del scroll */
+/* -------------------------------------------------------------------------------------------------- */
+.scroll{
+    overflow: auto;
+    height: 600px;
+}
+
+.scroll::-webkit-scrollbar {
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: var(--secundary) solid 1px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    border-right: 0;
+    border-top: 0;
+    border-bottom: var(--secundary) solid 1px;
+    border-left: var(--secundary) solid 1px;
+    background: var(--navbar);
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: var(--secundary) solid 1px;
+    background: var(--navbar);
+}
+
+.scroll::-webkit-scrollbar:horizontal {
+    display: none;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* estilos de las tasks */
+/* -------------------------------------------------------------------------------------------------- */
+.task{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 10rem;
+    /* text-decoration: none; */
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.task-left{
+    margin: 0;
+    display: inline-block;
+    text-decoration: none;
+    color: #0E3E70;
+    padding: 0.5rem;
+    width: 80%;
+    border: #0E3E70 solid 1.7px;
+    border-radius: 10px 0 0 10px;
+    font-weight: 500;
+}
+
+.task-left:hover{
+    background-color: #e9ecef;
+    color: #0E3E70;
+    cursor: pointer;
+}
+
+.task-right{
+    padding: 0;
+    margin: 0;
+    width: 18%;
+    border: none;
+    background-color: #FFFFFF;
+    color: #f6901b;
+    border: #0E3E70 solid 1.7px;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+}
+
+.task-right:hover{
+    background-color: #E55E17;
+    color: #ffffff;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------- Estilos de ventanas modales ------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+.we-modal-header{
+    border-bottom: none;
+
+}
+
+.we-modal-footer{
+    border-top: none;
+}
+
+.we-btn-danger{
+    border: #FB3830 solid 2px;
+}
+
+.we-btn-success{
+    border: #40FB32 solid 2px;
+}
+
+.we-btn-secundary{
+    border: var(--secundary) solid 2px;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------- Estilos buscador y boton categoria------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+/* Botón de buscador */
+#buscador
+{
+    border-radius: 0px 5px 5px 0px;
+    border-left: none;
+}
+/* Botón categotría */
+#categories
+{
+    background-color: #E55E17;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+/* -------------------------------------------------------------------------------------------------- */
+/* Estilos para el crud de las etiquetas */
+/* -------------------------------------------------------------------------------------------------- */
+
+.we-form-group-tag
+{
+    width: 100%;
+}
+.we-form-group-tag .we-form-control-tag
+{
+    width: 80%;
+    float: left;
+    border: var(--we-blue) solid 1px;
+}
+.we-form-group-tag .we-btn-tag
+{
+    width: 20%;
+    float: right;
+    border: var(--we-blue) solid 1px;
+}
+
+/*Estilo para tag list*/
+.we-form-control-tag
+{
+    width: 100%;
+}
+
+.we-form-control-tag .we-btn-taglist
+{
+    width: 80%;
+    float: left;
+    border: var(--we-blue) solid 1px;
+    margin-bottom: 5px;
+    border-radius: 0px;
+    border-right: 0px;
+    text-align: left;
+    
+}
+
+.we-btn-close-taglist
+{
+    border: #FB3830 solid 1px;
+    color: #FB3830;
+}
+
+.we-btn-create-taglist
+{
+    background: var(--boton);
+    color: white;
+    margin-bottom: 10px;
+}
+
+.we-btn-edit-tag
+{
+    border: var(--we-blue) solid 1px;
+    margin-bottom: 10px;
+    width: 10%;
+    border-radius: 0px;
+    border-right: 0px ;
+    border-left: 0px ;
+}
+.we-btn-delete-tag
+{
+    border: var(--we-blue) solid 1px;
+    margin-bottom: 10px;
+    width: 10%;
+    border-radius: 0px;
+    border-left: 0px ;
+}
+
+.we-btn-edittag
+{
+    border: var(--we-blue) solid 1px;
+    border-radius: 0px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.we-btn-save-edittag
+{
+    width: 100%;
+    border-radius: 0px;
+    border: #40FB32 solid 1px;
+    color: #40FB32;
+    margin-bottom: 10px;
+}
+
+.we-btn-cancel-edittag
+{
+    width: 100%;
+    border-radius: 0px;
+    border: #FB3830 solid 1px;
+    color: #FB3830;
+}
+
