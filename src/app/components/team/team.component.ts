@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fillTeams } from 'src/app/mockup.db';
+
 declare let $: any;
 
 @Component({
@@ -10,6 +11,7 @@ declare let $: any;
 export class TeamComponent implements OnInit {
 
   teams: string[] = [];
+  members: any;
 
   constructor() { }
 
@@ -19,6 +21,7 @@ export class TeamComponent implements OnInit {
 
   getTeams(): void {
     this.teams = fillTeams(5);
+    
   }
 
   openCreateModal() {
