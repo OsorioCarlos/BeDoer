@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { fillTeams } from 'src/app/mockup.db';
+/* Servicio importado */
+import { TeamService } from '../../services/team.service';
+
+
 declare let $: any;
 
 @Component({
@@ -11,10 +15,10 @@ export class TeamComponent implements OnInit {
 
   teams: string[] = [];
 
-  constructor() { }
+  constructor(private servicio:TeamService) { }
 
   ngOnInit(): void {
-    this.getTeams();
+    this.servicio.getTeam();
   }
 
   getTeams(): void {

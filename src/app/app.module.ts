@@ -18,6 +18,12 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { TeamDetailsComponent } from './components/team-details/team-details.component';
 import { SuggestionsComponent } from './components/suggestions/suggestions.component';
 
+/* Servicios */
+import {TeamService } from './services/team.service'
+
+/* HttpClient */
+import { HttpClientModule } from "@angular/common/http";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +38,12 @@ import { SuggestionsComponent } from './components/suggestions/suggestions.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    TeamService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
