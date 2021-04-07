@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from 'src/app/services/state.service';
 import { fillTask, CATEGORIES, Task, I_Task } from '../../mockup.db';
-
 declare let $: any;
 
 @Component({
@@ -23,15 +23,25 @@ export class BoardTaskComponent implements OnInit {
   tasksDoing: I_Task[] = [];
   tasksDone: I_Task[] = [];
 
+  states: any;
+
   // -------------------------------------------------------------------------------
   // Métodos del componente.
   // -------------------------------------------------------------------------------
-  constructor() { }
+  constructor(private stateService: StateService) { }
 
   ngOnInit(): void {
     this.tasks = fillTask(100);
     this.getCategories();
     this.getTasks();
+    this.getStates();
+  }
+
+  getStates(): void {
+    this.stateService.get('states').subscribe(states => {
+      this.states = states['data'];
+      console.log(this.states);
+    });
   }
 
   // -------------------------------------------------------------------------------

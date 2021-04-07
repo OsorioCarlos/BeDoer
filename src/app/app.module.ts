@@ -1,6 +1,7 @@
 // dependencias de angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 // importacion del routing
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { TeamDetailsComponent } from './components/team-details/team-details.component';
 import { SuggestionsComponent } from './components/suggestions/suggestions.component';
 
+// Servicios
+import { StateService } from './services/state.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +36,8 @@ import { SuggestionsComponent } from './components/suggestions/suggestions.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
