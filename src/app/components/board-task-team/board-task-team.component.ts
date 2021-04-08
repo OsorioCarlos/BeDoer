@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from 'src/app/services/state.service';
 
 declare let $: any;
 
@@ -9,9 +10,18 @@ declare let $: any;
 })
 export class BoardTaskTeamComponent implements OnInit {
 
-  constructor() { }
+  states: object = [];
+
+  constructor(private stateService: StateService) { }
 
   ngOnInit(): void {
+    this.getStates();
+  }
+
+  getStates(): void {
+    this.stateService.get('states').subscribe(states => {
+      this.states = states['data']['states'];
+    });
   }
 
   tarea(){

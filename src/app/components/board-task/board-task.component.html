@@ -68,18 +68,12 @@
   <!-- Navegación del tablero -->
   <nav>
     <div class="nav nav-tabs board-nav-container" id="nav-tab" role="tablist">
-      <a class="nav-link board-nav active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-        aria-controls="nav-home" aria-selected="true">
-        Por Hacer <span class="badge badge-light ml-2"> {{ tasksToDo.length }} </span>
-      </a>
-      <a class="nav-link board-nav" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-        aria-controls="nav-profile" aria-selected="false">
-        Haciendo <span class="badge badge-light ml-2"> {{ tasksDoing.length }} </span>
-      </a>
-      <a class="nav-link board-nav" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
-        aria-controls="nav-contact" aria-selected="false">
-        Hecho <span class="badge badge-light ml-2"> {{ tasksDone.length }} </span>
-      </a>
+      <div *ngFor="let state of states">
+        <a class="nav-link board-nav active" id="nav-{{state.name}}-state-tab" data-toggle="tab" href="#nav-{{state.name}}-state" role="tab"
+          aria-controls="nav-{{state.name}}-state" aria-selected="true">
+          {{state.name}} <span class="badge badge-light ml-2"> {{ tasksToDo.length }} </span>
+        </a>
+      </div>
       <div class="dropdown">
         <button class="btn we-btn-crear ml-2" (click)="openCreateModal();" type="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
@@ -98,7 +92,7 @@
   <div class="tab-content board-task container-fluid text-center scroll" id="nav-tabContent">
 
     <!-- contenedor de tareas en "tasksToDo" -->
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <div class="tab-pane fade show active" id="nav-to do-state" role="tabpanel" aria-labelledby="nav-todo-state-tab">
       <div class="card-deck">
         <div class="task mt-1 mb-1 mr-1 ml-1" *ngFor="let task of tasksToDo">
           <a class="task-left" (click)="openEditModal(task);"> {{ task.title }} </a>
@@ -113,7 +107,7 @@
     </div>
 
     <!-- contenedor de tareas en "tasksDoing" -->
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <div class="tab-pane fade" id="nav-doing-state" role="tabpanel" aria-labelledby="nav-doing-state-tab">
       <div class="card-deck">
         <div class="task mt-1 mb-1 mr-1 ml-1" (click)="tarea()" *ngFor="let task of tasksDoing">
           <a class="task-left" (click)="openEditModal(task);"> {{ task.title }} </a>
@@ -128,7 +122,7 @@
     </div>
 
     <!-- contenedor de tareas en tasksDone -->
-    <div class="tab-pane fade " id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <div class="tab-pane fade " id="nav-done-state" role="tabpanel" aria-labelledby="nav-done-state-tab">
       <div class="card-deck">
         <div class="task mt-1 mb-1 mr-1 ml-1" (click)="tarea()" *ngFor="let task of tasksDone">
           <a class="task-left" (click)="openEditModal(task);"> {{ task.title }} </a>

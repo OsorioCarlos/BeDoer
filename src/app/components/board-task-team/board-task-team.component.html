@@ -39,15 +39,11 @@
 <!-- Grupo de botones -->
 <div class="container ">
   <div class="btn-group">
-    <label id="do" type="button" class="btn">
-      Por Hacer <span class="badge badge-light">9</span>
-    </label>
-    <label id="doing" type="button" class="btn" >
-      Haciendo <span class="badge badge-light">9</span>
-    </label>
-    <label id="done" type="button" class="btn">
-      Hecho <span class="badge badge-light">9</span>
-    </label>
+    <div *ngFor="let state of states">
+      <label id="{{state.name}}" type="button" class="btn">
+        {{state.name}} <span class="badge badge-light">9</span>
+      </label>
+    </div>
     <div class="dropdown">
       <button  id="btncrear" class="btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Crear
