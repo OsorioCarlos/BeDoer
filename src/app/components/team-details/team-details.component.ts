@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {fillMembers} from 'src/app/mockup.db';
-import { MembersService } from 'src/app/services/members.service';
+import { MemberService } from 'src/app/services/member.service';
 
 @Component({
   selector: 'app-team-details',
@@ -11,14 +10,14 @@ export class TeamDetailsComponent implements OnInit {
 
   members: object=[];
 
-  constructor(private membersService: MembersService) { }
+  constructor(private memberService: MemberService) { }
   
   ngOnInit(): void {
     this.getMembers();
   }
 
  getMembers(): void {
-    this.membersService.get('members', 3).subscribe(members => {
+    this.memberService.get('members', 3).subscribe(members => {
       this.members = members['data']['users'];
     });
   }

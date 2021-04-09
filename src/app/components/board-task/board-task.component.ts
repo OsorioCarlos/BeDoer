@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StateService } from 'src/app/services/state.service';
+import { CategoryService } from 'src/app/services/category.service';
 import { fillTask, CATEGORIES, Task, I_Task } from '../../mockup.db';
 declare let $: any;
 
@@ -16,23 +17,23 @@ export class BoardTaskComponent implements OnInit {
 
   edit = true;
   tasks: I_Task[] = [];
-  categories = [];
-
+  
   editableTask: I_Task = new Task();
   tasksToDo: I_Task[] = [];
   tasksDoing: I_Task[] = [];
   tasksDone: I_Task[] = [];
-
+  
   states: object = [];
+  categories: object = [];
 
   // -------------------------------------------------------------------------------
   // Métodos del componente.
   // -------------------------------------------------------------------------------
-  constructor(private stateService: StateService) { }
+  constructor(private stateService: StateService, private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     // this.tasks = fillTask(100);
-    // this.getCategories();
+    this.getCategories();
     // this.getTasks();
     this.getStates();
   }
@@ -40,6 +41,12 @@ export class BoardTaskComponent implements OnInit {
   getStates(): void {
     this.stateService.get('states').subscribe(states => {
       this.states = states['data']['states'];
+    });
+  }
+
+  getCategories(): void {
+    this.categoryService.get('categories').subscribe(categories => {
+      this.categories = categories['data'];
     });
   }
 
@@ -138,13 +145,5 @@ export class BoardTaskComponent implements OnInit {
   //   editableTask.state = '1';
 
   // }
-
-  // -------------------------------------------------------------------------------
-  // Métodos para las categorias.
-  // -------------------------------------------------------------------------------
-
-  getCategories(): void {
-    this.categories = CATEGORIES;
-  }
 
 }

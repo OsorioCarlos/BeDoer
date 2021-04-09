@@ -5,12 +5,12 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class MembersService {
+export class CategoryService {
 
   constructor(private http: HttpClient) { }
-  
-  get(url: string, id: number) {
-    url = environment.API_URL + url + '/' + id;
+
+  get(url: string) {
+    url = environment.API_URL + url;
     return this.http.get(url);
   }
 }
