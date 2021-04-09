@@ -23,7 +23,7 @@ export class BoardTaskComponent implements OnInit {
   tasksDoing: I_Task[] = [];
   tasksDone: I_Task[] = [];
 
-  states: any;
+  states: object = [];
 
   // -------------------------------------------------------------------------------
   // Métodos del componente.
@@ -31,16 +31,15 @@ export class BoardTaskComponent implements OnInit {
   constructor(private stateService: StateService) { }
 
   ngOnInit(): void {
-    this.tasks = fillTask(100);
-    this.getCategories();
-    this.getTasks();
+    // this.tasks = fillTask(100);
+    // this.getCategories();
+    // this.getTasks();
     this.getStates();
   }
 
   getStates(): void {
     this.stateService.get('states').subscribe(states => {
-      this.states = states['data'];
-      console.log(this.states);
+      this.states = states['data']['states'];
     });
   }
 
