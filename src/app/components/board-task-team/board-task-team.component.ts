@@ -24,10 +24,10 @@ export class BoardTaskTeamComponent implements OnInit {
     });
   }
 
-  tarea(){
+  task(){
     $('#tarea').modal();
   }
-  salir()
+  exit()
   {
     setTimeout(() => {
       $('#tarea').modal('hide');
