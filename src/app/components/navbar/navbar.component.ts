@@ -19,4 +19,12 @@ export class NavbarComponent implements OnInit {
     this.notifications = NOTIFICATIONS;
   }
 
+  /* menu de interacción */
+  showMenu() {
+    var ancla = document.getElementsByClassName('nav-item')
+    for (let i = 0; i < ancla.length; i++) {
+      ancla[i].classList.toggle('ghost');
+      
+    }
+  }
 }
