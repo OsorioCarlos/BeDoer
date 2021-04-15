@@ -26,7 +26,7 @@ export class TeamComponent implements OnInit {
   };
 
   getTeam(): void {
-    this.teamSercive.get(1).subscribe(teams =>{
+    this.teamSercive.get(2).subscribe(teams =>{
       this.myTeams = teams['data']['my_teams'];
       this.otherTeams = teams['data']['other_teams'];
     });

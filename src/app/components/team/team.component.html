@@ -14,7 +14,7 @@
       </div>
     </div>
     <ul>
-      <li *ngFor="let team of teams">
+      <li *ngFor="let team of myTeams">
         <div>
           {{team.name}}
         </div>
@@ -44,7 +44,7 @@
       <h4>Equipos a los que pertenezco</h4>
     </div>
     <ul>
-      <li *ngFor="let team of teams">
+      <li *ngFor="let team of otherTeams">
         <div class="p-2 flex-grow-1">{{team.name}}</div>
         <div class="team-icon">
           <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-kanban-fill" fill="currentColor"
