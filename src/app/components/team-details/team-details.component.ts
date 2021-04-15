@@ -17,8 +17,8 @@ export class TeamDetailsComponent implements OnInit {
   }
 
  getMembers(): void {
-    this.memberService.get('members', 3).subscribe(members => {
-      this.members = members['data']['users'];
+    this.memberService.get(1).subscribe(members => {
+      this.members = members['data'];
     });
   }
 }

@@ -39,13 +39,13 @@ export class BoardTaskComponent implements OnInit {
   }
 
   getStates(): void {
-    this.stateService.get('states').subscribe(states => {
-      this.states = states['data']['states'];
+    this.stateService.get().subscribe(states => {
+      this.states = states['data'];
     });
   }
 
   getCategories(): void {
-    this.categoryService.get('categories').subscribe(categories => {
+    this.categoryService.get().subscribe(categories => {
       this.categories = categories['data'];
     });
   }

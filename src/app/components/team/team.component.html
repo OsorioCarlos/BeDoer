@@ -12,9 +12,9 @@
   </div>
   <br>
   <ul class="list-group">
-    <li class="list-group-item d-flex" *ngFor="let team of teams">
+    <li class="list-group-item d-flex" *ngFor="let myTeam of myTeams">
       <div class="p-2 flex-grow-1">
-        {{team.name}}
+        {{myTeam.name}}
       </div>
       <div class="p-2">
         <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-kanban-fill" fill="currentColor"
@@ -46,8 +46,8 @@
   <h4>Equipos a los que pertenezco</h4>
   <br>
   <ul class="list-group">
-    <li class="list-group-item d-flex" *ngFor="let team of teams">
-      <div class="p-2 flex-grow-1">{{team.name}}</div>
+    <li class="list-group-item d-flex" *ngFor="let otherTeam of otherTeams">
+      <div class="p-2 flex-grow-1">{{otherTeam.name}}</div>
       <div class="p-2">
         <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-kanban-fill" fill="currentColor"
           xmlns="http://www.w3.org/2000/svg">
