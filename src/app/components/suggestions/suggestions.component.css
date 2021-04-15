@@ -1,19 +1,38 @@
+.sugestion-container{
+    margin: 0 auto;
+    width: 80%;
+}
+
 .description{
     color: #707070;
+    text-align: justify;
 }
 
-.we-styles{
-    margin: 0;
-    padding: 0;
+.sugestion-form{
     color: #707070;
+    margin: 0 auto;
+    width: 90%;
+}
+form{
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
-.we-form-control{
-    border-radius: 0;
+textarea{
+    width: 95%;
 }
 
 .we-btn{
-    width: 100%;
-    background-color: #F6901B;
-    color: #ffffff;
+    display: block;
+    background: var(--boton);
+    color: var(--primary-text);
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
 }
+
+.we-btn:hover{
+    background: var(--we-blue);
+}
+

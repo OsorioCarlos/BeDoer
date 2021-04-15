@@ -16,7 +16,10 @@ export class TeamComponent implements OnInit {
   myTeams: object[];
   otherTeams: object[];
 
-  constructor(private teamSercive: TeamService) { }
+  constructor(private teamSercive: TeamService) { 
+
+      
+  }
 
   ngOnInit(): void {
     this.getTeam();
@@ -36,4 +39,8 @@ export class TeamComponent implements OnInit {
   openEditModal() {
     $('#modalEditTeam').modal();
   }
+
+
+
+
 }
