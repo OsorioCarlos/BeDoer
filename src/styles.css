@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 body{
     margin: 0;
-    padding: auto;
+    padding: 0;
 }
 
 :root {
-    --navbar: #f6901b;
+    /* #f6901b */
+    --navbar: #800020;
     --boton: #e55e17;
     --we-grey: #e9ecef;
     --we-blue: #04376C;

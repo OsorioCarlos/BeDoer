@@ -1,38 +1,46 @@
 .team-container{
     margin: 0 auto;
     padding: 10px;
-    width: 80%;
+    width: 100%;
 }
 
 h4{
-    text-align: center;
+    margin: 0;
+    padding: 0;
     font-size: 20px;
+    color: white;
 }
 
-.flex{
+.team-header{
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .team-col{
     width: 100%;
     background: var(--navbar);
-    color: black;
+    color: rgb(0, 0, 0);
     border: 1px solid black;
     margin: 0 auto;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 9px 9px 5px var(--we-grey); 
-    width: 48%;
+    width: 80%;
     box-sizing: border-box;
+    margin-top: 80px;
 }
 /* Estilos para el botón de agregar equipo */
 .team-btn{
     background: var(--boton);
     color: var(--primary-text);
-    width: 100%;
-    padding: 5px;
     border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.team-btn-container{
+    padding: 0;
+    margin: 0;
 }
 
 .team-btn:hover{
@@ -65,12 +73,6 @@ svg:hover{
     color: var(--primary-text);
 }
 
-@media (max-width: 1000px){
-    .team-col{
-       width: 100%; 
-       margin-bottom: 5px;
-    }
-}
 
 /* Estilos para el modal */
 

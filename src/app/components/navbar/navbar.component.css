@@ -1,5 +1,7 @@
 /* estilos para las rutas */
 nav{
+    position: fixed;
+    width: 100%;
     background-color: var(--navbar);
     display: flex;
     justify-content: space-around;
