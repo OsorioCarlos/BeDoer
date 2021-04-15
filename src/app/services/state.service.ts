@@ -7,11 +7,12 @@ import { environment } from 'src/environments/environment';
 })
 export class StateService {
 
+  url: string = environment.API_URL + 'states/';
+
   constructor(private http: HttpClient) { }
 
-  get(url: string) {
-    url = environment.API_URL + url
-    return this.http.get(url);
+  get() {
+    return this.http.get(this.url);
   }
   
 }

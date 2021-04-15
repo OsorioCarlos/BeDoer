@@ -7,10 +7,11 @@ import { Injectable } from '@angular/core';
 })
 export class CategoryService {
 
+  url: string = environment.API_URL + 'categories/';
+
   constructor(private http: HttpClient) { }
 
-  get(url: string) {
-    url = environment.API_URL + url;
-    return this.http.get(url);
+  get() {
+    return this.http.get(this.url);
   }
 }

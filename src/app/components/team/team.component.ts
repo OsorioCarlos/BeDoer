@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { fillTeams } from 'src/app/mockup.db';
-/* Servicio*/
-import { TeamService } from '../../services/team.service';
+
+// Services
+import { TeamService } from 'src/app/services/team.service';
+
 
 declare let $: any;
 
@@ -12,9 +13,8 @@ declare let $: any;
 })
 export class TeamComponent implements OnInit {
 
-  /* teams: string[] = []; */
-
-  teams: object = [];
+  myTeams: object[];
+  otherTeams: object[];
 
   constructor(private teamSercive: TeamService) { 
 
@@ -22,20 +22,15 @@ export class TeamComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /* this.getTeams(); */
     this.getTeam();
-   
   };
 
-  getTeam(): void{
-    this.teamSercive.get('teams').subscribe(teams =>{
-      this.teams = teams['data'];
+  getTeam(): void {
+    this.teamSercive.get(1).subscribe(teams =>{
+      this.myTeams = teams['data']['my_teams'];
+      this.otherTeams = teams['data']['other_teams'];
     });
   }
-
-/*     getTeams(): void {
-    this.teams = fillTeams(5);
-  } */
 
   openCreateModal() {
     $('#modalCreateTeam').modal();

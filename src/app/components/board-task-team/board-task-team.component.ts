@@ -19,8 +19,8 @@ export class BoardTaskTeamComponent implements OnInit {
   }
 
   getStates(): void {
-    this.stateService.get('states').subscribe(states => {
-      this.states = states['data']['states'];
+    this.stateService.get().subscribe(states => {
+      this.states = states['data'];
     });
   }
 
