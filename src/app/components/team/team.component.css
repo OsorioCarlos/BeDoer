@@ -18,7 +18,7 @@ h4{
 
 .team-col{
     width: 100%;
-    background: var(--navbar);
+    background: var(--general);
     color: rgb(0, 0, 0);
     border: 1px solid black;
     margin: 0 auto;
@@ -44,7 +44,7 @@ h4{
 }
 
 .team-btn:hover{
-    background: var(--we-blue);
+    background: var(--boton-hover);
 }
 
 /* Etilos para los equipos */
@@ -69,7 +69,7 @@ svg{
  }
 svg:hover{
     border-radius: 5px;
-    background: var(--boton);
+    background: var(--general);
     color: var(--primary-text);
 }
 

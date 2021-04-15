@@ -2,7 +2,7 @@
 nav{
     position: fixed;
     width: 100%;
-    background-color: var(--navbar);
+    background-color: var(--general);
     display: flex;
     justify-content: space-around;
     padding: 10px;
@@ -64,7 +64,7 @@ nav .nav-icon svg:hover{
 }
 /* Botón que aparce cuando la pantalla es muy pequeña */
 .nav-boton{
-    background: var(--navbar);
+    background: var(--general);
     color: var(--we-grey);
     padding: 10px 0;
     border: 2px solid var(--we-grey);

@@ -1,7 +1,17 @@
 .sugestion-container{
     margin: 0 auto;
-    padding: 0;
+    padding: 10px;
     width: 80%;
+}
+.sugestion-col{
+    border: 1px solid black;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 9px 9px 5px var(--we-grey); 
+    width: 50%;
+    box-sizing: border-box;
+    margin-top: 80px;
 }
 
 .description{
@@ -9,11 +19,18 @@
     text-align: justify;
 }
 
+h2{
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+}
 p{
+    padding: 10px;
     margin: 0;
 }
 
 .sugestion-form{
+    text-align: center;
     color: #707070;
     margin: 0 auto;
     width: 90%;
@@ -21,6 +38,7 @@ p{
 form{
     align-items: center;
     text-align: center;
+    padding: 10px;
     width: 100%;
 }
 
@@ -29,7 +47,6 @@ textarea{
 }
 
 .we-btn{
-    display: block;
     background: var(--boton);
     color: var(--primary-text);
     text-align: center;
@@ -41,3 +58,15 @@ textarea{
     background: var(--we-blue);
 }
 
+@media (max-width: 1000px){
+    .sugestion-col{
+        border: 1px solid black;
+        margin: 0 auto;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 9px 9px 5px var(--we-grey); 
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 80px;
+    }
+}

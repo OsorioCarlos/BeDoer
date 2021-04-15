@@ -6,8 +6,9 @@ body{
 
 :root {
     /* #f6901b */
-    --navbar: #800020;
-    --boton: #e55e17;
+    --general: #800020;
+    --boton:  rgb(4, 93, 105);
+    --boton-hover: #064725 ; 
     --we-grey: #e9ecef;
     --we-blue: #940529;
     --secundary: #26517C;
