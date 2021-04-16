@@ -1,34 +1,120 @@
-/* -------------------------------------------------------------------------------------------------- */
-/* ------------------------------------------- CSS PARA EL BOARD ------------------------------------ */
-/* -------------------------------------------------------------------------------------------------- */
-
-
-/* Buscador  */
-
-.we-form-control{
-    border-color: #0E3E70;
-    outline: 0;
-    background: #ffffff;
+.board-task-container{
+    margin: 0 auto;
+    padding: 10px;
+    width: 80%;
 }
 
-.we-btn{
-    background-color:#ffffff;
-    border-color: #0E3E70 ; ;
+.board-task-col{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    border-radius: 5px; 
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 70px;
+}
+/* Estilos para el buscador */
+.board-buscardor{
+    width: 50%;
+    border-radius: 10px;
+}
+.board-buscardor form {
+/*  background: var(--general); */
+    padding: 10px;
+    border-radius: 10px;
 }
 
-/* -------------------------------------------------------------------------------------------------- */
-/* estilos los botones de navegación de tablero */
-/* -------------------------------------------------------------------------------------------------- */
+.board-buscardor form input {
+    width: 80%;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px solid var(--general);
+        /* BORRAR ESTO PARA QUITAR LA SOMBRA */
+        box-shadow: 9px 9px 5px var(--we-grey);
+}
 
-.board-nav-container{
+.board-buscardor form button {
+    outline: none;
+    background: var(--general);
+    padding: 10px;
+    color: var(--primary-text);
+    border-radius: 0px 10px 10px 0px;
+    border: 1px solid var(--general);
+    cursor: pointer;
+        /* BORRAR ESTO PARA QUITAR LA SOMBRA */
+        box-shadow: 9px 9px 5px var(--we-grey);
+}
+
+.board-buscardor form button:hover {
+    background: var(--we-blue)
+}
+
+/* Estiloas para el botón categorias */
+.dropdown-container{
+    padding: 10px;
+}
+.dropdown-btn{
+    background:var(--general);
+    color: var(--primary-text);
+    border-radius: 5px;
     border: none;
-    /* border: #0E3E70 solid 1.7px; */
+    padding: 10px;
+    cursor: pointer;
+}
+.dropdown{
+    position: relative;
+    background: var(--general);
+    border-radius: 10px;
 }
 
-.board-nav {
-    border: #0E3E70 solid 1.7px;
-    border-bottom: none;
-    border-radius: 0;
+.dropdown-content {
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+    background-color: var(--we-blue);
+    min-width: 120px;
+    color: var(--primary-text);
+    z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos par los estados */
+
+.board-task-col2{
+    width: 100%;
+    margin-top: 10px;
+}
+.board-nav-container {
+    display: flex;
+    align-items: center;
+}
+.board-nav-container .states a{
+    text-decoration: none;
+    padding: 9px;
+    border-top: 1px solid var(--general);
+    border-left: 1px solid var(--general);
+
+}
+.board-nav-container .states a:hover{
+    background: var(--we-blue);
+}
+
+.board-nav-container .create-state-btn button{
+    background: var(--general);
+    color: var(--primary-text);
+    padding: 12px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.board-nav-container .create-state-btn button:hover{
+    background: var(--boton);
+    cursor: pointer;
 }
 
 .board-nav span{
@@ -44,14 +130,35 @@
     color:#FFF9F3;
 }
 
-@media (max-width: 520px){
+/* tablero de tareas */
+.board-task-col3{
+    border: 1px solid var(--general);
+    box-shadow: 9px 9px 5px var(--we-grey);
+    width: 100%;
+    height: 550px;
+}
 
-    .board-nav-container a{
+@media (max-width: 1000px) {
+    .board-task-col{
+        display: flex;
+        flex-direction: column;
         width: 100%;
-        border-bottom:  #0E3E70 solid 1.7px;
+    }
+    .board-buscardor{
+        width: 100%;
+        border-radius: 10px;
+    }
+    .dropdown-container{
+        width: 35%;
     }
 
 }
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* Estilos bootstrap */
+/* -------------------------------------------------------------------------------------------------- */
+
 
 /* -------------------------------------------------------------------------------------------------- */
 /* estilos del tablero */
@@ -170,24 +277,8 @@
     border: var(--secundary) solid 2px;
 }
 
-/* -------------------------------------------------------------------------------------------------- */
-/* -------------------------- Estilos buscador y boton categoria------------------------------------- */
-/* -------------------------------------------------------------------------------------------------- */
 
-/* Botón de buscador */
-#buscador
-{
-    border-radius: 0px 5px 5px 0px;
-    border-left: none;
-}
-/* Botón categotría */
-#categories
-{
-    background-color: #E55E17;
-    border: none;
-    border-radius: 5px;
-    color: white;
-}
+
 /* -------------------------------------------------------------------------------------------------- */
 /* Estilos para el crud de las etiquetas */
 /* -------------------------------------------------------------------------------------------------- */
