@@ -6,6 +6,8 @@ nav{
     display: flex;
     justify-content: space-around;
     padding: 10px;
+        /* BORRAR ESTO PARA QUITAR LA SOMBRA */
+        box-shadow: 9px 9px 5px var(--we-grey);
 }
 
 nav .nav-item{
