@@ -22,6 +22,10 @@ export class BoardTaskComponent implements OnInit {
   tasksToDo: I_Task[] = [];
   tasksDoing: I_Task[] = [];
   tasksDone: I_Task[] = [];
+
+  taskTitle: string;
+  taskDescription: string;
+  taskDate: Date;
   
   states: object = [];
   categories: object = [];
@@ -50,33 +54,27 @@ export class BoardTaskComponent implements OnInit {
     });
   }
 
+  createTask(): void {
+    console.log(this.taskTitle);
+    console.log(this.taskDescription);
+    console.log(this.taskDate);
+    this.closeModal('create-task-modal');
+  }
+
+  openModal(name: string): void {
+    let modal = document.getElementById(name);
+    modal.style.display = 'block';
+  }
+  
+  closeModal(name: string): void {
+    let modal = document.getElementById(name);
+    modal.style.display = 'none';
+  }
+
   // -------------------------------------------------------------------------------
   // Métodos de lo modales.
   // -------------------------------------------------------------------------------
-  tagList() {
-    $('#tagModal').modal('show');
-  }
-  openEditModalTag() {
-    $('#editModalTag').modal('show');
-  }
-
-  opencreateModalTag() {
-    $('#createModalTag').modal('show');
-  }
-
-  openCreateModal() {
-    $('#modalCreateTask').modal('show');
-    $('.toast').toast('show');
-  }
-
-  openEditModal(task) {
-    $('#modalEditTask').modal('show');
-    this.updateStateDelete(task);
-  }
-
-  openConfirmModal() {
-    $('#confirmDeleteModal').modal('show');
-  }
+  
 
   // -------------------------------------------------------------------------------
   // Métodos CRUD de las tareas.
@@ -98,21 +96,6 @@ export class BoardTaskComponent implements OnInit {
       }
     }
 
-  }
-
-  createTask(title, description, expiration_date) {
-
-    let newTask: I_Task = new Task();
-
-    newTask.id = this.tasks.length+1;
-    newTask.title = title;
-    newTask.description = description;
-    newTask.expiration_date = expiration_date;
-    newTask.state = '1';
-
-    this.tasks.push(newTask);
-    this.getTasks();
-    $('#modalCreateTask').modal('hide');
   }
 
   updateStateTask(task) {

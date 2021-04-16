@@ -15,12 +15,11 @@ const routes: Routes = [
   {path: 'user/mi-perfil', component: UserProfileComponent},
   {path: 'team/tareas', component: BoardTaskTeamComponent},
   {path: 'user/detalles-equipos', component:TeamDetailsComponent},
-  {path: 'user/sugerencias', component:SuggestionsComponent},
-  //{path: 'user/sugerencias', component: }
+  {path: 'user/sugerencias', component:SuggestionsComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

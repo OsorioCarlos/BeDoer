@@ -8,6 +8,7 @@ import { MemberService } from 'src/app/services/member.service';
 })
 export class TeamDetailsComponent implements OnInit {
 
+  userEmail: string;
   members: object=[];
 
   constructor(private memberService: MemberService) { }
@@ -20,6 +21,31 @@ export class TeamDetailsComponent implements OnInit {
     this.memberService.get(1).subscribe(members => {
       this.members = members['data'];
     });
+  }
+
+  addUser(): void {
+    console.log(this.userEmail);
+    this.closeModal('add-user-modal');
+  }
+
+  deleteUser(): void {
+    console.log('Miembro eliminado');
+    this.closeModal('delete-user-modal');
+  }
+
+  deleteTeam(): void {
+    console.log('Equipo eliminado');
+    this.closeModal('delete-team-modal');
+  }
+
+  openModal(name: string): void {
+    let modal = document.getElementById(name);
+    modal.style.display = 'block';
+  }
+  
+  closeModal(name: string): void {
+    let modal = document.getElementById(name);
+    modal.style.display = 'none';
   }
 }
 

@@ -19,10 +19,6 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { TeamDetailsComponent } from './components/team-details/team-details.component';
 import { SuggestionsComponent } from './components/suggestions/suggestions.component';
 
-// Servicios
-import { StateService } from './services/state.service';
-import {TeamService } from './services/team.service'
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,9 +36,7 @@ import {TeamService } from './services/team.service'
     FormsModule,
     HttpClientModule
   ],
-  providers: [
-    TeamService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

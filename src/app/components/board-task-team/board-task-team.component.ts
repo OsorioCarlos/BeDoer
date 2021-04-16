@@ -10,6 +10,10 @@ declare let $: any;
 })
 export class BoardTaskTeamComponent implements OnInit {
 
+  taskTitle: string;
+  taskDescription: string;
+  taskDate: Date;
+  
   states: object = [];
 
   constructor(private stateService: StateService) { }
@@ -24,13 +28,20 @@ export class BoardTaskTeamComponent implements OnInit {
     });
   }
 
-  task(){
-    $('#tarea').modal();
+  createTask(): void {
+    console.log(this.taskTitle);
+    console.log(this.taskDescription);
+    console.log(this.taskDate);
+    this.closeModal('create-task-modal');
   }
-  exit()
-  {
-    setTimeout(() => {
-      $('#tarea').modal('hide');
-    },300);
+
+  openModal(name: string): void {
+    let modal = document.getElementById(name);
+    modal.style.display = 'block';
+  }
+  
+  closeModal(name: string): void {
+    let modal = document.getElementById(name);
+    modal.style.display = 'none';
   }
 }
