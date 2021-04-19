@@ -87,7 +87,6 @@
     margin-top: 15px;
 }
 
-
 .board-nav-container {
     display: flex;
 }
@@ -111,7 +110,7 @@
 .board-nav-container .create-state-btn button {
     background: var(--general);
     color: var(--we-white);
-    padding: 9px;
+    padding: 10px;
     margin-left: 10px;
     border: none;
     outline: none;
