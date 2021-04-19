@@ -1,6 +1,6 @@
 /* estilos para las rutas */
 nav{
-    background-color: var(--navbar);
+    background-color: var(--general);
     display: flex;
     justify-content: space-around;
     padding: 10px;
@@ -14,7 +14,7 @@ nav .nav-item{
 }
 
 nav .nav-item:hover{
-    background: var(--we-blue);
+    background: var(--we-purple-hover);
     border-radius: 5px;
 }
 /* estilos para los iconos */
@@ -54,7 +54,7 @@ nav .nav-icon .noti-icon,.perfil-icon{
 }
 
 nav .nav-icon svg:hover{
-    background: var(--we-blue) ;
+    background: var(--we-purple-hover) ;
     padding: 2px;
     border-radius: 5px;
 }
