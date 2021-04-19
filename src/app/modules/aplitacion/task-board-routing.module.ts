@@ -11,8 +11,6 @@ import {BoardTaskTeamComponent} from './components/board-task-team/board-task-te
 import {TaskBoardComponent} from './task-board.component';
 
 const routes: Routes = [
-  // { path: 'sugerencias', component: SuggestionsComponent},
-  // { path: 'app', component: TaskBoardComponent}
   {
     // user
     path: 'app', component: TaskBoardComponent,

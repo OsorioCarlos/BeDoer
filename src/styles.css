@@ -9,12 +9,12 @@ variables de color globales
 --------------------*/
 :root {
   /* #f6901b */
-  --orange: #E55E17;
+  --we-orange: #E55E17;
+  --we-grey: #e9ecef;
+  --we-blue: #940529;
   --general: #800020;
   --boton: rgb(4, 93, 105);
   --boton-hover: #064725;
-  --we-grey: #e9ecef;
-  --we-blue: #940529;
   --secundary: #26517C;
   --primary-text: #fff;
 }
@@ -25,7 +25,7 @@ variables de color globales
 .we-btn-primary {
   display: inline-block;
   border: none;
-  background: var(--orange);
+  background: var(--we-orange);
   color: #FFF9F3;
 }
 
