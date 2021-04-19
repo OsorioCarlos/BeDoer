@@ -1,0 +1,76 @@
+/* estilos del contenedor */
+.we-card {
+  margin-top: 5%;
+  border: solid 1px #707070;
+  width: 50%;
+  padding-right: 4rem;
+  padding-left: 4rem;
+  padding-top: 1.5rem;
+  text-align: center;
+  box-shadow: 2px 2px 5px #999;
+}
+
+/* estilos de titulo */
+.we-card-title {
+  display: inline-block;
+  border: solid 1px #707070;
+  border-radius: 30px;
+  width: 80%;
+  color: #104172;
+}
+
+/* estilos de formulario */
+.btn-form {
+  width: 90%;
+  align-items: center;
+  box-shadow: 2px 2px 4px #999;
+
+}
+
+.btn-form:hover {
+  color: #fcfcfc;
+  width: 95%;
+  box-shadow: 2px 2px 5px #999;
+}
+
+/* redes sociales */
+.nav-item {
+  border: solid 1px #707070;
+  border-radius: 10px;
+  padding: 4px;
+  margin: 0.5rem;
+}
+
+.nav-item a svg {
+  width: 50px;
+}
+
+.nav-item:hover{
+  box-shadow: 3px 3px 5px rgb(116, 113, 113);
+}
+
+.bi-facebook {
+  color: #385898;
+}
+
+.bi-google {
+  color: #df0f0f;
+}
+
+/* btn de regresar */
+
+.we-btn-primary-login{
+  display: inline-block;
+  border: solid 1px #E55E17;
+  color: #E55E17;
+  width: 90%;
+  box-shadow: 2px 2px 5px #999;
+
+}
+
+.we-btn-primary-login:hover{
+  display: inline-block;
+  background: #E55E17;
+  color: #FFF9F3;
+  box-shadow: 2px 2px 4px rgb(78, 77, 77);
+}

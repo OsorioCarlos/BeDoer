@@ -1,0 +1,69 @@
+/* estilos del contenedor */
+.we-card {
+  margin-top: 5%;
+  border: solid 1px #707070;
+  width: 50%;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  padding-top: 1.5rem;
+  text-align: center;
+  box-shadow: 2px 2px 5px #999;
+  background: #FFFFFF;
+}
+
+/* estilos de titulo */
+.we-card-title {
+  display: inline-block;
+  border: solid 1px #707070;
+  border-radius: 30px;
+  width: 80%;
+  color: #104172;
+}
+
+/* estilos de formulario */
+.btn-form {
+  width: 90%;
+  align-items: center;
+}
+
+.btn-form:hover {
+  color: #f9f9f9;
+  box-shadow: 2px 2px 5px #999;
+}
+
+/* redes sociales */
+.nav-item {
+  border: solid 1px #707070;
+  border-radius: 10px;
+  padding: 4px;
+  margin: .5rem;
+}
+
+.nav-item svg {
+  width: 50px;
+}
+
+.nav-item:hover{
+  box-shadow: 3px 3px 5px rgb(116, 113, 113);
+}
+
+.bi-facebook {
+  color: #385898;
+}
+
+.bi-google {
+  color: #df0f0f;
+}
+
+/* estilos de validacion del formulario*/
+.Stateless{
+  display: none;
+}
+
+.validate{
+  color: #28a745;
+}
+
+.invalidate{
+  color: #dc3545;
+}

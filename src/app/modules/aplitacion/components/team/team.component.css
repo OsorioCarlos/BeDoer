@@ -1,0 +1,180 @@
+.team-container{
+  margin: 0 auto;
+  padding: 10px;
+  width: 100%;
+}
+
+h4{
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  color: white;
+}
+
+.team-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.team-col{
+  width: 100%;
+  background: var(--general);
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 9px 9px 5px var(--we-grey);
+  width: 80%;
+  box-sizing: border-box;
+  margin-top: 80px;
+}
+/* Estilos para el botón de agregar equipo */
+.team-btn{
+  background: var(--boton);
+  color: var(--primary-text);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.team-btn-container{
+  padding: 0;
+  margin: 0;
+}
+
+.team-btn:hover{
+  background: var(--boton-hover);
+}
+
+/* Etilos para los equipos */
+ul{
+  list-style: none;
+  padding: 0;
+}
+li{
+  display: flex;
+  background: var(--primary-text);
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.team-icon{
+  padding: 0px 5px;
+}
+svg{
+  padding: 2px;
+}
+svg:hover{
+  border-radius: 5px;
+  background: var(--general);
+  color: var(--primary-text);
+}
+
+
+/* Estilos para el modal */
+
+.modal{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all 500ms ease;
+  visibility: hidden;
+}
+
+#btn-modal:checked ~ .modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.contenedor{
+  width: 400px;
+  height: 600px;
+  margin:  auto;
+  background: #fff;
+  box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.6);
+  position: relative;
+  transform:  translateY(-30%);
+}
+#btn-modal:checked ~ .modal .contenedor {
+  transform:  translateY(0%);
+}
+.contenedor header{
+  padding: 10px;
+  background:  red;
+  color: white;
+}
+
+.contenedor label{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size:  15px;
+  cursor: pointer;
+}
+
+#btn-modal{
+  display: none;
+}
+.lbl-modal{
+  background: white;
+  padding: 10px 15px;
+  border-radius:  4px;
+  cursor: pointer;
+}
+
+
+
+/* .container{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+ul li{
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.btn-warming{
+    background-color: var(--boton);
+    color: white;
+    border-color: var(--boton);
+}
+
+div svg{
+    cursor: pointer;
+}
+estilos de modal */
+.we-modal-header{
+  border-bottom: none;
+
+}
+
+.we-modal-footer{
+  border-top: none;
+}
+
+.we-btn-danger{
+  border: #FB3830 solid 2px;
+}
+
+.we-btn-success{
+  border: #40FB32 solid 2px;
+}
+
+.we-btn-secundary{
+  border: var(--secundary) solid 2px;
+}

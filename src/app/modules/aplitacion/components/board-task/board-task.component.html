@@ -1,0 +1,145 @@
+<div class="board-task-container">
+  <!-- Primera columna buscador y categorias -->
+  <div class="board-task-col">
+    <!-- buscador -->
+    <div class="board-buscardor">
+      <form>
+        <input type="text" name="" placeholder="Buscar...">
+        <button id="buscador" type="button">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
+               xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+            <path fill-rule="evenodd"
+                  d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+          </svg>
+        </button>
+      </form>
+    </div>
+    <!-- botón para filtart por categorias -->
+    <div class="dropdown-container">
+      <div class="dropdown">
+        <button class="dropdown-btn" id="categories" type="button">Categorías
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-funnel-fill" fill="currentColor"
+               xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z" />
+          </svg>
+        </button>
+        <!--Categorías-->
+        <div>
+          <div class="dropdown-content" >
+            <div *ngFor="let category of categories">
+              <input class="form-check-input" type="checkbox" id="checkbox{{category.id}}" value="{{category.name}}">
+              <label class="cat" for="checkbox{{category.id}}">{{category.name}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- segunda categoria estados -->
+  <div class="board-task-col2">
+    <div class="board-nav-container" id="nav-tab" >
+      <div class="states" *ngFor="let state of states">
+        <a class="nav-link board-nav active" id="nav-{{state.name}}-state-tab" data-toggle="tab"
+           href="#nav-{{state.name}}-state" role="tab" aria-controls="nav-{{state.name}}-state" aria-selected="true">
+          {{state.name}} <span class="badge badge-light ml-2"> {{ tasksToDo.length }} </span>
+        </a>
+      </div>
+      <div class="create-state-btn">
+        <!-- <button  (click)="openCreateModal();" type="button" data-toggle="dropdown" -->
+        <button   type="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+          Crear
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
+               xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- tablero de tareas -->
+  <div class="board-task-col3">
+    <!-- AQUI VAN LAS TAREAS -->
+  </div>
+
+
+
+
+
+</div>
+
+<!-- tablero de tareas -->
+<!--  <div class="tab-content board-task container-fluid text-center scroll" id="nav-tabContent"> -->
+
+<!-- contenedor de tareas en "tasksToDo" -->
+<!--     <div class="tab-pane fade show active" id="nav-to do-state" role="tabpanel" aria-labelledby="nav-todo-state-tab">
+      <div class="card-deck">
+        <div class="task mt-1 mb-1 mr-1 ml-1" *ngFor="let task of tasksToDo">
+          <a class="task-left" (click)="openEditModal(task);"> {{ task.title }} </a>
+          <button class="task-right" type="button" (click)="updateStateTask(task)">
+            <svg width="50%" height="50%" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg0">
+              <path fill-rule="evenodd"
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div> -->
+
+<!-- contenedor de tareas en "tasksDoing" -->
+<!--     <div class="tab-pane fade" id="nav-doing-state" role="tabpanel" aria-labelledby="nav-doing-state-tab">
+      <div class="card-deck">
+        <div class="task mt-1 mb-1 mr-1 ml-1" (click)="tarea()" *ngFor="let task of tasksDoing">
+          <a class="task-left" (click)="openEditModal(task);"> {{ task.title }} </a>
+          <button class="task-right" type="button" (click)="updateStateTask(task)">
+            <svg width="50%" height="50%" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg0">
+              <path fill-rule="evenodd"
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div> -->
+
+<!-- contenedor de tareas en tasksDone -->
+<!--     <div class="tab-pane fade " id="nav-done-state" role="tabpanel" aria-labelledby="nav-done-state-tab">
+      <div class="card-deck">
+        <div class="task mt-1 mb-1 mr-1 ml-1" (click)="tarea()" *ngFor="let task of tasksDone">
+          <a class="task-left" (click)="openEditModal(task);"> {{ task.title }} </a>
+          <button class="task-right" type="button" (click)="updateStateTask(task)">
+            <svg width="50%" height="50%" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg0">
+              <path fill-rule="evenodd"
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+ -->
+
+<!--
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////// modales para el CRUD ////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+
+<!-- Modal para crear tareas de usuario -->
+<div id="create-task-modal" class="pop-dialog">
+  <!-- Modal content -->
+  <div class="pop-dialog-content">
+    <span class="pop-dialog-close" (click)="closeModal('create-task-modal')">&times;</span>
+    <h2>Crear una nueva tarea</h2>
+    <input type="text" name="task-title" id="task-title" placeholder="Título de la tarea" [(ngModel)]="taskTitle" required><br><br>
+    <textarea name="task-description" id="task-description" cols="30" rows="10" placeholder="Descripción" [(ngModel)]="taskDescription"></textarea>
+    <br><br>
+    <input type="date" name="task-date" id="task-date" placeholder="Fecha de expiración" [(ngModel)]="taskDate"><br><br>
+    <button (click)="createTask()">Crear Tarea</button>
+    <button (click)="closeModal('create-task-modal')">Cancelar</button>
+  </div>
+</div>
