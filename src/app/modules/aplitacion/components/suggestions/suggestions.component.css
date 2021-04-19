@@ -1,18 +1,20 @@
-
+/* ------------------ */
+/* contenedor general */
+/* ------------------ */
 .sugestion-container{
   margin: 0 auto;
   padding: 10px;
   width: 80%;
 }
 .sugestion-col{
-  border: 1px solid black;
+  border: 2px solid var(--general);
   margin: 0 auto;
   padding: 30px;
   border-radius: 5px;
-  box-shadow: 9px 9px 5px var(--we-grey);
+  box-shadow: 9px 9px 5px var(--we-shadow);
   width: 50%;
   box-sizing: border-box;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .description{
@@ -48,21 +50,21 @@ textarea{
 }
 
 .we-btn{
-  background: var(--boton);
-  color: var(--primary-text);
+  background: var(--we-zian);
+  color: var(--we-white);
   text-align: center;
   border-radius: 5px;
   padding: 5px;
+  
 }
 
 .we-btn:hover{
-  background: var(--we-blue);
+  background: var(--we-purple-hover-light);
 }
 
 @media (max-width: 1000px){
   .sugestion-col{
-    border: 1px solid black;
-    margin: 0 auto;
+    border: 2px solid var(--general);
     padding: 30px;
     border-radius: 5px;
     box-shadow: 9px 9px 5px var(--we-grey);
