@@ -1,20 +1,96 @@
-.we-btn-success{
-    border: #40FB32 solid 2px;
-    margin-bottom: 20px;
-}
-.we-btn-danger{
-    border: #FB3830 solid 2px;
-   
+/* -------------------------------------------- */
+/* Estilos botones */
+/* -------------------------------------------- */
 
-
-}
 .we-btn-secundary{
     border: var(--secundary) solid 2px;
 }
 
 .btn-block{
-    background-color: var(--boton);
-    color: white;
-    border-color: var(--boton)
+    background-color: var(--general);
+    color: rgb(255, 255, 255);
+    border-color: var(--general)
 
+}
+
+
+
+/* -------------------------------------------- */
+/* Estilos tablas */
+/* -------------------------------------------- */
+
+.member-details-container{
+margin: 0 auto;
+display: flex;
+width: 80%;
+border: 1px solid rgb(69, 30, 210);
+
+
+}
+
+.member-details-col{
+border: 1px solid chocolate;
+margin: 0 auto;
+width: 49%;
+align-content: center;
+margin-top: 30px;
+}
+
+.member-details-form{
+width: 500px;
+padding: 50px;
+}
+
+.input-team-details{
+width:100%;
+margin-bottom: 10px;
+border-radius: 5px;
+padding: 10px;
+border: 1px solid var(--general);
+outline: none;
+
+
+}
+
+.we-btn-success{
+border: #40FB32 solid 2px;
+margin-bottom: 10px;
+ width: 100%;
+ background: var(--we-white);
+ padding: 10px;
+ border-radius: 5px;
+ margin-top: 10px;
+ cursor: pointer;
+
+}
+.we-btn-danger{
+ border: #FB3830 solid 2px;
+width: 100%;
+background: var(--we-white);
+padding: 10px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.we-btn-success:hover{
+ background: #40FB32;
+color:var(--we-white) ;
+ }
+
+ .we-btn-danger:hover{
+background: #FB3830;
+color: var(--we-white);
+ }
+
+h4{
+text-align: center;
+}
+
+.btn-block{
+background-color: var(--general);
+ color: rgb(255, 255, 255);
+ border-color: var(--general);
+ width: 100%;
+ padding: 10px;
+ border-radius: 5px;
 }
