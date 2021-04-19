@@ -114,12 +114,16 @@
   <!-- Modal content -->
   <div class="pop-dialog-content">
     <span class="pop-dialog-close" (click)="closeModal('create-task-modal')">&times;</span>
-    <h2>Crear una nueva tarea</h2>
-    <input type="text" name="task-title" id="task-title" placeholder="Título de la tarea" [(ngModel)]="taskTitle" required><br><br>
-    <textarea name="task-description" id="task-description" cols="30" rows="10" placeholder="Descripción" [(ngModel)]="taskDescription"></textarea>
-    <br><br>
-    <input type="date" name="task-date" id="task-date" placeholder="Fecha de expiración" [(ngModel)]="taskDate"><br><br>
-    <button (click)="createTask()">Crear Tarea</button>
-    <button (click)="closeModal('create-task-modal')">Cancelar</button>
+    <form>
+      <h2>Crear Tarea</h2>
+      <label for="task-title">Título</label><br>
+      <input type="text" name="task-title" id="task-title"[(ngModel)]="taskTitle" required><br>
+      <label for="task-description">Descripción</label><br>
+      <textarea name="task-description" id="task-description" cols="30" rows="4" [(ngModel)]="taskDescription"></textarea><br>
+      <label for="task-date">Fecha de vencimiento</label><br>
+      <input type="date" name="task-date" id="task-date" [(ngModel)]="taskDate"><br>
+      <input type="submit" value="Crear" (click)="createTask()">
+      <input type="reset" value="Cancelar" (click)="closeModal('create-task-modal')">
+    </form>
   </div>
 </div>
