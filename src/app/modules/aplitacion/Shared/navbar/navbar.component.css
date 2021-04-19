@@ -1,7 +1,7 @@
 /* ---------------------- */
 /* estilos para las rutas */
 /* ---------------------- */
-nav{
+nav {
     background-color: var(--general);
     display: flex;
     justify-content: space-around;
