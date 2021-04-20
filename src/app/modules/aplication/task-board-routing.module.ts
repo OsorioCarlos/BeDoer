@@ -9,6 +9,7 @@ import {TeamDetailsComponent} from './components/team-details/team-details.compo
 import {SuggestionsComponent} from './components/suggestions/suggestions.component';
 import {BoardTaskTeamComponent} from './components/board-task-team/board-task-team.component';
 import {TaskBoardComponent} from './task-board.component';
+import {AuthGuard} from '../../guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: 'detalles-equipos', component: TeamDetailsComponent},
       { path: 'sugerencias', component: SuggestionsComponent},
       { path: 'tareas-equipo', component: BoardTaskTeamComponent},
-    ]
+      { path: '', redirectTo: 'tareas', pathMatch: 'full'},
+    ], canActivate: [AuthGuard]
   }
 ];
 
