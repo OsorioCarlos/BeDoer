@@ -34,16 +34,16 @@ export class TeamComponent implements OnInit {
   createTeam(): void {
     console.log(this.teamName);
     console.log(this.teamDescription);
-    this.closeModal();
+    this.closeModal('create-team-modal');
   }
 
-  openModal(): void {
-    const modal = document.getElementById('create-team-modal');
+  openModal(name: string): void {
+    const modal = document.getElementById(name);
     modal.style.display = 'block';
   }
 
-  closeModal(): void {
-    const modal = document.getElementById('create-team-modal');
+  closeModal(name: string): void {
+    const modal = document.getElementById(name);
     modal.style.display = 'none';
   }
 

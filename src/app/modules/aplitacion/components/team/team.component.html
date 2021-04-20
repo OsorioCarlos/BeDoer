@@ -5,7 +5,7 @@
     <div class="team-header">
       <h4>Equipos creados por mi</h4>
       <div class="pruba">
-        <button class="team-btn" type="button" id="btnabrir" (click)="openModal()">
+        <button class="team-btn" type="button" id="btnabrir" (click)="openModal('create-team-modal')">
           Nuevo Equipo
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
                xmlns="http://www.w3.org/2000/svg">
@@ -73,12 +73,15 @@
 <div id="create-team-modal" class="pop-dialog">
   <!-- Modal content -->
   <div class="pop-dialog-content">
-    <span class="pop-dialog-close" (click)="closeModal()">&times;</span>
-    <h2>Crear nuevo Equipo</h2>
-    <input type="text" name="team-name" id="team-name" placeholder="Nombre del equipo" [(ngModel)]="teamName" required><br><br>
-    <textarea name="team-description" id="team-description" cols="30" rows="10" placeholder="Descripción"[(ngModel)]="teamDescription"></textarea>
-    <br><br>
-    <button (click)="createTeam()">Crear Equipo</button>
-    <button (click)="closeModal()">Cancelar</button>
+    <span class="pop-dialog-close" (click)="closeModal('create-team-modal')">&times;</span>
+    <form>
+      <h2>Crear Equipo</h2>
+      <label for="team-name">Nombre</label><br>
+      <input type="text" name="team-name" id="team-name" [(ngModel)]="teamName" required><br>
+      <label for="team-description">Descripción</label><br>
+      <textarea name="team-description" id="team-description" cols="30" rows="4" [(ngModel)]="teamDescription"></textarea><br>
+      <input type="submit" value="Crear" (click)="createTeam()">
+      <input type="reset" value="Cancelar" (click)="closeModal('create-team-modal')">
+    </form>
   </div>
 </div>
