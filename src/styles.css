@@ -33,6 +33,10 @@ variables de color globales
   color: #FFF9F3;
 }
 
+.we-btn-primary:hover {
+  color: #FFF9F3;
+  box-shadow: 2px 2px 5px rgba(54, 53, 53, 0.5);
+}
 
 /* -------------------
   ventanas modales

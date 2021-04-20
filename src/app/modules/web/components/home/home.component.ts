@@ -8,8 +8,9 @@ import {AuthService} from '../../../../services/authentication/auth.service';
 })
 export class HomeComponent implements OnInit {
 
+  public disableButton = false;
   user = {
-    email : 'joel@test.com',
+    email: 'joel@test.com',
     password: '1234567'
   };
 
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   autoLogin(): void {
+    this.disableButton = true;
     this.authService.login(this.user);
   }
 
