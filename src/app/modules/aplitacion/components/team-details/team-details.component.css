@@ -1,50 +1,146 @@
-.team-details-container{
-    margin: 0 auto;
-    width: 100%;
+/* -------------------------------------------- */
+/* Estilos botones */
+/* -------------------------------------------- */
 
-}
-
-.team-details-col{
-    border: 1px solid black;
-    margin: 0 auto;
-    width: 80%;
-}
-form{
-    display: block;
-}
-
-form .input-team-details{
-    display: block;
-}
-.radios{
-    display: block;
-}
-
-
-
-
-
-
-
-
-
-.we-btn-success{
-    border: #40FB32 solid 2px;
-    margin-bottom: 20px;
-}
-.we-btn-danger{
-    border: #FB3830 solid 2px;
-   
-
-
-}
 .we-btn-secundary{
     border: var(--secundary) solid 2px;
 }
 
 .btn-block{
-    background-color: var(--boton);
-    color: white;
-    border-color: var(--boton)
+    background-color: var(--general);
+    color: rgb(255, 255, 255);
+    border-color: var(--general)
 
 }
+
+
+
+/* -------------------------------------------- */
+/* Estilos tablas */
+/* -------------------------------------------- */
+
+.member-details-container{
+margin: 0 auto;
+display: flex;
+width: 80%;
+}
+
+.member-details-col{
+display: flex;
+border: 1px solid var(--general);
+margin: 0 auto;
+width: 48%;
+align-content: center;
+margin-top: 30px;
+box-shadow: 9px 9px 5px var(--we-shadow);
+}
+
+.member-details-form{
+width: 500px;
+padding: 50px;
+}
+
+.input-team-details{
+width:100%;
+margin-bottom: 10px;
+border-radius: 5px;
+padding: 10px;
+border: 1px solid var(--general);
+outline: none;
+}
+
+.input-team-details:focus{
+  border: 3px solid var(--general);
+  }
+
+textarea{
+  padding: 12px 20px;
+  resize: none;
+}
+
+.we-btn-success{
+border: #40FB32 solid 2px;
+margin-bottom: 10px;
+ width: 100%;
+ background: var(--we-white);
+ padding: 10px;
+ border-radius: 5px;
+ margin-top: 10px;
+ cursor: pointer;
+
+}
+.we-btn-danger{
+ border: #FB3830 solid 2px;
+width: 100%;
+background: var(--we-white);
+padding: 10px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.we-btn-success:hover{
+ background: #40FB32;
+color:var(--we-white) ;
+ }
+
+ .we-btn-danger:hover{
+background: #FB3830;
+color: var(--we-white);
+ }
+
+h4{
+text-align: center;
+font-size: 30px;
+}
+
+.btn-block{
+background-color: var(--general);
+ color: rgb(255, 255, 255);
+ border-color: var(--general);
+ width: 100%;
+ padding: 10px;
+ border-radius: 5px;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+  }
+  
+  li:hover{
+    background: rgb(231, 229, 229);
+  }
+  li{
+    display: flex;
+    background: var(--we-white);
+    justify-content: space-between;
+    margin: 2px;
+    border-radius: 5px;
+    padding: 8px;
+  }
+  
+  
+  svg{
+    padding: 2px;
+  }
+  svg:hover{
+    border-radius: 5px;
+    background: var(--general);
+    color: var(--we-white);
+  }
+
+  @media(max-width: 1000px){
+    .member-details-container{
+      display: block;
+      }
+
+    .member-details-col{
+      width: 100%;
+      margin-top: 30px;
+      box-shadow: 9px 9px 5px var(--we-shadow);
+      }
+
+      .input-team-details{
+        box-sizing: border-box;  
+        }
+  }

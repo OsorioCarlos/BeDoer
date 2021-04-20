@@ -4,7 +4,7 @@
 nav {
     background-color: var(--general);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 10px;
     /* BORRAR ESTO PARA QUITAR LA SOMBRA DEL NAVBAR */
     box-shadow: 0px 8px 16px 0px var(--we-shadow);

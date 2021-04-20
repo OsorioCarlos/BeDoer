@@ -46,7 +46,17 @@ form{
 }
 
 textarea{
-  width: 95%;
+  width: 100%;
+  padding: 12px 20px;
+  outline: none;
+  display: inline-block;
+  border: 1px solid var(--general);
+  border-radius: 10px;
+  box-sizing: border-box;
+  resize: none;
+}
+textarea:focus{
+  border: 3px solid var(--general);
 }
 
 .we-btn{
