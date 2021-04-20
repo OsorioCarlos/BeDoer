@@ -7,21 +7,20 @@ body {
 /* -------------------
 variables de color globales
 --------------------*/
+
 :root {
-  /* #f6901b */
-  --we-orange: #E55E17;
-  --we-grey: #e9ecef;
-  --we-blue: #940529;
-  --boton: rgb(4, 93, 105);
-  --boton-hover: #064725;
   --general: rgb(128, 0, 32);
   --orange: rgb(246, 144, 27);
+  --opaque-orange: #E55E17;
   --we-purple-hover: rgb(148, 5,41);
   --we-purple-hover-light: rgb(158, 22, 56) ;
   --we-white: rgb(255,255,255);
   --we-zian: rgb(4, 93, 105);
   --we-shadow: #e9ecef;
   --secundary: #26517C;
+  --we-green: #064725;
+  --we-green-hover: #0b6939;
+  --we-red: #FB3830;
 }
 
 /* -------------------
@@ -30,7 +29,7 @@ variables de color globales
 .we-btn-primary {
   display: inline-block;
   border: none;
-  background: var(--we-orange);
+  background: var(--opaque-orange);
   color: #FFF9F3;
 }
 
@@ -59,6 +58,7 @@ variables de color globales
   padding: 20px;
   max-height: 75vh;
   width: 30%;
+  border-radius: 10px;
 }
 
 .pop-dialog-content form {
@@ -83,7 +83,7 @@ variables de color globales
 
 .pop-dialog-content form input[type=submit] {
   width: 100%;
-  background-color: var(--we-purple-hover-light);
+  background-color: var(--we-green);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -106,8 +106,14 @@ variables de color globales
   border: 3px solid var(--general);
 }
 
-.pop-dialog-content form input[type=submit]:hover, .pop-dialog-content form input[type=reset]:hover {
-  background-color: var(--general);
+.pop-dialog-content form input[type=submit]:hover{
+  background-color: var(--we-green-hover);
+  color: white;
+}
+
+.pop-dialog-content form input[type=reset]:hover {
+  border-color: var(--we-red);
+  background-color: var(--we-red);
   color: white;
 }
 
@@ -123,4 +129,16 @@ variables de color globales
   color: var(--general);
   text-decoration: none;
   cursor: pointer;
+}
+
+/* ----------- */
+/* Media query */
+/* ----------- */
+
+@media (max-width: 1000px){
+  .pop-dialog-content {
+    width: 50%;
+
+  }
+
 }

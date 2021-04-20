@@ -1,66 +1,43 @@
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <form>
-          <div class="container text-center">
-            <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-images" fill="currentColor"
-                 xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                    d="M12.002 4h-10a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1zm-10-1a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-10zm4 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-              <path fill-rule="evenodd"
-                    d="M4 2h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1v1a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2h1a1 1 0 0 1 1-1z" />
-            </svg>
-          </div>
-          <br>
-          <div class="form-group">
-
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre de Equipo">
-          </div>
-          <div class="form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Descripción"
-                      rows="3"></textarea>
-
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-                   checked>
-            <label class="form-check-label" for="exampleRadios1">
-              Solo el lider puede invitar
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
-              Todos pueden invitar
-            </label>
-          </div>
-          <br>
-          <br>
-          <div class="container text-center">
-            <button type="button" class="btn we-btn-success mr-5" style="width: 60%;">Actualizar</button>
-            <br>
-            <button type="button" class="btn we-btn-danger mr-5" style="width: 60%;" (click)="openModal('delete-team-modal')">Eliminar Equipo</button>
-          </div>
-
-        </form>
-      </div>
+<!--Formulario para editar el equipo-->
+<div class= "member-details-container">
+ <div class="member-details-col">
+   <div class="member-details-form">
+    <form>
+      <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-images" fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd"
+      d="M12.002 4h-10a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1zm-10-1a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-10zm4 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+      <path fill-rule="evenodd"
+      d="M4 2h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1v1a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2h1a1 1 0 0 1 1-1z" />
+     </svg>
+    <input type="text" class="input-team-details" id="exampleFormControlInput1" placeholder="Nombre de Equipo">
+  <textarea class="input-team-details" id="exampleFormControlTextarea1" placeholder="Descripción" rows="3"></textarea>
+    <input class="" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+    <label class="form-check-label" for="exampleRadios1">
+      Solo el lider puede invitar
+    </label>
+  <br>
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+    <label class="form-check-label" for="exampleRadios2">
+      Todos pueden invitar
+    </label>
+    <br>
+  <button type="button" class="we-btn-success" >Actualizar</button>
+  <br>
+  <button type="button" class="we-btn-danger"  (click)="openModal('delete-team-modal')">Eliminar Equipo</button>
+   </form>
     </div>
   </div>
-
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <div class="container">
-          <div class="d-flex justify-content-between">
-            <h4>Integrantes</h4>
-          </div>
+  <!--tabla donde aparecen los miembros del equipo-->
+  <div class="member-details-col">
+    <div class="member-details-form">
+      <h4>Integrantes</h4>
           <br>
           <ul class="list-group">
             <li class="list-group-item d-flex" *ngFor="let member of members">
               <div class="d-inline-flex p-2">
                 <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor"
-                     xmlns="http://www.w3.org/2000/svg">
+                  xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
                   <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
@@ -70,23 +47,21 @@
               <div class="p-2 flex-grow-1">{{member.name}}</div>
               <div class="p-2">
                 <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor"
-                     xmlns="http://www.w3.org/2000/svg" (click)="openModal('delete-user-modal')">
+                  xmlns="http://www.w3.org/2000/svg" (click)="openModal('delete-user-modal')">
                   <path fill-rule="evenodd"
-                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                 </svg>
               </div>
             </li>
           </ul>
-          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="openModal('add-user-modal')">Agregar Miembro</button>
-        </div>
-      </div>
-    </div>
+          <button type="button" class="btn-block" (click)="openModal('add-user-modal')">Agregar Miembro</button>
   </div>
+</div>
 </div>
 
 <!-- Modal para agregar usuarios al equipo -->
 <div id="add-user-modal" class="pop-dialog">
-  <!-- Modal content -->
+ <!-- Modal content -->
   <div class="pop-dialog-content">
     <span class="pop-dialog-close" (click)="closeModal('add-user-modal')">&times;</span>
     <form>
@@ -99,7 +74,7 @@
   </div>
 </div>
 
-<!-- Modal de confirmación: eliminar miembro -->
+<!--Modal de confirmación: eliminar miembro -->
 <div id="delete-user-modal" class="pop-dialog">
   <!-- Modal content -->
   <div class="pop-dialog-content">
@@ -112,9 +87,9 @@
   </div>
 </div>
 
-<!-- Modal de confirmación: eliminar equipo -->
+ <!-- Modal de confirmación: eliminar equipo -->
 <div id="delete-team-modal" class="pop-dialog">
-  <!-- Modal content -->
+    <!--Modal content-->
   <div class="pop-dialog-content">
     <span class="pop-dialog-close" (click)="closeModal('delete-team-modal')">&times;</span>
     <form>
