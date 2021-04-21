@@ -1,67 +1,64 @@
 <!--Formulario para editar el equipo-->
-<div class= "member-details-container">
- <div class="member-details-col">
-   <div class="member-details-form">
-    <form>
-      <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-images" fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd"
-      d="M12.002 4h-10a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1zm-10-1a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-10zm4 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-      <path fill-rule="evenodd"
-      d="M4 2h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1v1a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2h1a1 1 0 0 1 1-1z" />
-     </svg>
-    <input type="text" class="input-team-details" id="exampleFormControlInput1" placeholder="Nombre de Equipo">
-  <textarea class="input-team-details" id="exampleFormControlTextarea1" placeholder="Descripción" rows="3"></textarea>
-    <input class="" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-    <label class="form-check-label" for="exampleRadios1">
-      Solo el lider puede invitar
-    </label>
-  <br>
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-    <label class="form-check-label" for="exampleRadios2">
-      Todos pueden invitar
-    </label>
-    <br>
-  <button type="button" class="we-btn-success" >Actualizar</button>
-  <br>
-  <button type="button" class="we-btn-danger"  (click)="openModal('delete-team-modal')">Eliminar Equipo</button>
-   </form>
+<div class="member-details-container">
+  <div class="member-details-col">
+    <div class="member-details-form">
+      <form>
+        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-images" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M12.002 4h-10a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1zm-10-1a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-10zm4 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+          <path fill-rule="evenodd"
+            d="M4 2h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1v1a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2h1a1 1 0 0 1 1-1z" />
+        </svg>
+        <input type="text" class="input-team-details" id="exampleFormControlInput1" [(ngModel)]="team.name" [ngModelOptions]="{standalone: true}">
+        <textarea class="input-team-details" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="team.description" [ngModelOptions]="{standalone: true}">{{team.description}}</textarea>
+        <br>
+        <button type="button" class="we-btn-success" (click)="updateTeam()">Actualizar</button>
+        <br>
+        <button type="button" class="we-btn-danger" (click)="openModal('delete-team-modal')">Eliminar Equipo</button>
+      </form>
     </div>
   </div>
   <!--tabla donde aparecen los miembros del equipo-->
   <div class="member-details-col">
     <div class="member-details-form">
       <h4>Integrantes</h4>
-          <br>
-          <ul class="list-group">
-            <li class="list-group-item d-flex" *ngFor="let member of members">
-              <div class="d-inline-flex p-2">
-                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
-                  <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                  <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
-                </svg>
-              </div>
-              <div class="p-2 flex-grow-1">{{member.name}}</div>
-              <div class="p-2">
-                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg" (click)="openModal('delete-user-modal')">
-                  <path fill-rule="evenodd"
-                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                </svg>
-              </div>
-            </li>
-          </ul>
-          <button type="button" class="btn-block" (click)="openModal('add-user-modal')">Agregar Miembro</button>
+      <br>
+      <ul class="list-group">
+        <li class="list-group-item d-flex" *ngFor="let member of members">
+          <div class="d-inline-flex p-2">
+            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
+              <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+              <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
+            </svg>
+          </div>
+          <div class="p-2 flex-grow-1">{{member.name}}</div>
+          <div class="p-2" *ngIf="member.id == lead">
+            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+              <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+              <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+            </svg>
+          </div>
+          <div class="p-2" *ngIf="member.id != lead">
+            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg" (click)="deleteUser(member)">
+              <path fill-rule="evenodd"
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+          </div>
+        </li>
+      </ul>
+      <button type="button" class="btn-block" (click)="openModal('add-user-modal')">Agregar Miembro</button>
+    </div>
   </div>
-</div>
 </div>
 
 <!-- Modal para agregar usuarios al equipo -->
 <div id="add-user-modal" class="pop-dialog">
- <!-- Modal content -->
+  <!-- Modal content -->
   <div class="pop-dialog-content">
     <span class="pop-dialog-close" (click)="closeModal('add-user-modal')">&times;</span>
     <form>
@@ -87,9 +84,9 @@
   </div>
 </div>
 
- <!-- Modal de confirmación: eliminar equipo -->
+<!-- Modal de confirmación: eliminar equipo -->
 <div id="delete-team-modal" class="pop-dialog">
-    <!--Modal content-->
+  <!--Modal content-->
   <div class="pop-dialog-content">
     <span class="pop-dialog-close" (click)="closeModal('delete-team-modal')">&times;</span>
     <form>

@@ -7,21 +7,19 @@ import { Injectable } from '@angular/core';
 })
 export class MemberService {
 
-  url: string = environment.API_URL + 'members/';
+  private url: string = environment.API_URL + 'members/';
 
   constructor(private http: HttpClient) { }
   
   get(id: number) {
-    this.url += id;
-    return this.http.get(this.url);
+    return this.http.get(this.url + id);
   }
 
-  post(member: object){
+  post(member: any){
     return this.http.post(this.url, member);
   }
 
-  put(id: number, member: object){
-    this.url += id;
-    return this.http.put(this.url, member);
+  put(member: any){
+    return this.http.put(this.url + member.team_id, {user_id: member.user_id});
   }
 }

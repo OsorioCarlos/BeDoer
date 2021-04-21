@@ -8,22 +8,18 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class TeamService {
+export class UserService {
 
-  private url: string = environment.API_URL + 'teams/';
+  private url: string = environment.API_URL + 'users/';
 
   constructor(private http: HttpClient) { }
 
   get(id: number){
     return this.http.get(this.url + id);
   }
-  
-  post(team: any){
-    return this.http.post(this.url, {name: team.name, description: team.desciption, user_id: team.user_id});
-  }
 
-  put(team: any){
-    return this.http.put(this.url + team.id, {name: team.name, description: team.description});
+  put(id: number, user: object){
+    return this.http.put(this.url + id, user);
   }
 
   delete(id: number){

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { StateService } from 'src/app/services/state.service';
 
 declare let $: any;
 
@@ -16,22 +15,12 @@ export class BoardTaskTeamComponent implements OnInit {
   taskDescription: string;
   taskDate: Date;
 
-  states: object = [];
-
   constructor(
     private route: ActivatedRoute,
-    private location: Location,
-    private stateService: StateService
+    private location: Location
   ) { }
 
   ngOnInit(): void {
-    this.getStates();
-  }
-
-  getStates(): void {
-    this.stateService.get().subscribe(states => {
-      this.states = states['data'];
-    });
   }
 
   createTask(): void {

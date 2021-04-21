@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class CategoryService {
 
-  url: string = environment.API_URL + 'categories/';
+  private url: string = environment.API_URL + 'categories/';
 
   constructor(private http: HttpClient) { }
 
