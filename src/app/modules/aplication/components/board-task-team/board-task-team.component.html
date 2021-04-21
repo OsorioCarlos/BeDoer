@@ -1,6 +1,6 @@
 <br>
 <div class="container">
-  <div class="row ">
+  <div class="row">
     <!-- Buscador-->
     <div class="col-sm">
       <div class="input-group">
@@ -46,10 +46,23 @@
 <!-- Grupo de botones -->
 <div class="container ">
   <div class="btn-group">
-    <div *ngFor="let state of states">
-      <label id="{{state.name}}" type="button" class="btn">
-        {{state.name}} <span class="badge badge-light">9</span>
-      </label>
+    <div class="states">
+      <a class="nav-link board-nav active" id="nav-not-state-tab" data-toggle="tab"
+        href="#nav-not-state" role="tab" aria-controls="nav-not-state" aria-selected="true">
+        NOT STATE <span class="badge badge-light ml-2"> 0 </span>
+      </a>
+      <a class="nav-link board-nav active" id="nav-todo-state-tab" data-toggle="tab"
+        href="#nav-todo-state" role="tab" aria-controls="nav-todo-state" aria-selected="true">
+        TO DO <span class="badge badge-light ml-2"> 0 </span>
+      </a>
+      <a class="nav-link board-nav active" id="nav-doing-state-tab" data-toggle="tab"
+        href="#nav-doing-state" role="tab" aria-controls="nav-doing-state" aria-selected="true">
+        DOING <span class="badge badge-light ml-2"> 0 </span>
+      </a>
+      <a class="nav-link board-nav active" id="nav-done-state-tab" data-toggle="tab"
+        href="#nav-done-state" role="tab" aria-controls="nav-done-state" aria-selected="true">
+        DONE <span class="badge badge-light ml-2"> 0 </span>
+      </a>
     </div>
     <div class="dropdown">
       <button id="btncrear" class="btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="openModal('create-task-modal')">
@@ -63,8 +76,9 @@
     </div>
   </div>
 </div>
+
 <!-- Contenedor que contiene las tareas -->
-<div class="container" id="container-task">
+<div class="container" id="container-task">-
   <div class="row text-center" data-spy="scroll" data-target="#navbar-example3" data-offset="0">
     <div class="col-sm-3">
       <div class="label-group">

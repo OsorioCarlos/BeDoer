@@ -6,7 +6,7 @@
       <ul class="nav justify-content-end">
         <li class="nav-item">
           <a class="nav-link btn we-btn-primary ml-2" [routerLink]="['/login']" tabindex="-1" aria-disabled="true">Ingresar</a>
-          <a class="nav-link btn we-btn-primary ml-2" [routerLink]="['/app']" tabindex="-1" aria-disabled="true">Simular logeo</a>
+          <button class="nav-link btn we-btn-primary ml-2" (click)="autoLogin();" [disabled]="disableButton">Auto Logeo</button>
         </li>
       </ul>
     </div>

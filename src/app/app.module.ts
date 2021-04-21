@@ -1,18 +1,25 @@
 // dependencias de angular
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 // importacion del routing
-import { AppRoutingModule } from './app-routing.module';
+import {AppRoutingModule} from './app-routing.module';
 
 // Modulo para formularios
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 // componentes de mi app
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+
+// modulos de la aplicación
 import {WebModule} from './modules/web/web.module';
-import {TaskBoardModule} from './modules/aplitacion/task-board.module';
+import {TaskBoardModule} from './modules/aplication/task-board.module';
+
+// guards
+import {AuthGuard} from './guards/auth.guard';
+import {TokenInterceptorService} from './services/authentication/token-interceptor.service';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +34,15 @@ import {TaskBoardModule} from './modules/aplitacion/task-board.module';
     TaskBoardModule,
     AppRoutingModule,
   ],
-  providers: [],
+  // providers: [
+  //   AuthGuard,
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: TokenInterceptorService,
+  //     multi: true
+  //   }
+  // ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

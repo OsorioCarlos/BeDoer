@@ -7,9 +7,11 @@ body {
 /* -------------------
 variables de color globales
 --------------------*/
+
 :root {
   --general: rgb(128, 0, 32);
   --orange: rgb(246, 144, 27);
+  --opaque-orange: #E55E17;
   --we-purple-hover: rgb(148, 5,41);
   --we-purple-hover-light: rgb(158, 22, 56) ;
   --we-white: rgb(255,255,255);
@@ -27,10 +29,14 @@ variables de color globales
 .we-btn-primary {
   display: inline-block;
   border: none;
-  background: var(--orange);
+  background: var(--opaque-orange);
   color: #FFF9F3;
 }
 
+.we-btn-primary:hover {
+  color: #FFF9F3;
+  box-shadow: 2px 2px 5px rgba(54, 53, 53, 0.5);
+}
 
 /* -------------------
   ventanas modales

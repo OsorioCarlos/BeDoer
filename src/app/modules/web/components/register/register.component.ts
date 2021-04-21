@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {UserService} from '../../../../services/user.service';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../../../services/authentication/auth.service';
+
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
   private validateEmail = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
 
   // constructor
-  constructor(private userService: UserService,
+  constructor(private authService: AuthService,
               private formBuilder: FormBuilder) {
   }
 
@@ -38,16 +39,21 @@ export class RegisterComponent implements OnInit {
 
   register(): void {
     console.log(this.registerForm.value);
-    this.userService.register(this.registerForm.value);
+    this.authService.register(this.registerForm.value);
     this.registerForm.reset();
-    console.log(this.registerForm.value);
   }
 
   // getters de formGroup
-  get name(): AbstractControl { return this.registerForm.get('name'); }
+  get name(): AbstractControl {
+    return this.registerForm.get('name');
+  }
 
-  get email(): AbstractControl { return this.registerForm.get('email'); }
+  get email(): AbstractControl {
+    return this.registerForm.get('email');
+  }
 
-  get password(): AbstractControl { return this.registerForm.get('password'); }
+  get password(): AbstractControl {
+    return this.registerForm.get('password');
+  }
 
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../../../../services/authentication/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public disableButton = false;
+  user = {
+    email: 'joel159@gmail.com',
+    password: '1234567'
+  };
+
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit(): void {
+  }
+
+  autoLogin(): void {
+    this.disableButton = true;
+    this.authService.login(this.user);
   }
 
 }

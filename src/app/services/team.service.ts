@@ -10,26 +10,23 @@ import { environment } from 'src/environments/environment';
 })
 export class TeamService {
 
-  url: string = environment.API_URL + 'teams/';
+  private url: string = environment.API_URL + 'teams/';
 
   constructor(private http: HttpClient) { }
 
   get(id: number){
-    this.url += id;
-    return this.http.get(this.url);
+    return this.http.get(this.url + id);
   }
   
-  post(team: object){
-    return this.http.post(this.url, team);
+  post(team: any){
+    return this.http.post(this.url, {name: team.name, description: team.desciption, user_id: team.user_id});
   }
 
-  put(id: number, team: object){
-    this.url += id;
-    return this.http.put(this.url, team);
+  put(team: any){
+    return this.http.put(this.url + team.id, {name: team.name, description: team.description});
   }
 
   delete(id: number){
-    this.url += id
-    return this.http.delete(this.url);
+    return this.http.delete(this.url + id);
   }
 } 
