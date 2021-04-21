@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { MemberService } from 'src/app/services/member.service';
 
 @Component({
@@ -11,14 +13,20 @@ export class TeamDetailsComponent implements OnInit {
   userEmail: string;
   members: object = [];
 
-  constructor(private memberService: MemberService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private memberService: MemberService
+  ) { }
 
   ngOnInit(): void {
     this.getMembers();
   }
 
   getMembers(): void {
-    this.memberService.get(1).subscribe(members => {
+    const id: number = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.memberService.get(id).subscribe(members => {
       this.members = members['data'];
     });
   }
