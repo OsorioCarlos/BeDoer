@@ -34,14 +34,14 @@ import {TokenInterceptorService} from './services/authentication/token-intercept
     TaskBoardModule,
     AppRoutingModule,
   ],
-  // providers: [
-  //   AuthGuard,
-  //   {
-  //     provide: HTTP_INTERCEPTORS,
-  //     useClass: TokenInterceptorService,
-  //     multi: true
-  //   }
-  // ],
+  providers: [
+    // AuthGuard,
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptorService,
+    //   multi: true
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

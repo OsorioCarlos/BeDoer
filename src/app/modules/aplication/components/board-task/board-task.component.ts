@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {StateService} from 'src/app/services/state.service';
 import {CategoryService} from 'src/app/services/category.service';
 import {fillTask, CATEGORIES, Task, I_Task} from '../../../../mockup.db';
+import {TaskService} from '../../../../services/task.service';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class BoardTaskComponent implements OnInit {
   // Atributos de la clase.
   // -------------------------------------------------------------------------------
 
+  data;
   edit = true;
   tasks: I_Task[] = [];
 
@@ -33,7 +35,10 @@ export class BoardTaskComponent implements OnInit {
   // -------------------------------------------------------------------------------
   // Métodos del componente.
   // -------------------------------------------------------------------------------
-  constructor(private stateService: StateService, private categoryService: CategoryService) {
+  constructor(private stateService: StateService,
+              private categoryService: CategoryService,
+              private taskService: TaskService) {
+    this.getTasks();
   }
 
   ngOnInit(): void {
@@ -62,26 +67,34 @@ export class BoardTaskComponent implements OnInit {
     this.closeModal('create-task-modal');
   }
 
-  openModal(name: string): void {
-    const modal = document.getElementById(name);
-    modal.style.display = 'block';
-  }
-
+  // -------------------------------------------------------------------------------
+  // Métodos de lo modales.
+  // -------------------------------------------------------------------------------
   closeModal(name: string): void {
     const modal = document.getElementById(name);
     modal.style.display = 'none';
   }
 
-  // -------------------------------------------------------------------------------
-  // Métodos de lo modales.
-  // -------------------------------------------------------------------------------
-
+  openModal(name: string): void {
+    const modal = document.getElementById(name);
+    modal.style.display = 'block';
+  }
 
   // -------------------------------------------------------------------------------
   // Métodos CRUD de las tareas.
   // -------------------------------------------------------------------------------
 
   getTasks(): void {
+    this.taskService.get(`get-user-task`).subscribe(
+      res => {
+        console.log(res.data);
+        this.data = res.data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
 
     this.tasksToDo = [];
     this.tasksDoing = [];

@@ -35,14 +35,14 @@ import {TokenInterceptorService} from '../../services/authentication/token-inter
     TaskBoardRoutingModule,
     FormsModule
   ],
-  // providers: [
-  //   AuthGuard,
-  //   {
-  //     provide: HTTP_INTERCEPTORS,
-  //     useClass: TokenInterceptorService,
-  //     multi: true
-  //   }
-  // ],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
 })
 export class TaskBoardModule {
 }
