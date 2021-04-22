@@ -19,11 +19,11 @@ const routes: Routes = [
       { path: 'tareas', component: BoardTaskComponent},
       { path: 'equipos', component: TeamComponent},
       { path: 'mi-perfil', component: UserProfileComponent},
-      { path: 'detalles-equipos', component: TeamDetailsComponent},
+      { path: 'detalles-equipos/:id', component: TeamDetailsComponent},
       { path: 'sugerencias', component: SuggestionsComponent},
-      { path: 'tareas-equipo', component: BoardTaskTeamComponent},
+      { path: 'tareas-equipo/:id', component: BoardTaskTeamComponent},
       { path: '', redirectTo: 'tareas', pathMatch: 'full'},
-    ], canActivate: [AuthGuard]
+    ], /* canActivate: [AuthGuard] */
   }
 ];
 

@@ -9,12 +9,14 @@ import {AuthService} from '../../../../services/authentication/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  notifications: string[] = [];
+  identification: number;
+  notifications: string[];
 
   constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.identification = this.authService.getIdentification();
   }
 
   getNotifications(): void {

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {StateService} from 'src/app/services/state.service';
 import {CategoryService} from 'src/app/services/category.service';
-import {fillTask, CATEGORIES, Task, I_Task} from '../../../../mockup.db';
+import {Task, I_Task} from '../../../../mockup.db';
 import {TaskService} from '../../../../services/task.service';
 
 
@@ -29,14 +28,12 @@ export class BoardTaskComponent implements OnInit {
   taskDescription: string;
   taskDate: Date;
 
-  states: object = [];
   categories: object = [];
 
   // -------------------------------------------------------------------------------
   // Métodos del componente.
   // -------------------------------------------------------------------------------
-  constructor(private stateService: StateService,
-              private categoryService: CategoryService,
+  constructor(private categoryService: CategoryService,
               private taskService: TaskService) {
     this.getTasks();
   }
@@ -45,13 +42,6 @@ export class BoardTaskComponent implements OnInit {
     // this.tasks = fillTask(100);
     this.getCategories();
     // this.getTasks();
-    this.getStates();
-  }
-
-  getStates(): void {
-    this.stateService.get().subscribe(states => {
-      this.states = states['data'];
-    });
   }
 
   getCategories(): void {

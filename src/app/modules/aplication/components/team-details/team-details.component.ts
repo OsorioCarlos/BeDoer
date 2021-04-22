@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import {Router} from '@angular/router';
+import { Location } from '@angular/common';
+
+// Servicios
 import { MemberService } from 'src/app/services/member.service';
+import { TeamService } from 'src/app/services/team.service';
+import { AuthService } from 'src/app/services/authentication/auth.service';
 
 @Component({
   selector: 'app-team-details',
@@ -8,34 +15,71 @@ import { MemberService } from 'src/app/services/member.service';
 })
 export class TeamDetailsComponent implements OnInit {
 
-  userEmail: string;
-  members: object = [];
+  private memberSelected: any;
+  
+  team = { id: 0, name: '', description: ''}
 
-  constructor(private memberService: MemberService) { }
+  lead: number;
+  
+  userEmail: string;
+  members: object[];
+
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private router: Router,
+    private memberService: MemberService,
+    private teamService: TeamService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.getMembers();
+    this.lead = this.authService.getIdentification();
   }
 
   getMembers(): void {
-    this.memberService.get(1).subscribe(members => {
-      this.members = members['data'];
+    const id: number = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.memberService.get(id).subscribe(data => {
+      this.team.id = data['data']['team'].id;
+      this.team.name = data['data']['team'].name;
+      this.team.description = data['data']['team'].description;
+      this.members = data['data']['members'];
     });
   }
 
   addUser(): void {
-    console.log(this.userEmail);
-    this.closeModal('add-user-modal');
+    this.memberService.post({team_id: this.team.id, user_email: this.userEmail}).subscribe(() => {
+      this.getMembers();
+      this.closeModal('add-user-modal');
+    });
+    this.userEmail = '';
   }
 
-  deleteUser(): void {
-    console.log('Miembro eliminado');
-    this.closeModal('delete-user-modal');
+  deleteUser(member?: object): void {
+    if (member) {
+      this.memberSelected = member;
+      this.openModal('delete-user-modal');
+    }
+    else {
+      this.memberService.put({team_id: this.team.id, user_id: this.memberSelected.id}).subscribe(() => {
+        this.getMembers();
+        this.closeModal('delete-user-modal');
+      });
+    }
+  }
+
+  updateTeam(): void {
+    this.teamService.put(this.team).subscribe();
   }
 
   deleteTeam(): void {
-    console.log('Equipo eliminado');
-    this.closeModal('delete-team-modal');
+    this.teamService.delete(this.team.id).subscribe(msg => {
+      console.log(msg);
+      this.closeModal('delete-team-modal');
+      this.router.navigate(['/app/equipos']);
+    });
   }
 
   openModal(name: string): void {

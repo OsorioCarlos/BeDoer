@@ -25,6 +25,7 @@ export class AuthService {
       res => {
         console.log(`${res}`);
         localStorage.setItem('token', res.token);
+        localStorage.setItem('identification', res.identification);
         this.router.navigate(['/app']);
       },
       err => {
@@ -43,6 +44,7 @@ export class AuthService {
       res => {
         console.log(res);
         localStorage.setItem('token', res.token);
+        localStorage.setItem('identification', res.identification);
         this.router.navigate(['/app']);
       },
       err => {
@@ -64,10 +66,15 @@ export class AuthService {
         console.log(err);
       });
     localStorage.removeItem('token');
+    localStorage.removeItem('identification');
     this.router.navigate(['']);
   }
 
   getToken(): string {
     return localStorage.getItem('token');
+  }
+
+  getIdentification(): number {
+    return Number(localStorage.getItem('identification'));
   }
 }
