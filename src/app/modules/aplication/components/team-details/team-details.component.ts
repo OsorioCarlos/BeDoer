@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
 // Servicios
 import { MemberService } from 'src/app/services/member.service';
 import { TeamService } from 'src/app/services/team.service';
-import { AuthService } from 'src/app/services/authentication/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-team-details',
@@ -19,7 +19,7 @@ export class TeamDetailsComponent implements OnInit {
   
   team = { id: 0, name: '', description: ''}
 
-  lead: number;
+  leader: number;
   
   userEmail: string;
   members: object[];
@@ -30,12 +30,18 @@ export class TeamDetailsComponent implements OnInit {
     private router: Router,
     private memberService: MemberService,
     private teamService: TeamService,
-    private authService: AuthService
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
+    this.getUser();
     this.getMembers();
-    this.lead = this.authService.getIdentification();
+  }
+
+  getUser(): void {
+    this.userService.get().subscribe(user => {
+      this.leader = user['data'].id;
+    });
   }
 
   getMembers(): void {

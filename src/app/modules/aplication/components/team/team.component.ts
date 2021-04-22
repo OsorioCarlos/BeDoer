@@ -23,15 +23,14 @@ export class TeamComponent implements OnInit {
   teamName: string;
   teamDescription: string;
 
-  constructor(private teamService: TeamService, private authService: AuthService, private memberService: MemberService) { }
+  constructor(private teamService: TeamService, private memberService: MemberService) { }
 
   ngOnInit(): void {
     this.getTeams();
   }
 
   getTeams(): void {
-    const identification = this.authService.getIdentification();
-    this.teamService.get(identification).subscribe(teams => {
+    this.teamService.get().subscribe(teams => {
       this.myTeams = teams['data']['my_teams'];
       this.otherTeams = teams['data']['other_teams'];
     });
@@ -40,8 +39,7 @@ export class TeamComponent implements OnInit {
   createTeam(): void {
     let team =  {
       name: this.teamName,
-      description: this.teamDescription,
-      user_id: this.authService.getIdentification()
+      description: this.teamDescription
     }
     this.teamService.post(team).subscribe( () => {
       this.closeModal('create-team-modal');
@@ -71,8 +69,7 @@ export class TeamComponent implements OnInit {
       this.openModal('delete-user-modal');
     }
     else {
-      const identification = this.authService.getIdentification();
-      this.memberService.put({team_id: this.teamSelected.id, user_id: identification}).subscribe(() => {
+      this.memberService.put({team_id: this.teamSelected.id, user_id: 0}).subscribe(() => {
         this.closeModal('delete-user-modal');
         this.getTeams();
       });
