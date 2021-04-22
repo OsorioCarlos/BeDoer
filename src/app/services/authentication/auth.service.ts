@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
-import * as url from 'url';
+
+// import * as url from 'url';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class AuthService {
 
   private headers: HttpHeaders;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient,
+              private router: Router) {
   }
 
   register(data): any {
@@ -33,14 +35,14 @@ export class AuthService {
       });
   }
 
-  login(data): any {
-    console.log(data);
-    this.http.post<any>(`${environment.API_URL}login`, {
+  login(data): void {
+    console.log(`en el servicio ${data}`);
+    this.http.post<any>(`${environment.API_URL}login/`, {
       email: data.email,
       password: data.password
     }).subscribe(
       res => {
-        console.log(res);
+        console.log('no se que paso' + res);
         localStorage.setItem('token', res.token);
         localStorage.setItem('identification', res.identification);
         this.router.navigate(['/app']);
@@ -56,24 +58,16 @@ export class AuthService {
   }
 
   logout(): void {
+    this.http.get<any>(`${environment.API_URL}logout`).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      });
     localStorage.removeItem('token');
     localStorage.removeItem('identification');
     this.router.navigate(['']);
-
-    // this.headers = new HttpHeaders()
-    //   .append('Content-Type', 'application/json')
-    //   .append('Accept', 'application/json')
-    //   .append('Authorization', `Bearer ${localStorage.getItem('token')}`);
-    //
-    // this.http.post<any>(`${environment.API_URL}logout`, {headers: this.headers}).subscribe(
-    //   res => {
-    //     console.log(url);
-    //     console.log(res);
-    //
-    //   },
-    //   err => {
-    //     console.log(err);
-    //   });
   }
 
   getToken(): string {
