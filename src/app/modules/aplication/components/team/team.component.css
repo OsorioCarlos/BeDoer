@@ -4,7 +4,7 @@
 .team-container{
   margin: 0 auto;
   padding: 10px;
-  width: 100%;
+  width: 90%;
 }
 
 h4{
@@ -31,7 +31,7 @@ h4{
   padding: 10px;
   border-radius: 5px;
   box-shadow: 9px 9px 5px var(--we-grey);
-  width: 80%;
+  width: 90%;
   box-sizing: border-box;
   margin-top: 30px;
 }

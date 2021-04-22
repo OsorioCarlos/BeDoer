@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 // Services
 import { UserService } from 'src/app/services/user.service';
+import { AuthService } from '../../../../services/authentication/auth.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -12,21 +13,24 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  user: object;
+  user: any;
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
+    this.getUser();
   }
 
   getUser(): void {
-    const id: number = Number(this.route.snapshot.paramMap.get('id'));
-    this.userService.get(id).subscribe(user => {
-      this.user = user['data'];
+    const id = Number(this.authService.getIdentification());
+    this.userService.get(12).subscribe(user => {
+      this.user = user['data']
+      console.log(this.user)
     });
   }
 

@@ -18,12 +18,12 @@ const routes: Routes = [
     children: [
       { path: 'tareas', component: BoardTaskComponent},
       { path: 'equipos', component: TeamComponent},
-      { path: 'mi-perfil/:id', component: UserProfileComponent},
+      { path: 'mi-perfil', component: UserProfileComponent},
       { path: 'detalles-equipos/:id', component: TeamDetailsComponent},
       { path: 'sugerencias', component: SuggestionsComponent},
       { path: 'tareas-equipo/:id', component: BoardTaskTeamComponent},
       { path: '', redirectTo: 'tareas', pathMatch: 'full'},
-    ], canActivate: [AuthGuard]
+    ], /* canActivate: [AuthGuard] */
   }
 ];
 
