@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   public disableButton = false;
   user = {
-    email: 'joel159@gmail.com',
+    email: 'joel@test.com',
     password: '1234567'
   };
 
