@@ -156,35 +156,37 @@ svg{
   padding: 2px;
 }
 
-
+/* ---------------------------------------- */
 /* estilo para le botón de agreagar miembro */
+/* ---------------------------------------- */
 
-.btn-block{
-  background-color: var(--we-purple-hover);
+.we-btn-add{
+  background: var(--we-green);
+  border: none;
+  outline: none;
   color: rgb(255, 255, 255);
-  border-color: var(--general);
   width: 100%;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
 }
   
-  .btn-block:hover{
-    background-color: var(--we-purple-hover-light);
+.we-btn-add:active{
+  background-color: var(--general);
+}
+
+@media(max-width: 1000px){
+  .member-details-container{
+    display: block;
+    }
+
+  .member-details-col{
+    width: 100%;
+    margin-top: 30px;
+    box-shadow: 9px 9px 5px var(--we-shadow);
   }
 
-  @media(max-width: 1000px){
-    .member-details-container{
-      display: block;
-      }
-
-    .member-details-col{
-      width: 100%;
-      margin-top: 30px;
-      box-shadow: 9px 9px 5px var(--we-shadow);
-      }
-
-      .input-team-details{
-        box-sizing: border-box;  
-        }
+  .input-team-details{
+    box-sizing: border-box;  
   }
+}
