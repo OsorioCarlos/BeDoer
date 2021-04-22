@@ -57,7 +57,7 @@ export class TeamComponent implements OnInit {
       this.openModal('delete-team-modal');
     }
     else {
-      this.teamService.delete(this.teamSelected.id).subscribe(msg => {
+      this.teamService.delete(this.teamSelected.id).subscribe(() => {
         console.log(this.teamSelected.id);
         this.closeModal('delete-team-modal');
         this.getTeams();
@@ -72,8 +72,7 @@ export class TeamComponent implements OnInit {
     }
     else {
       const identification = this.authService.getIdentification();
-      this.memberService.put({team_id: this.teamSelected.id, user_id: identification}).subscribe(msg => {
-        console.log(msg);
+      this.memberService.put({team_id: this.teamSelected.id, user_id: identification}).subscribe(() => {
         this.closeModal('delete-user-modal');
         this.getTeams();
       });

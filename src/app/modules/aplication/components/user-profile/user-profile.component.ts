@@ -13,7 +13,7 @@ import { AuthService } from '../../../../services/authentication/auth.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  user: any;
+  user = {name: '', email: ''};
 
   constructor(
     private route: ActivatedRoute,
@@ -27,10 +27,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   getUser(): void {
-    const id = Number(this.authService.getIdentification());
-    this.userService.get(12).subscribe(user => {
-      this.user = user['data']
-      console.log(this.user)
+    const identification = this.authService.getIdentification();
+    this.userService.get(identification).subscribe(user => {
+      this.user.name = user['data'].name;
+      this.user.email = user['data'].email;
     });
   }
 
