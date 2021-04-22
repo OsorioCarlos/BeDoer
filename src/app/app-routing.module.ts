@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {notFoundComponent} from './modules/aplication/Shared/not-found/not-found.component';
+
 
 const routes: Routes = [
-  {path: '**', redirectTo: '', pathMatch: 'full'},
+  {path: '**', component: notFoundComponent, pathMatch: 'full'},
 ];
 
 @NgModule({

@@ -28,7 +28,8 @@ import {TokenInterceptorService} from '../../services/authentication/token-inter
     BoardTaskTeamComponent,
     NavbarComponent,
     TaskBoardComponent,
-    TaskComponent
+    TaskComponent,
+    // NotFoundComponent
   ],
   imports: [
     CommonModule,
