@@ -62,24 +62,4 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('password');
   }
 
-  alert(): void {
-    this.toastrService.success('Iniciando sesión en la aplicación', 'asdasd', {
-      timeOut: 1300,
-      progressBar: true
-    });
-
-    this.toastrService.error('everything is broken', 'Major Error', {
-      timeOut: 3000,
-    });
-
-    this.toastrService.info('everything is broken', 'Major Error', {
-      timeOut: 3000,
-    });
-
-    this.toastrService.warning('everything is broken', 'Major Error', {
-      timeOut: 3000,
-    });
-
-  }
-
 }
