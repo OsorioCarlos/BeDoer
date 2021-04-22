@@ -140,7 +140,7 @@
     border: 1px solid var(--general);
     box-shadow: 9px 9px 5px var(--we-shadow);
     width: 100%;
-    height: 550px;
+    height: 450px;
 }
 
 /* ----------- */
@@ -163,7 +163,7 @@
 
     .board-task-col3 {
         width: 100%;
-        height: 500px;
+        height: 350px;
     }
 }
 

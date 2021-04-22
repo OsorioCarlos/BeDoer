@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 /* -------------------
@@ -17,11 +17,12 @@ variables de color globales
   --we-purple-hover-light: rgb(158, 22, 56) ;
   --we-white: rgb(255,255,255);
   --we-zian: rgb(4, 93, 105);
-  --we-shadow: #e9ecef;
+  --we-shadow: #e0e2e4;
   --secundary: #26517C;
   --we-green: #064725;
   --we-green-hover: #0b6939;
   --we-red: #FB3830;
+
 }
 
 /* -------------------
