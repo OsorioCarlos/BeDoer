@@ -1,132 +1,176 @@
-/* -------------------------------------------- */
-/* Estilos botones */
-/* -------------------------------------------- */
-
-.we-btn-secundary{
-    border: var(--secundary) solid 2px;
-}
-
-.btn-block{
-    background-color: var(--general);
-    color: rgb(255, 255, 255);
-    border-color: var(--general)
-
-}
-
-
-
-/* -------------------------------------------- */
-/* Estilos tablas */
-/* -------------------------------------------- */
-
+/* ------------------ */
+/* Contenedor general */
+/* ------------------ */
 .member-details-container{
 margin: 0 auto;
 display: flex;
-width: 80%;
+width: 90%;
 }
 
 .member-details-col{
-display: flex;
-border: 1px solid var(--general);
-margin: 0 auto;
-width: 48%;
-align-content: center;
-margin-top: 30px;
-box-shadow: 9px 9px 5px var(--we-shadow);
+  display: flex;
+  border: 3px solid var(--general);
+  width: 50%;
+  margin: 35px 15px;
+  box-shadow: 9px 9px 1px var(--we-shadow);
 }
+
+/* ----------------- */
+/* imagen del equipo */
+/* ----------------- */
+.img-container{
+  border: 2px solid var(--we-white);
+  border-radius: 10px;
+  text-align:  center;
+}
+
+.img-container img{
+  margin: 5px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+/* ---------- */
+/* formulario */
+/* ---------- */
 
 .member-details-form{
-width: 500px;
-padding: 50px;
+  background: var(--general);
+  border-radius: 10px;
+  display: flex;
+  width: 100%;
+  margin: 30px;
 }
 
-.input-team-details{
-width:100%;
-margin-bottom: 10px;
-border-radius: 5px;
-padding: 10px;
-border: 1px solid var(--general);
-outline: none;
+form{
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
 }
 
-.input-team-details:focus{
-  border: 3px solid var(--general);
-  }
-
-textarea{
+.member-details-form input[type=name],[type=description]{
+  width: 100%;
   padding: 12px 20px;
+  margin: 8px 0;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
   resize: none;
+  cursor: pointer;
 }
 
-.we-btn-success{
-border: #40FB32 solid 2px;
-margin-bottom: 10px;
- width: 100%;
- background: var(--we-white);
- padding: 10px;
- border-radius: 5px;
- margin-top: 10px;
- cursor: pointer;
-
-}
-.we-btn-danger{
- border: #FB3830 solid 2px;
-width: 100%;
-background: var(--we-white);
-padding: 10px;
-border-radius: 5px;
-cursor: pointer;
+.member-details-form input[type=name]:focus ,[type=description]:focus{
+  box-shadow: 5px 5px 0px var(--we-purple-hover-light);
 }
 
-.we-btn-success:hover{
- background: #40FB32;
-color:var(--we-white) ;
- }
+/* ------------------------ */
+/* Estilos para los botones */
+/* ------------------------ */
 
- .we-btn-danger:hover{
-background: #FB3830;
-color: var(--we-white);
- }
+.we-btn-update{
+  background: #40FB32;
+  color: var(--we-white);
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.we-btn-update:active{
+  background: var(--general);
+}
+.we-btn-delete{
+  background: #FB3830;
+  color: var(--we-white);
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.we-btn-delete:active{
+  background: var(--general);
+}
+
+/* ----------------- */
+/*  lista de mis equipos */
+/* ----------------- */
+
+.my-team-list{
+  margin: 20px;
+  background: var(--general);
+  width: 100%;
+}
 
 h4{
-text-align: center;
-font-size: 30px;
+  margin: 20px;
+  text-align: center;
+  color: var(--we-white);
+  font-size: 30px;
+}
+/* ---------------------- */
+/* estilos para el scroll */
+/* ---------------------- */
+
+.content{
+  margin: 10px;
+  height: 350px;
+  border: 2px solid var(--we-white);
+	border-radius: 10px;
+	overflow-y: scroll;
 }
 
-.btn-block{
-background-color: var(--general);
- color: rgb(255, 255, 255);
- border-color: var(--general);
- width: 100%;
- padding: 10px;
- border-radius: 5px;
+.content::-webkit-scrollbar {
+   /* display: none;  */
+   background: var(--we-purple-hover-light);
+   border-radius: 0px 10px 10px 0px; 
 }
+
 
 ul{
-    list-style: none;
-    padding: 0;
-  }
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}
+
+li:hover{
+  background: rgb(231, 229, 229);
+}
+
+li{
+  display: flex;
+  background: var(--we-white);
+  justify-content: space-between;
+  margin: 5px;
+  border-radius: 10px;
+  padding: 8px;
+}
   
-  li:hover{
-    background: rgb(231, 229, 229);
-  }
-  li{
-    display: flex;
-    background: var(--we-white);
-    justify-content: space-between;
-    margin: 2px;
-    border-radius: 5px;
-    padding: 8px;
-  }
+svg{
+  padding: 2px;
+}
+
+
+/* estilo para le botón de agreagar miembro */
+
+.btn-block{
+  background-color: var(--we-purple-hover);
+  color: rgb(255, 255, 255);
+  border-color: var(--general);
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
   
-  
-  svg{
-    padding: 2px;
-  }
-.bi-x:hover{
-    border-radius: 5px;
-    background: var(--general);
-    color: var(--we-white);
+  .btn-block:hover{
+    background-color: var(--we-purple-hover-light);
   }
 
   @media(max-width: 1000px){
