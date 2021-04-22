@@ -35,14 +35,14 @@ export class AuthService {
       });
   }
 
-  login(data): any {
-    console.log(data);
-    this.http.post<any>(`${environment.API_URL}login`, {
+  login(data): void {
+    console.log(`en el servicio ${data}`);
+    this.http.post<any>(`${environment.API_URL}login/`, {
       email: data.email,
       password: data.password
     }).subscribe(
       res => {
-        console.log(res);
+        console.log('no se que paso' + res);
         localStorage.setItem('token', res.token);
         localStorage.setItem('identification', res.identification);
         this.router.navigate(['/app']);
