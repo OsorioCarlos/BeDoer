@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NOTIFICATIONS} from 'src/app/mockup.db';
 import {AuthService} from '../../../../services/authentication/auth.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,8 @@ export class NavbarComponent implements OnInit {
 
   notifications: string[];
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private toastrService: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -32,5 +34,9 @@ export class NavbarComponent implements OnInit {
 
   logout(): void{
     this.authService.logout();
+    this.toastrService.success('Esperamos verte de vuelta', 'Suerte.', {
+      timeOut: 1300,
+      progressBar: true
+    });
   }
 }

@@ -1,31 +1,36 @@
+<!--
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////// Tablero ////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
 <div class="board-task-container">
 
-  <!-- Primera columna buscador y categorias -->
-  <div class="board-task-col">
+  <!-- ////////////////////// filtros, barra de buscar y boton de categorias //////////////////////-->
+  <div class="container-filters">
     <!-- buscador -->
     <div class="board-buscardor">
       <form>
         <input type="text" name="" placeholder="Buscar...">
         <button id="buscador" type="button">
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg">
+               xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
-              d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                  d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
             <path fill-rule="evenodd"
-              d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                  d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
           </svg>
         </button>
       </form>
     </div>
 
-    <!-- botón para filtart por categorias -->
+    <!-- botón para filtar por categorias -->
     <div class="dropdown-container">
       <div class="dropdown">
         <button class="dropdown-btn" id="categories" type="button">Categorías
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-funnel-fill" fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg">
+               xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
-              d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z" />
+                  d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
           </svg>
         </button>
 
@@ -43,66 +48,67 @@
     </div>
   </div>
 
-  <!-- segunda categoria estados -->
-  <div class="board-task-col2">
-    <div class="board-nav-container" id="nav-tab">
-      <div class="states">
-        <a class="nav-link board-nav active" id="nav-not-state-tab" data-toggle="tab"
-          href="#nav-not-state" role="tab" aria-controls="nav-not-state" aria-selected="true">
-          NOT STATE <span class="badge badge-light ml-2"> {{ tasksToDo.length }} </span>
-        </a>
-        <a class="nav-link board-nav active" id="nav-todo-state-tab" data-toggle="tab"
-          href="#nav-todo-state" role="tab" aria-controls="nav-todo-state" aria-selected="true">
-          TO DO <span class="badge badge-light ml-2"> {{ tasksToDo.length }} </span>
-        </a>
-        <a class="nav-link board-nav active" id="nav-doing-state-tab" data-toggle="tab"
-          href="#nav-doing-state" role="tab" aria-controls="nav-doing-state" aria-selected="true">
-          DOING <span class="badge badge-light ml-2"> {{ tasksToDo.length }} </span>
-        </a>
-        <a class="nav-link board-nav active" id="nav-done-state-tab" data-toggle="tab"
-          href="#nav-done-state" role="tab" aria-controls="nav-done-state" aria-selected="true">
-          DONE <span class="badge badge-light ml-2"> {{ tasksToDo.length }} </span>
-        </a>
-      </div>
-      <div class="create-state-btn">
-        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="openModal('create-task-modal')">
-          Crear
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-          </svg>
-        </button>
-      </div>
+  <!-- ////////////////////// botones de estado de las categorias y crear //////////////////////-->
+  <div class="container-state">
+    <!-- contenedor de los botones de estados-->
+    <div class="states">
+      <a class="nav-link board-nav active" id="nav-not-state-tab" data-toggle="tab"
+         href="#nav-not-state" role="tab" aria-controls="nav-not-state" aria-selected="true">
+        NOT STATE <span class="badge badge-light ml-2"> {{ tasksToDo.length }} </span>
+      </a>
+      <a class="nav-link board-nav active" id="nav-todo-state-tab" data-toggle="tab"
+         href="#nav-todo-state" role="tab" aria-controls="nav-todo-state" aria-selected="true">
+        TO DO <span class="badge badge-light ml-2"> {{ tasksToDo.length }} </span>
+      </a>
+      <a class="nav-link board-nav active" id="nav-doing-state-tab" data-toggle="tab"
+         href="#nav-doing-state" role="tab" aria-controls="nav-doing-state" aria-selected="true">
+        DOING <span class="badge badge-light ml-2"> {{ tasksToDo.length }} </span>
+      </a>
+      <a class="nav-link board-nav active" id="nav-done-state-tab" data-toggle="tab"
+         href="#nav-done-state" role="tab" aria-controls="nav-done-state" aria-selected="true">
+        DONE <span class="badge badge-light ml-2"> {{ tasksToDo.length }} </span>
+      </a>
     </div>
-  </div>
-  <!-- tablero de tareas -->
-  <div class="board-task-col3">
-    <!-- AQUI VAN LAS TAREAS -->
-    <div *ngIf="data === null" class="alert alert-warning" role="alert">
-      No hay datos
+    <!-- boton para crear tareas -->
+    <div class="create-state-btn">
+      <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              (click)="openModal('create-task-modal')">
+        Crear
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
+             xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
+      </button>
     </div>
 
-    <div class="label-group">
+  </div>
+
+  <!-- ////////////////////// Tablero de tareas //////////////////////-->
+  <div class="board-container">
+    <!-- iamgen de noData => aparece cuando no hay datos -->
+    <div class="content" *ngIf="data === null">
+      <img src="assets/imagenes/noData.jpg">
+    </div>
+
+    <!-- tareas -->
+    <div class="task-container">
       <!-- Boton para abrir el modal-->
-      <button class="btn" id="btntarea-task" type="button">
+      <button class="task task-left" type="button">
         Tarea 1
       </button>
       <span>
-          <button class="btn" id="btntarea" type="button">
+          <button class="task task-right" type="button">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor"
                  xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd"
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
             </svg>
           </button>
         </span>
     </div>
 
   </div>
-
-
-
 
 
 </div>
@@ -173,10 +179,10 @@
       <h2>Crear Tarea</h2>
       <label for="task-title">Título</label><br>
       <input type="text" name="task-title" id="task-title" placeholder="" [(ngModel)]="taskTitle"
-      required><br>
+             required><br>
       <label for="task-description">Descripción</label><br>
       <textarea name="task-description" id="task-description" cols="30" rows="4" placeholder=""
-      [(ngModel)]="taskDescription"></textarea><br>
+                [(ngModel)]="taskDescription"></textarea><br>
       <label for="task-date">Fecha de vencimiento</label><br>
       <input type="date" name="task-date" id="task-date" placeholder="" [(ngModel)]="taskDate">
       <input type="submit" value="Crear" (click)="createTask()">
