@@ -15,20 +15,14 @@ export class UserProfileComponent implements OnInit {
 
   user = {name: '', email: ''};
 
-  constructor(
-    private route: ActivatedRoute,
-    private location: Location,
-    private userService: UserService,
-    private authService: AuthService,
-  ) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.getUser();
   }
 
   getUser(): void {
-    const identification = this.authService.getIdentification();
-    this.userService.get(identification).subscribe(user => {
+    this.userService.get().subscribe(user => {
       this.user.name = user['data'].name;
       this.user.email = user['data'].email;
     });

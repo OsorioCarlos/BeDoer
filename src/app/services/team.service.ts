@@ -14,12 +14,12 @@ export class TeamService {
 
   constructor(private http: HttpClient) { }
 
-  get(id: number){
-    return this.http.get(this.url + id);
+  get(){
+    return this.http.get(this.url);
   }
   
   post(team: any){
-    return this.http.post(this.url, {name: team.name, description: team.desciption, user_id: team.user_id});
+    return this.http.post(this.url, team);
   }
 
   put(team: any){

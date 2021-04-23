@@ -21,6 +21,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
 import {notFoundComponent} from './modules/aplication/Shared/not-found/not-found.component';
 import {ToastrModule} from 'ngx-toastr';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {ToastrModule} from 'ngx-toastr';
     TaskBoardModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot(),
   ],
   providers: [],

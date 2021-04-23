@@ -10,7 +10,6 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class NavbarComponent implements OnInit {
 
-  identification: number;
   notifications: string[];
 
   constructor(private authService: AuthService,
@@ -18,7 +17,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.identification = this.authService.getIdentification();
+  
   }
 
   getNotifications(): void {
