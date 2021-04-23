@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../../services/authentication/auth.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   private validateEmail = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
 
   constructor(private authService: AuthService,
-              private formBuilder: FormBuilder ) { }
+              private formBuilder: FormBuilder,
+              private toastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -31,6 +33,10 @@ export class LoginComponent implements OnInit {
   login(): void {
     console.log(this.loginForm.value);
     this.authService.login(this.loginForm.value);
+    this.toastrService.success('Iniciando, un momento por favor.', 'Sesión iniciada.', {
+      timeOut: 1300,
+      progressBar: true
+    });
     this.loginForm.reset();
   }
 

@@ -23,7 +23,7 @@ const routes: Routes = [
       { path: 'sugerencias', component: SuggestionsComponent},
       { path: 'tareas-equipo/:id', component: BoardTaskTeamComponent},
       { path: '', redirectTo: 'tareas', pathMatch: 'full'},
-    ], /* canActivate: [AuthGuard] */
+    ], canActivate: [AuthGuard]
   }
 ];
 
