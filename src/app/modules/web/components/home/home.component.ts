@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../../services/authentication/auth.service';
 import {map} from 'rxjs/operators';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +12,12 @@ export class HomeComponent implements OnInit {
 
   public disableButton = false;
   user = {
-    email: 'joel159@gmail.com',
+    email: 'joel@test.com',
     password: '1234567'
   };
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private toastrService: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -24,6 +26,10 @@ export class HomeComponent implements OnInit {
   autoLogin(): void {
     this.disableButton = true;
     this.authService.login(this.user);
+    this.toastrService.success('Iniciando, un momento por favor.', 'Sesión iniciada.', {
+      timeOut: 1300,
+      progressBar: true
+    });
   }
 
 }

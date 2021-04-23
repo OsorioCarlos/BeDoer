@@ -6,6 +6,8 @@ import { AuthService } from 'src/app/services/authentication/auth.service';
 import { MemberService } from 'src/app/services/member.service';
 import { TeamService } from '../../../../services/team.service';
 
+import { NgxSpinnerService } from "ngx-spinner";
+
 declare let $: any;
 
 @Component({
@@ -23,28 +25,34 @@ export class TeamComponent implements OnInit {
   teamName: string;
   teamDescription: string;
 
-  constructor(private teamService: TeamService, private authService: AuthService, private memberService: MemberService) { }
+  constructor(
+    private spinner: NgxSpinnerService,
+    private teamService: TeamService,
+    private memberService: MemberService
+  ) { }
 
   ngOnInit(): void {
     this.getTeams();
   }
 
   getTeams(): void {
-    const identification = this.authService.getIdentification();
-    this.teamService.get(identification).subscribe(teams => {
+    this.spinner.show();
+    this.teamService.get().subscribe(teams => {
       this.myTeams = teams['data']['my_teams'];
       this.otherTeams = teams['data']['other_teams'];
+      this.spinner.hide();
     });
   }
 
   createTeam(): void {
     let team =  {
       name: this.teamName,
-      description: this.teamDescription,
-      user_id: this.authService.getIdentification()
+      description: this.teamDescription
     }
+    this.spinner.show();
     this.teamService.post(team).subscribe( () => {
       this.closeModal('create-team-modal');
+      this.spinner.hide();
       this.getTeams();
     });
     this.teamName = '';
@@ -57,9 +65,11 @@ export class TeamComponent implements OnInit {
       this.openModal('delete-team-modal');
     }
     else {
-      this.teamService.delete(this.teamSelected.id).subscribe(msg => {
+      this.spinner.show();
+      this.teamService.delete(this.teamSelected.id).subscribe(() => {
         console.log(this.teamSelected.id);
         this.closeModal('delete-team-modal');
+        this.spinner.hide();
         this.getTeams();
       })
     }
@@ -71,10 +81,10 @@ export class TeamComponent implements OnInit {
       this.openModal('delete-user-modal');
     }
     else {
-      const identification = this.authService.getIdentification();
-      this.memberService.put({team_id: this.teamSelected.id, user_id: identification}).subscribe(msg => {
-        console.log(msg);
+      this.spinner.show();
+      this.memberService.put({team_id: this.teamSelected.id, user_id: 0}).subscribe(() => {
         this.closeModal('delete-user-modal');
+        this.spinner.hide();
         this.getTeams();
       });
     }

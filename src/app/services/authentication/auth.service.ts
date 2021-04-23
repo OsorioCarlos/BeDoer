@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
+import {ToastrService} from 'ngx-toastr';
 
 // import * as url from 'url';
 
@@ -13,7 +14,8 @@ export class AuthService {
   private headers: HttpHeaders;
 
   constructor(private http: HttpClient,
-              private router: Router) {
+              private router: Router,
+              private toastrService: ToastrService) {
   }
 
   register(data): any {
@@ -25,7 +27,6 @@ export class AuthService {
       res => {
         console.log(`${res}`);
         localStorage.setItem('token', res.token);
-        localStorage.setItem('identification', res.identification);
         this.router.navigate(['/app']);
       },
       err => {
@@ -44,7 +45,6 @@ export class AuthService {
       res => {
         console.log('no se que paso' + res);
         localStorage.setItem('token', res.token);
-        localStorage.setItem('identification', res.identification);
         this.router.navigate(['/app']);
       },
       err => {
@@ -66,15 +66,10 @@ export class AuthService {
         console.log(err);
       });
     localStorage.removeItem('token');
-    localStorage.removeItem('identification');
     this.router.navigate(['']);
   }
 
   getToken(): string {
     return localStorage.getItem('token');
-  }
-
-  getIdentification(): number {
-    return Number(localStorage.getItem('identification'));
   }
 }

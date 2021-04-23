@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CategoryService} from 'src/app/services/category.service';
 import {Task, I_Task} from '../../../../mockup.db';
 import {TaskService} from '../../../../services/task.service';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -31,10 +32,11 @@ export class BoardTaskComponent implements OnInit {
   categories: object = [];
 
   // -------------------------------------------------------------------------------
-  // Métodos del componente.
+  // Contructor e iniciador.
   // -------------------------------------------------------------------------------
   constructor(private categoryService: CategoryService,
-              private taskService: TaskService) {
+              private taskService: TaskService,
+              private toastrService: ToastrService) {
     this.getTasks();
   }
 
@@ -43,6 +45,11 @@ export class BoardTaskComponent implements OnInit {
     this.getCategories();
     // this.getTasks();
   }
+
+  // -------------------------------------------------------------------------------
+  // Métodos del componente.
+  // -------------------------------------------------------------------------------
+
 
   getCategories(): void {
     this.categoryService.get().subscribe(categories => {
@@ -79,9 +86,20 @@ export class BoardTaskComponent implements OnInit {
       res => {
         console.log(res.data);
         this.data = res.data;
+        if (res.data === null){
+          this.toastrService.info('¿Quieres crear una tarea?', 'Sin tareas.', {
+            disableTimeOut: true,
+            progressBar: true,
+            closeButton: true
+          });
+        }
       },
       error => {
         console.log(error);
+        this.toastrService.error('error', 'Sin tareas.', {
+          timeOut: 2000,
+          progressBar: true
+        });
       }
     );
 

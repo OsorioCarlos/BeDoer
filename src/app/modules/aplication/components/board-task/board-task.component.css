@@ -1,283 +1,291 @@
+/* --------------------------------------------------------- */
+/* Tablero */
+/* --------------------------------------------------------- */
 .board-task-container {
-    margin: 0 auto;
-    width: 90%;
+  margin: 0 auto;
+  width: 90%;
 }
 
 /* --------------------------------------------------------- */
-/* Contenedor que contiene el buscador y el botón categorias */
+/* filtros, barra de buscar y boton de categorias */
 /* --------------------------------------------------------- */
 
-.board-task-col {
-    display: flex;
-    flex-direction: row;
-    margin-top: 30px;
+.container-filters {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
 }
 
-/* ------------------------ */
 /* Estilos para el buscador */
-/* ------------------------ */
-
 .board-buscardor {
-    width: 50%;
-    border-radius: 10px;
+  width: 50%;
+  border-radius: 10px;
 }
 
 .board-buscardor form input {
-    width: 80%;
-    outline: none;
-    padding: 10px;
-    border-radius: 10px 0px 0px 10px;
-    border: 1px solid var(--general);
+  width: 80%;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  border: 1px solid var(--general);
 }
 
 .board-buscardor form button {
-    outline: none;
-    background: var(--general);
-    padding: 10px;
-    color: var(--we-white);
-    border-radius: 0px 10px 10px 0px;
-    border: 1px solid var(--general);
-    cursor: pointer;
+  outline: none;
+  background: var(--general);
+  padding: 10px;
+  color: var(--we-white);
+  border-radius: 0 10px 10px 0;
+  border: 1px solid var(--general);
+  cursor: pointer;
 }
 
 .board-buscardor form button:hover {
-    background: var(--we-purple-hover)
+  background: var(--we-purple-hover)
 }
 
-/* --------------------------------- */
-/* Estilos para el botón filtro categorias */
-/* --------------------------------- */
-
-.dropdown-btn {
-    background: var(--general);
-    color: var(--we-white);
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
+/* Botón para filtar por categorias */
 .dropdown {
-    position: relative;
-    background: var(--general);
-    border-radius: 10px;
-}
-
-.dropdown-content {
-    border-radius: 5px;
-    display: none;
-    position: absolute;
-    background-color: var(--general);
-    color: var(--we-white);
-    z-index: 1;
+  position: relative;
+  background: var(--general);
+  border-radius: 10px;
 }
 
 .dropdown:hover .dropdown-content {
-    background: var(--we-purple-hover);
-    display: flex;
-    flex-direction: column;
-    padding: 0px 30px;
+  background: var(--we-purple-hover);
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
 }
 
-/* ----------------------- */
-/* Estilos par los estados */
-/* ----------------------- */
-.board-task-col2{
-    margin-top: 15px;
+.dropdown-btn {
+  background: var(--general);
+  color: var(--we-white);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  cursor: pointer;
 }
 
-.board-nav-container {
-    display: flex;
+/* Categorías */
+.dropdown-content {
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  background-color: var(--general);
+  color: var(--we-white);
+  z-index: 1;
 }
 
-.board-nav-container .states a {
-    text-decoration: none;
-    padding: 9px;
-    border-top: 1px solid var(--general);
-    border-left: 1px solid var(--general);
+/* --------------------------------------------------------- */
+/* botones de estado de las categorias y crear */
+/* --------------------------------------------------------- */
+
+/* contenedor de los botones de estados */
+.container-state {
+  margin-top: 15px;
+  display: flex;
 }
 
-.board-nav-container .states a:hover {
-    background: var(--we-purple-hover);
-    color: var(--we-white);
+.states a {
+  text-decoration: none;
+  padding: 9px;
+  border-top: 1px solid var(--general);
+  border-left: 1px solid var(--general);
 }
 
-/* --------------------------------- */
-/* Estilos para el botón crear tarea */
-/* --------------------------------- */
-
-.board-nav-container .create-state-btn button {
-    background: var(--general);
-    color: var(--we-white);
-    padding: 10px;
-    margin-left: 10px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
+.states a:hover {
+  background: var(--we-purple-hover);
+  color: var(--we-white);
 }
 
-.board-nav-container .create-state-btn button:hover {
-    background: var(--we-purple-hover);
-    cursor: pointer;
-}
-
-/* -------------------------------------- */
 /* Estilos para el contador de las estados */
-/* -------------------------------------- */
-
 .board-nav span {
-    background-color: var(--orange);
-    color: var(--we-white);
-    border-radius: 50%;
+  background-color: var(--orange);
+  color: var(--we-white);
+  border-radius: 50%;
 }
 
-/* ----------------- */
-/* Tablero de las tareas */
-/* ----------------- */
-
-.board-task-col3 {
-    border: 1px solid var(--general);
-    box-shadow: 9px 9px 5px var(--we-shadow);
-    width: 100%;
-    height: 450px;
+/* boton para crear tareas */
+.create-state-btn button {
+  background: var(--general);
+  color: var(--we-white);
+  padding: 10px;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
 }
 
-/* ----------- */
+.create-state-btn button:hover {
+  background: var(--we-purple-hover);
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------- */
+/* Tablero de tareas */
+/* --------------------------------------------------------- */
+.board-container {
+  border: 1px solid var(--general);
+  box-shadow: 9px 9px 5px var(--we-shadow);
+  width: 100%;
+  height: 450px;
+}
+
+/* --------------------------------------------------------- */
 /* Media query */
-/* ----------- */
+/* --------------------------------------------------------- */
 
 @media (max-width: 1000px) {
-    .board-task-col {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    .board-buscardor {
-        width: 100%;
-        border-radius: 10px;
-    }
-    .dropdown-container {
-        width: 35%;
-    }
+  .container-filters {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 
-    .board-task-col3 {
-        width: 100%;
-        height: 350px;
-    }
+  .board-buscardor {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .dropdown-container {
+    width: 35%;
+  }
+
+  .board-container {
+    width: 100%;
+    height: 350px;
+  }
 }
 
 /* -------------------------------------------------------------------------------------------------- */
+/* Estilos para imagen de NoData */
+/* -------------------------------------------------------------------------------------------------- */
+.content {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
 
-/* propiedades del scroll */
+.content img {
+  height: 100%;
+  vertical-align: middle;
+}
 
 /* -------------------------------------------------------------------------------------------------- */
-
-.scroll {
-    overflow: auto;
-    height: 600px;
-}
-
-.scroll::-webkit-scrollbar {
-    border-right: 0;
-    border-top: 0;
-    border-bottom: 0;
-    border-left: var(--secundary) solid 1px;
-}
-
-.scroll::-webkit-scrollbar-thumb {
-    border-right: 0;
-    border-top: 0;
-    border-bottom: var(--secundary) solid 1px;
-    border-left: var(--secundary) solid 1px;
-    background: var(--navbar);
-}
-
-.scroll::-webkit-scrollbar-thumb:hover {
-    border-right: 0;
-    border-top: 0;
-    border-bottom: 0;
-    border-left: var(--secundary) solid 1px;
-    background: var(--navbar);
-}
-
-.scroll::-webkit-scrollbar:horizontal {
-    display: none;
-}
-
-
+/* Estilos para las tasks */
 /* -------------------------------------------------------------------------------------------------- */
-/* estilos de las tasks */
-/* -------------------------------------------------------------------------------------------------- */
+.task-container {
+  display: inline-block;
+}
 
 .task {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    width: 10rem;
-    /* text-decoration: none; */
-    background-color: #FFFFFF;
-    border-radius: 10px;
-}
-
-.task-left {
-    margin: 0;
-    display: inline-block;
-    text-decoration: none;
-    color: #0E3E70;
-    padding: 0.5rem;
-    width: 80%;
-    border: #0E3E70 solid 1.7px;
-    border-radius: 10px 0 0 10px;
-    font-weight: 500;
-}
-
-.task-left:hover {
-    background-color: #e9ecef;
-    color: #0E3E70;
-    cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid var(--general);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  cursor: pointer;
 }
 
 .task-right {
-    padding: 0;
-    margin: 0;
-    width: 18%;
-    border: none;
-    background-color: #FFFFFF;
-    color: #f6901b;
-    border: #0E3E70 solid 1.7px;
-    border-left: none;
-    border-radius: 0 10px 10px 0;
+  color: var(--general);
+  border-radius: 0 10px 10px 0;
 }
 
 .task-right:hover {
-    background-color: #E55E17;
-    color: #ffffff;
+  background-color: var(--we-purple-hover-light);
+  color: #ffffff;
 }
 
+.task-left {
+  border-radius: 10px 0 0 10px;
+  font-weight: lighter;
+  color: #131313;
+}
+
+.task-left:hover {
+  background-color: var(--we-purple-hover-light);
+  color: #ffffff;
+}
+
+
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////// ni idea si serviran o no ////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/
+
+/* -------------------------------------------------------------------------------------------------- */
+/* propiedades del scroll */
+/* -------------------------------------------------------------------------------------------------- */
+
+.scroll {
+  overflow: auto;
+  height: 600px;
+}
+
+.scroll::-webkit-scrollbar {
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: var(--secundary) solid 1px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  border-right: 0;
+  border-top: 0;
+  border-bottom: var(--secundary) solid 1px;
+  border-left: var(--secundary) solid 1px;
+  background: var(--navbar);
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: var(--secundary) solid 1px;
+  background: var(--navbar);
+}
+
+.scroll::-webkit-scrollbar:horizontal {
+  display: none;
+}
 
 /* -------------------------------------------------------------------------------------------------- */
 /* -------------------------------------- Estilos de ventanas modales ------------------------------- */
 /* -------------------------------------------------------------------------------------------------- */
 
 .we-modal-header {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .we-modal-footer {
-    border-top: none;
+  border-top: none;
 }
 
 .we-btn-danger {
-    border: #FB3830 solid 2px;
+  border: #FB3830 solid 2px;
 }
 
 .we-btn-success {
-    border: #40FB32 solid 2px;
+  border: #40FB32 solid 2px;
 }
 
 .we-btn-secundary {
-    border: var(--secundary) solid 2px;
+  border: var(--secundary) solid 2px;
 }
 
 
@@ -286,85 +294,85 @@
 /* -------------------------------------------------------------------------------------------------- */
 
 .we-form-group-tag {
-    width: 100%;
+  width: 100%;
 }
 
+
 .we-form-group-tag .we-form-control-tag {
-    width: 80%;
-    float: left;
-    border: var(--we-blue) solid 1px;
+  width: 80%;
+  float: left;
+  border: var(--we-blue) solid 1px;
 }
 
 .we-form-group-tag .we-btn-tag {
-    width: 20%;
-    float: right;
-    border: var(--we-blue) solid 1px;
+  width: 20%;
+  float: right;
+  border: var(--we-blue) solid 1px;
 }
-
 
 /*Estilo para tag list*/
 
 .we-form-control-tag {
-    width: 100%;
+  width: 100%;
 }
 
 .we-form-control-tag .we-btn-taglist {
-    width: 80%;
-    float: left;
-    border: var(--we-blue) solid 1px;
-    margin-bottom: 5px;
-    border-radius: 0px;
-    border-right: 0px;
-    text-align: left;
+  width: 80%;
+  float: left;
+  border: var(--we-blue) solid 1px;
+  margin-bottom: 5px;
+  border-radius: 0px;
+  border-right: 0px;
+  text-align: left;
 }
 
 .we-btn-close-taglist {
-    border: #FB3830 solid 1px;
-    color: #FB3830;
+  border: #FB3830 solid 1px;
+  color: #FB3830;
 }
 
 .we-btn-create-taglist {
-    background: var(--boton);
-    color: white;
-    margin-bottom: 10px;
+  background: var(--boton);
+  color: white;
+  margin-bottom: 10px;
 }
 
 .we-btn-edit-tag {
-    border: var(--we-blue) solid 1px;
-    margin-bottom: 10px;
-    width: 10%;
-    border-radius: 0px;
-    border-right: 0px;
-    border-left: 0px;
+  border: var(--we-blue) solid 1px;
+  margin-bottom: 10px;
+  width: 10%;
+  border-radius: 0px;
+  border-right: 0px;
+  border-left: 0px;
 }
 
 .we-btn-delete-tag {
-    border: var(--we-blue) solid 1px;
-    margin-bottom: 10px;
-    width: 10%;
-    border-radius: 0px;
-    border-left: 0px;
+  border: var(--we-blue) solid 1px;
+  margin-bottom: 10px;
+  width: 10%;
+  border-radius: 0px;
+  border-left: 0px;
 }
 
 .we-btn-edittag {
-    border: var(--we-blue) solid 1px;
-    border-radius: 0px;
-    width: 100%;
-    text-align: left;
-    margin-bottom: 10px;
+  border: var(--we-blue) solid 1px;
+  border-radius: 0px;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
 .we-btn-save-edittag {
-    width: 100%;
-    border-radius: 0px;
-    border: #40FB32 solid 1px;
-    color: #40FB32;
-    margin-bottom: 10px;
+  width: 100%;
+  border-radius: 0px;
+  border: #40FB32 solid 1px;
+  color: #40FB32;
+  margin-bottom: 10px;
 }
 
 .we-btn-cancel-edittag {
-    width: 100%;
-    border-radius: 0px;
-    border: #FB3830 solid 1px;
-    color: #FB3830;
+  width: 100%;
+  border-radius: 0px;
+  border: #FB3830 solid 1px;
+  color: #FB3830;
 }

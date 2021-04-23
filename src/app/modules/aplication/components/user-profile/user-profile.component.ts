@@ -13,24 +13,18 @@ import { AuthService } from '../../../../services/authentication/auth.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  user: any;
+  user = {name: '', email: ''};
 
-  constructor(
-    private route: ActivatedRoute,
-    private location: Location,
-    private userService: UserService,
-    private authService: AuthService,
-  ) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.getUser();
   }
 
   getUser(): void {
-    const id = Number(this.authService.getIdentification());
-    this.userService.get(12).subscribe(user => {
-      this.user = user['data']
-      console.log(this.user)
+    this.userService.get().subscribe(user => {
+      this.user.name = user['data'].name;
+      this.user.email = user['data'].email;
     });
   }
 

@@ -14,8 +14,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  get(id: number){
-    return this.http.get(this.url + id);
+  get(){
+    return this.http.get(this.url);
   }
 
   put(id: number, user: object){
