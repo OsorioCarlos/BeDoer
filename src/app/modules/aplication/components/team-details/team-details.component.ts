@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { MemberService } from 'src/app/services/member.service';
 import { TeamService } from 'src/app/services/team.service';
 import { UserService } from 'src/app/services/user.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-team-details',
@@ -25,6 +26,7 @@ export class TeamDetailsComponent implements OnInit {
   members: object[];
 
   constructor(
+    private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
@@ -45,6 +47,7 @@ export class TeamDetailsComponent implements OnInit {
   }
 
   getMembers(): void {
+    this.spinner.show();
     const id: number = Number(this.route.snapshot.paramMap.get('id'));
 
     this.memberService.get(id).subscribe(data => {
@@ -52,13 +55,16 @@ export class TeamDetailsComponent implements OnInit {
       this.team.name = data['data']['team'].name;
       this.team.description = data['data']['team'].description;
       this.members = data['data']['members'];
+      this.spinner.hide();
     });
   }
 
   addUser(): void {
+    this.spinner.show();
     this.memberService.post({team_id: this.team.id, user_email: this.userEmail}).subscribe(() => {
-      this.getMembers();
       this.closeModal('add-user-modal');
+      this.spinner.hide();
+      this.getMembers();
     });
     this.userEmail = '';
   }
@@ -69,15 +75,20 @@ export class TeamDetailsComponent implements OnInit {
       this.openModal('delete-user-modal');
     }
     else {
+      this.spinner.show();
       this.memberService.put({team_id: this.team.id, user_id: this.memberSelected.id}).subscribe(() => {
-        this.getMembers();
         this.closeModal('delete-user-modal');
+        this.spinner.hide();
+        this.getMembers();
       });
     }
   }
 
   updateTeam(): void {
-    this.teamService.put(this.team).subscribe();
+    this.spinner.show();
+    this.teamService.put(this.team).subscribe(() => {
+      this.spinner.hide();
+    });
   }
 
   deleteTeam(): void {
