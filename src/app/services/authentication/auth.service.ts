@@ -25,7 +25,6 @@ export class AuthService {
       password: data.password
     }).subscribe(
       res => {
-        console.log(`${res}`);
         localStorage.setItem('token', res.token);
         this.router.navigate(['/app']);
       },
@@ -43,7 +42,6 @@ export class AuthService {
       password: data.password
     }).subscribe(
       res => {
-        console.log('no se que paso' + res);
         localStorage.setItem('token', res.token);
         this.router.navigate(['/app']);
       },

@@ -11,11 +11,12 @@ import {SuggestionsComponent} from './components/suggestions/suggestions.compone
 import {BoardTaskTeamComponent} from './components/board-task-team/board-task-team.component';
 import {NavbarComponent} from './Shared/navbar/navbar.component';
 import {TaskBoardComponent} from './task-board.component';
-import {FormsModule} from '@angular/forms';
+
 import {TaskComponent} from './shared/task/task.component';
 import {AuthGuard} from '../../guards/auth.guard';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {TokenInterceptorService} from '../../services/authentication/token-interceptor.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {TokenInterceptorService} from '../../services/authentication/token-inter
   imports: [
     CommonModule,
     TaskBoardRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     AuthGuard,
