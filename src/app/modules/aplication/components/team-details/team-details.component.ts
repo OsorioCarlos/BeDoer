@@ -6,7 +6,6 @@ import { Location } from '@angular/common';
 // Servicios
 import { MemberService } from 'src/app/services/member.service';
 import { TeamService } from 'src/app/services/team.service';
-import { UserService } from 'src/app/services/user.service';
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
@@ -31,19 +30,11 @@ export class TeamDetailsComponent implements OnInit {
     private location: Location,
     private router: Router,
     private memberService: MemberService,
-    private teamService: TeamService,
-    private userService: UserService
+    private teamService: TeamService
   ) { }
 
   ngOnInit(): void {
-    this.getUser();
     this.getMembers();
-  }
-
-  getUser(): void {
-    this.userService.get().subscribe(user => {
-      this.leader = user['data'].id;
-    });
   }
 
   getMembers(): void {
@@ -54,6 +45,7 @@ export class TeamDetailsComponent implements OnInit {
       this.team.id = data['data']['team'].id;
       this.team.name = data['data']['team'].name;
       this.team.description = data['data']['team'].description;
+      this.leader = data['data']['team'].leader_id;
       this.members = data['data']['members'];
       this.spinner.hide();
     });

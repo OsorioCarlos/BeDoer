@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CategoryService} from 'src/app/services/category.service';
-import {Task, I_Task} from '../../../../mockup.db';
-import {TaskService} from '../../../../services/task.service';
 import {ToastrService} from 'ngx-toastr';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AplicationService} from '../../../../services/aplication/aplication.service';
 
 
 @Component({
@@ -15,61 +15,61 @@ export class BoardTaskComponent implements OnInit {
   // -------------------------------------------------------------------------------
   // Atributos de la clase.
   // -------------------------------------------------------------------------------
-
-  data;
-  edit = true;
-  tasks: I_Task[] = [];
-
-  editableTask: I_Task = new Task();
-  tasksToDo: I_Task[] = [];
-  tasksDoing: I_Task[] = [];
-  tasksDone: I_Task[] = [];
-
-  taskTitle: string;
-  taskDescription: string;
-  taskDate: Date;
-
+  public createTaskForm: FormGroup;
+  public editTaskForm: FormGroup;
+  public dataTasks;
+  public totalStates;
+  private idTask;
   categories: object = [];
 
   // -------------------------------------------------------------------------------
   // Contructor e iniciador.
   // -------------------------------------------------------------------------------
   constructor(private categoryService: CategoryService,
-              private taskService: TaskService,
-              private toastrService: ToastrService) {
-    this.getTasks();
+              private appService: AplicationService,
+              private toastrService: ToastrService,
+              private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
-    // this.tasks = fillTask(100);
+    this.createTaskForm = this.formBuilder.group({
+      title: ['', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(40)
+      ]],
+      description: [''],
+      expiration_date: ['']
+    });
+
+    this.editTaskForm = this.formBuilder.group({
+      title: ['', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(40)
+      ]],
+      description: [''],
+      expiration_date: ['']
+    });
     this.getCategories();
-    // this.getTasks();
+    this.getTasks(1);
   }
 
   // -------------------------------------------------------------------------------
   // Métodos del componente.
   // -------------------------------------------------------------------------------
-
-
   getCategories(): void {
-    this.categoryService.get().subscribe(categories => {
-      this.categories = categories['data'];
+    this.categoryService.get().subscribe(res => {
+      this.categories = res['data'];
     });
   }
 
-  createTask(): void {
-    console.log(this.taskTitle);
-    console.log(this.taskDescription);
-    console.log(this.taskDate);
-    this.closeModal('create-task-modal');
-  }
-
-  // -------------------------------------------------------------------------------
   // Métodos de lo modales.
-  // -------------------------------------------------------------------------------
   closeModal(name: string): void {
     const modal = document.getElementById(name);
     modal.style.display = 'none';
+    this.createTaskForm.reset();
+    this.editTaskForm.reset();
   }
 
   openModal(name: string): void {
@@ -77,16 +77,28 @@ export class BoardTaskComponent implements OnInit {
     modal.style.display = 'block';
   }
 
-  // -------------------------------------------------------------------------------
-  // Métodos CRUD de las tareas.
-  // -------------------------------------------------------------------------------
+  openEditModal(name: string, data): void {
+    const modal = document.getElementById(name);
+    modal.style.display = 'block';
 
-  getTasks(): void {
-    this.taskService.get(`get-user-task`).subscribe(
+    this.idTask = data.id;
+
+    this.editTaskForm.patchValue({
+      title: data.title,
+      description: data.description,
+      expiration_date: data.expiration_date,
+      state_id: data.state_id
+    });
+  }
+
+  // Métodos CRUD de las tareas.
+  getTasks(state): void {
+    this.appService.get(`user-tasks/index/${state}`).subscribe(
       res => {
-        console.log(res.data);
-        this.data = res.data;
-        if (res.data === null){
+        this.dataTasks = res.data;
+        console.log(this.dataTasks);
+        this.totalStates = res.totalStates;
+        if (res.data === null) {
           this.toastrService.info('¿Quieres crear una tarea?', 'Sin tareas.', {
             disableTimeOut: true,
             progressBar: true,
@@ -96,59 +108,61 @@ export class BoardTaskComponent implements OnInit {
       },
       error => {
         console.log(error);
-        this.toastrService.error('error', 'Sin tareas.', {
+        this.toastrService.error('error', 'Error con el servidor.', {
           timeOut: 2000,
           progressBar: true
         });
       }
     );
+  }
 
-
-    this.tasksToDo = [];
-    this.tasksDoing = [];
-    this.tasksDone = [];
-
-    for (const task of this.tasks) {
-      if (task.state === '1') {
-        this.tasksToDo.push(task);
-      } else if (task.state === '2') {
-        this.tasksDoing.push(task);
-      } else {
-        this.tasksDone.push(task);
+  createTask(): void {
+    console.log(this.createTaskForm.value);
+    this.appService.post('user-tasks', {
+      title: this.createTaskForm.value.title,
+      description: this.createTaskForm.value.description,
+      expiration_date: this.createTaskForm.value.expiration_date,
+      state_id: 1,
+    }).subscribe(
+      res => {
+        this.toastrService.success('', 'Tarea creada.', {
+          timeOut: 2000,
+          progressBar: true
+        });
+      },
+      error => {
+        console.log(error);
+        this.toastrService.error('error', 'Error con el servidor.', {
+          timeOut: 2000,
+          progressBar: true
+        });
       }
-    }
-
+    );
+    this.closeModal('create-task-modal');
   }
 
-  updateStateTask(task): void {
-    console.log(task);
-    if (task.state === '1') {
-      task.state = '2';
-      this.getTasks();
-    } else if (task.state === '2') {
-      task.state = '3';
-      this.getTasks();
-    } else {
-      task.state = '1';
-      this.getTasks();
-    }
-
+  editTask(): void {
+    this.appService.put(`tasks/${this.idTask}`, {
+      title: this.editTaskForm.value.title,
+      description: this.editTaskForm.value.description,
+      expiration_date: this.editTaskForm.value.expiration_date,
+      state_id: 1,
+    }).subscribe(
+      res => {
+        this.toastrService.success('', 'Tarea creada.', {
+          timeOut: 2000,
+          progressBar: true
+        });
+      },
+      error => {
+        console.log(error);
+        this.toastrService.error('Error con el servidor.', 'error', {
+          timeOut: 2000,
+          progressBar: true
+        });
+      }
+    );
+    this.idTask = undefined;
   }
-
-  updateStateDelete(task): void {
-    if (task.is_delete === false) {
-      task.is_delete = true;
-    }
-  }
-
-  // updateTask(task) {
-  //   let editableTask: Task = new Task();
-
-  //   editableTask.title = title;
-  //   editableTask.description = description;
-  //   editableTask.expiration_date = expiration_date;
-  //   editableTask.state = '1';
-
-  // }
 
 }

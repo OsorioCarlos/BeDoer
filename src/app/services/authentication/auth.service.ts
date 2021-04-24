@@ -13,10 +13,11 @@ export class AuthService {
 
   private headers: HttpHeaders;
 
-  constructor(private http: HttpClient,
-              private router: Router,
-              private toastrService: ToastrService) {
-  }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private toastrService: ToastrService
+  ) {}
 
   register(data): any {
     this.http.post<any>(`${environment.API_URL}register/`, {
@@ -25,7 +26,6 @@ export class AuthService {
       password: data.password
     }).subscribe(
       res => {
-        console.log(`${res}`);
         localStorage.setItem('token', res.token);
         this.router.navigate(['/app']);
       },
@@ -43,7 +43,6 @@ export class AuthService {
       password: data.password
     }).subscribe(
       res => {
-        console.log('no se que paso' + res);
         localStorage.setItem('token', res.token);
         this.router.navigate(['/app']);
       },

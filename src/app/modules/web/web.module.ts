@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 // modules
 import { WebRoutingModule } from './web-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 // components
 import {HomeComponent} from './components/home/home.component';
@@ -20,7 +20,8 @@ import {RegisterComponent} from './components/register/register.component';
   imports: [
     CommonModule,
     WebRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class WebModule { }
