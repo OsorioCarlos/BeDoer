@@ -1,3 +1,14 @@
+.background{
+  background: rgb(128,0,32);
+  background: linear-gradient(180deg, rgba(128,0,32,1) 10%, rgba(252,176,69,1) 100%);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: -10;
+
+}
+
 /* ------------------ */
 /* Contenedor general */
 /* ------------------ */
@@ -9,10 +20,10 @@ width: 90%;
 
 .member-details-col{
   display: flex;
-  border: 3px solid var(--general);
+  border: 3px solid var(--we-white);
+  border-radius: 10px;
   width: 50%;
   margin: 35px 15px;
-  box-shadow: 9px 9px 1px var(--we-shadow);
 }
 
 /* ----------------- */
@@ -36,7 +47,6 @@ width: 90%;
 /* ---------- */
 
 .member-details-form{
-  background: var(--general);
   border-radius: 10px;
   display: flex;
   width: 100%;
@@ -104,7 +114,6 @@ form{
 
 .my-team-list{
   margin: 20px;
-  background: var(--general);
   width: 100%;
 }
 
@@ -127,8 +136,7 @@ h4{
 }
 
 .content::-webkit-scrollbar {
-   /* display: none;  */
-   background: var(--we-purple-hover-light);
+   display: none;
    border-radius: 0px 10px 10px 0px; 
 }
 
