@@ -13,10 +13,11 @@ export class AuthService {
 
   private headers: HttpHeaders;
 
-  constructor(private http: HttpClient,
-              private router: Router,
-              private toastrService: ToastrService) {
-  }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private toastrService: ToastrService
+  ) {}
 
   register(data): any {
     this.http.post<any>(`${environment.API_URL}register/`, {
