@@ -80,7 +80,7 @@ form{
 /* ------------------------ */
 
 .we-btn-update{
-  background: #40FB32;
+  background: var(--we-green);
   color: var(--we-white);
   border: none;
   outline: none;
@@ -94,7 +94,7 @@ form{
   background: var(--general);
 }
 .we-btn-delete{
-  background: #FB3830;
+  background: var(--general);
   color: var(--we-white);
   border: none;
   outline: none;

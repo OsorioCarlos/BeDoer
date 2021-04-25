@@ -64,7 +64,7 @@
     <span class="pop-dialog-close" (click)="closeModal('add-user-modal')">&times;</span>
     <form>
       <h2>Invitar Usuario</h2>
-      <label for="search-user">Nombre</label><br>
+      <label for="search-user">Correo Electrónico</label><br>
       <input type="email" name="search-user" id="search-user" [(ngModel)]="userEmail" required><br>
       <input type="submit" value="Agregar" (click)="addUser()">
       <input type="reset" value="Cancelar" (click)="closeModal('add-user-modal')">
