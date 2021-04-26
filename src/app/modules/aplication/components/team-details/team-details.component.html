@@ -1,3 +1,5 @@
+<div class="background">
+</div>
 <!--Formulario para editar el equipo-->
 <div class="member-details-container">
   <div class="member-details-col">
@@ -49,7 +51,7 @@
             </li>
           </ul>
         </div>
-        <button type="button" class="btn-block" (click)="openModal('add-user-modal')">Agregar Miembro</button>
+        <button type="button" class="we-btn-add" (click)="openModal('add-user-modal')">Agregar Miembro</button>
       </div>
     </div>
   </div>
@@ -62,7 +64,7 @@
     <span class="pop-dialog-close" (click)="closeModal('add-user-modal')">&times;</span>
     <form>
       <h2>Invitar Usuario</h2>
-      <label for="search-user">Nombre</label><br>
+      <label for="search-user">Correo Electrónico</label><br>
       <input type="email" name="search-user" id="search-user" [(ngModel)]="userEmail" required><br>
       <input type="submit" value="Agregar" (click)="addUser()">
       <input type="reset" value="Cancelar" (click)="closeModal('add-user-modal')">

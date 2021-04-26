@@ -118,8 +118,8 @@ body {
 }
 
 .pop-dialog-content form input[type=reset]:hover {
-  border-color: var(--we-red);
-  background-color: var(--we-red);
+  border-color: var(--general);
+  background-color: var(--general);
   color: white;
 }
 
