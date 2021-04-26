@@ -50,7 +50,6 @@
 
   <!-- ////////////////////// botones de estado de las categorias y crear //////////////////////-->
   <div class="container-state">
-    <!-- contenedor de los botones de estados-->
     <div class="states">
       <a (click)="getTasks(1)">
         Sin estado <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksNotState }} </span>
@@ -59,23 +58,18 @@
         Por hacer
         <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksToDo }} </span>
       </a>
-<<<<<<< HEAD
-      <a class="nav-link board-nav active" (click)="getTasks(3)">
-        Haciendo <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksDoing }} </span>
-=======
       <a (click)="getTasks(3)">
-        Haciendo <span class="badge badge-light ml-2"  *ngIf="totalStates"> {{ totalStates.tasksDoing }} </span>
->>>>>>> 9bc38fa3c72379a476537b7a4ac6ac4544b3e86c
+        Haciendo <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksDoing }} </span>
       </a>
       <a (click)="getTasks(4)">
         Hecho <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksDone }} </span>
       </a>
     </div>
     <!-- boton para crear tareas -->
-    <br >
-    <br >
     <div class="create-state-btn">
-      <button type="button" (click)="openModal('create-task-modal')"> Crear
+      <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              (click)="openModal('create-task-modal')">
+        Crear
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
              xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"

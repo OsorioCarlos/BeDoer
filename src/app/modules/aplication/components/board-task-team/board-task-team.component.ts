@@ -18,12 +18,13 @@ export class BoardTaskTeamComponent implements OnInit {
    // -------------------------------------------------------------------------------
   // Atributos de la clase.
   // -------------------------------------------------------------------------------
+  public teamId;
+  public dataTasks;
+  public totalStates;
 
   taskTitle: string;
   taskDescription: string;
   taskDate: Date;
-  public dataTasks;
-  public totalStates;
   categories: object = [];
 
   // -------------------------------------------------------------------------------
@@ -41,6 +42,9 @@ export class BoardTaskTeamComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategories();
+    this.getTasks();
+    this.teamId = this.route.snapshot.paramMap.get('id');
+    console.log(this.teamId);
   }
 
   // -------------------------------------------------------------------------------
@@ -60,27 +64,28 @@ export class BoardTaskTeamComponent implements OnInit {
   }
 
   openModal(name: string): void {
-    let modal = document.getElementById(name);
+    const modal = document.getElementById(name);
     modal.style.display = 'block';
   }
 
   closeModal(name: string): void {
-    let modal = document.getElementById(name);
+    const modal = document.getElementById(name);
     modal.style.display = 'none';
   }
 
   // Métodos CRUD de las tareas.
-  getTasks(state): void {
-    this.appService.get(`user-tasks/index/${state}`).subscribe(
+  getTasks(): void {
+    this.appService.get(`team-tasks/${this.teamId}`).subscribe(
       res => {
         this.dataTasks = res.data;
-        console.log(this.dataTasks);
-        this.totalStates = res.totalStates;
-        if (res.data === null) {
-          this.toastrService.info('¿Quieres crear una tarea?', 'Sin tareas.', {
-            disableTimeOut: true,
+        // this.totalStates = res.totalStates;
+        console.log(res.data);
+        if (this.dataTasks.length === (0 || null)) {
+          this.toastrService.info('Has click en <strong>&quot;crear&quot;</strong> para crear una tarea', 'Sin tareas.', {
             progressBar: true,
-            closeButton: true
+            closeButton: true,
+            enableHtml: true,
+            timeOut: 4000
           });
         }
       },
