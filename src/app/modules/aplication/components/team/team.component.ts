@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { fillTeams } from 'src/app/mockup.db';
+import {Component, OnInit} from '@angular/core';
 
 /* Servicio*/
-import { AuthService } from 'src/app/services/authentication/auth.service';
-import { MemberService } from 'src/app/services/member.service';
-import { TeamService } from '../../../../services/team.service';
+import {MemberService} from 'src/app/services/member.service';
+import {TeamService} from '../../../../services/team.service';
 
-import { NgxSpinnerService } from "ngx-spinner";
+import {NgxSpinnerService} from 'ngx-spinner';
 
 declare let $: any;
 
@@ -29,7 +27,7 @@ export class TeamComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private teamService: TeamService,
     private memberService: MemberService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getTeams();
@@ -45,12 +43,12 @@ export class TeamComponent implements OnInit {
   }
 
   createTeam(): void {
-    let team =  {
+    let team = {
       name: this.teamName,
       description: this.teamDescription
-    }
+    };
     this.spinner.show();
-    this.teamService.post(team).subscribe( () => {
+    this.teamService.post(team).subscribe(() => {
       this.closeModal('create-team-modal');
       this.spinner.hide();
       this.getTeams();
@@ -63,24 +61,22 @@ export class TeamComponent implements OnInit {
     if (team) {
       this.teamSelected = team;
       this.openModal('delete-team-modal');
-    }
-    else {
+    } else {
       this.spinner.show();
       this.teamService.delete(this.teamSelected.id).subscribe(() => {
         console.log(this.teamSelected.id);
         this.closeModal('delete-team-modal');
         this.spinner.hide();
         this.getTeams();
-      })
+      });
     }
   }
-  
+
   deleteUser(team?: object): void {
     if (team) {
       this.teamSelected = team;
       this.openModal('delete-user-modal');
-    }
-    else {
+    } else {
       this.spinner.show();
       this.memberService.put({team_id: this.teamSelected.id, user_id: 0}).subscribe(() => {
         this.closeModal('delete-user-modal');

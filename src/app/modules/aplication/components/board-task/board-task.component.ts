@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CategoryService} from 'src/app/services/category.service';
 import {ToastrService} from 'ngx-toastr';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AplicationService} from '../../../../services/aplication/aplication.service';
 
 
@@ -17,7 +17,7 @@ export class BoardTaskComponent implements OnInit {
   // -------------------------------------------------------------------------------
   public createTaskForm: FormGroup;
   public editTaskForm: FormGroup;
-  public dataTasks;
+  public dataTasks = [];
   public totalStates;
   private idTask;
   categories: object = [];
@@ -39,7 +39,10 @@ export class BoardTaskComponent implements OnInit {
         Validators.maxLength(40)
       ]],
       description: [''],
-      expiration_date: ['']
+      expiration_date: [''],
+      state_id: ['', [
+        Validators.required
+      ]],
     });
 
     this.editTaskForm = this.formBuilder.group({
@@ -49,11 +52,18 @@ export class BoardTaskComponent implements OnInit {
         Validators.maxLength(40)
       ]],
       description: [''],
-      expiration_date: ['']
+      expiration_date: [''],
+      state_id: [''],
     });
     this.getCategories();
     this.getTasks(1);
   }
+
+  // -------------------------------------------------------------------------------
+  // Getter de registerForm.
+  // -------------------------------------------------------------------------------
+  get registerState_id(): AbstractControl { return this.createTaskForm.get('state_id'); }
+  get editState_id(): AbstractControl { return this.editTaskForm.get('state_id'); }
 
   // -------------------------------------------------------------------------------
   // Métodos del componente.
@@ -96,13 +106,14 @@ export class BoardTaskComponent implements OnInit {
     this.appService.get(`user-tasks/index/${state}`).subscribe(
       res => {
         this.dataTasks = res.data;
-        console.log(this.dataTasks);
         this.totalStates = res.totalStates;
-        if (res.data === null) {
-          this.toastrService.info('¿Quieres crear una tarea?', 'Sin tareas.', {
-            disableTimeOut: true,
+        console.log(res.data);
+        if (this.dataTasks.length === (0 || null)) {
+          this.toastrService.info('Has click en <strong>&quot;crear&quot;</strong> para crear una tarea', 'Sin tareas.', {
             progressBar: true,
-            closeButton: true
+            closeButton: true,
+            enableHtml: true,
+            timeOut: 4000
           });
         }
       },
@@ -122,7 +133,7 @@ export class BoardTaskComponent implements OnInit {
       title: this.createTaskForm.value.title,
       description: this.createTaskForm.value.description,
       expiration_date: this.createTaskForm.value.expiration_date,
-      state_id: 1,
+      state_id: this.createTaskForm.value.state_id,
     }).subscribe(
       res => {
         this.toastrService.success('', 'Tarea creada.', {
@@ -146,7 +157,7 @@ export class BoardTaskComponent implements OnInit {
       title: this.editTaskForm.value.title,
       description: this.editTaskForm.value.description,
       expiration_date: this.editTaskForm.value.expiration_date,
-      state_id: 1,
+      state_id: this.editTaskForm.value.state_id,
     }).subscribe(
       res => {
         this.toastrService.success('', 'Tarea creada.', {
@@ -162,7 +173,31 @@ export class BoardTaskComponent implements OnInit {
         });
       }
     );
+    this.closeModal('edit-task-modal');
+  }
+
+  deleteTask(): void {
+    this.appService.delete(`tasks/${this.idTask}`).subscribe(
+      res => {
+        console.log('entre a lo bueno');
+        this.toastrService.success('', 'Tarea eliminada.', {
+          timeOut: 2000,
+          progressBar: true
+        });
+      },
+        error => {
+        console.log('entre a lo malo');
+        console.log(error);
+        this.toastrService.error('Error con el servidor.', 'error al borrar', {
+          timeOut: 2000,
+          progressBar: true
+        });
+      }
+    );
+    this.closeModal('edit-task-modal');
+    this.closeModal('deleted-task-modal');
     this.idTask = undefined;
   }
+
 
 }
