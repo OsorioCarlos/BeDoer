@@ -83,7 +83,7 @@
   <!-- ////////////////////// Tablero de tareas //////////////////////-->
   <div class="board-container">
     <!-- iamgen de noData => aparece cuando no hay datos -->
-    <div class="content" *ngIf="dataTasks === null">
+    <div class="content" *ngIf="dataTasks.length === 0 || dataTasks === null">
       <img alt="el usuario no tiene tareas" src="assets/imagenes/noData.jpg">
     </div>
 
@@ -107,27 +107,7 @@
     </div>
 
   </div>
-
-
 </div>
-
-<!-- tablero de tareas -->
-<!--  <div class="tab-content board-task container-fluid text-center scroll" id="nav-tabContent"> -->
-
-<!-- contenedor de tareas en "tasksToDo" -->
-<!--     <div class="tab-pane fade show active" id="nav-to do-state" role="tabpanel" aria-labelledby="nav-todo-state-tab">
-      <div class="card-deck">
-        <div class="task mt-1 mb-1 mr-1 ml-1" *ngFor="let task of tasksToDo">
-          <a class="task-left" (click)="openEditModal(task);"> {{ task.title }} </a>
-          <button class="task-right" type="button" (click)="updateStateTask(task)">
-            <svg width="50%" height="50%" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg0">
-              <path fill-rule="evenodd"
-                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div> -->
 
 <!--
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -154,6 +134,19 @@
       <div>
         <label>Fecha de vencimiento</label><br>
         <input type="date" formControlName="expiration_date">
+      </div>
+      <div>
+        <label>Estado de la tarea.</label><br>
+        <input list="statesCreate" formControlName="state_id">
+        <datalist id="statesCreate">
+          <option value="1">Sin estado</option>
+          <option value="2">Por Hacer</option>
+          <option value="3">Haciendo</option>
+          <option value="4">Hecho</option>
+        </datalist>
+        <div *ngIf="registerState_id.invalid && (registerState_id.dirty || registerState_id.touched)" class="alert danger">
+          <li>Se requiere un estado.</li>
+        </div>
       </div>
       <div>
         <input type="submit" value="Crear">
@@ -183,8 +176,37 @@
         <input type="date" formControlName="expiration_date">
       </div>
       <div>
+        <label>Estado de la tarea.</label><br>
+        <input list="statesEdit" formControlName="state_id">
+        <datalist id="statesEdit">
+          <option value="1">Sin estado</option>
+          <option value="2">Por Hacer</option>
+          <option value="3">Haciendo</option>
+          <option value="4">Hecho</option>
+        </datalist>
+        <div *ngIf="editState_id.invalid && (editState_id.dirty || editState_id.touched)" class="alert danger">
+          <li>Se requiere un estado.</li>
+        </div>
+      </div>
+      <div>
         <input type="submit" value="Editar">
+        <input type="reset" value="Eliminar" (click)="openModal('deleted-task-modal');">
         <input type="reset" value="Cancelar" (click)="closeModal('edit-task-modal')">
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- modal para eliminar -->
+<div id="deleted-task-modal" class="pop-dialog">
+  <!-- Modal content -->
+  <div class="pop-dialog-content">
+    <span class="pop-dialog-close" (click)="closeModal('deleted-task-modal')">&times;</span>
+    <form>
+      <h2>¿Estas seguro de eliminar esta tarea?</h2>
+      <div>
+        <input type="submit" value="Eliminar" (click)="deleteTask()">
+        <input type="reset" value="Cancelar" (click)="closeModal('deleted-task-modal')">
       </div>
     </form>
   </div>
