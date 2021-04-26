@@ -59,13 +59,8 @@
         Por hacer
         <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksToDo }} </span>
       </a>
-<<<<<<< HEAD
-      <a class="nav-link board-nav active" (click)="getTasks(3)">
-        Haciendo <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksDoing }} </span>
-=======
       <a (click)="getTasks(3)">
         Haciendo <span class="badge badge-light ml-2"  *ngIf="totalStates"> {{ totalStates.tasksDoing }} </span>
->>>>>>> 9bc38fa3c72379a476537b7a4ac6ac4544b3e86c
       </a>
       <a (click)="getTasks(4)">
         Hecho <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksDone }} </span>
