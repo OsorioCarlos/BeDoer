@@ -32,7 +32,7 @@ body {
 .we-btn-primary {
   display: inline-block;
   border: none;
-  background: var(--opaque-orange);
+  background: var(--general);
   color: #FFF9F3;
 }
 
