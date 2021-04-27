@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 /* Servicio*/
 import {MemberService} from 'src/app/services/member.service';
 import {TeamService} from '../../../../services/team.service';
+import {ToastrService} from 'ngx-toastr';
 
 import {NgxSpinnerService} from 'ngx-spinner';
 
@@ -26,7 +27,9 @@ export class TeamComponent implements OnInit {
   constructor(
     private spinner: NgxSpinnerService,
     private teamService: TeamService,
-    private memberService: MemberService
+    private memberService: MemberService,
+    private toast: ToastrService
+
   ) {}
 
   ngOnInit(): void {
@@ -52,6 +55,12 @@ export class TeamComponent implements OnInit {
       this.closeModal('create-team-modal');
       this.spinner.hide();
       this.getTeams();
+    }, ()=>{
+      this.spinner.hide();
+      this.toast.error('Por favor llena el campo', 'campo vacio',{
+        timeOut: 2500,
+        progressBar: true
+      });
     });
     this.teamName = '';
     this.teamDescription = '';
