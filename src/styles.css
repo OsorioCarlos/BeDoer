@@ -14,9 +14,9 @@ body {
   --general: rgb(128, 0, 32);
   --orange: rgb(246, 144, 27);
   --opaque-orange: #E55E17;
-  --we-purple-hover: rgb(148, 5,41);
-  --we-purple-hover-light: rgb(158, 22, 56) ;
-  --we-white: rgb(255,255,255);
+  --we-purple-hover: rgb(148, 5, 41);
+  --we-purple-hover-light: rgb(158, 22, 56);
+  --we-white: rgb(255, 255, 255);
   --we-zian: rgb(4, 93, 105);
   --we-shadow: #e0e2e4;
   --secundary: #26517C;
@@ -40,6 +40,7 @@ body {
   color: #FFF9F3;
   box-shadow: 2px 2px 5px rgba(54, 53, 53, 0.5);
 }
+
 /* -------------------------------------------------------------------------------------------------- */
 /* ventanas modales */
 /* -------------------------------------------------------------------------------------------------- */
@@ -71,7 +72,7 @@ body {
   padding: 0 30px;
 }
 
-.pop-dialog-content form h2{
+.pop-dialog-content form h2 {
   color: var(--general);
 }
 
@@ -112,7 +113,7 @@ body {
   border: 3px solid var(--general);
 }
 
-.pop-dialog-content form input[type=submit]:hover{
+.pop-dialog-content form input[type=submit]:hover {
   background-color: var(--we-green-hover);
   color: white;
 }
@@ -141,7 +142,7 @@ body {
 /* Media query */
 /* ----------- */
 
-@media (max-width: 1000px){
+@media (max-width: 1000px) {
   .pop-dialog-content {
     width: 50%;
 

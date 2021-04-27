@@ -222,7 +222,7 @@
 }
 
 
-.alert{
+.alert {
   position: relative;
   padding: 1rem 1rem;
   margin-bottom: 1rem;
@@ -230,8 +230,10 @@
   border-radius: .25rem;
 }
 
-.danger{
+.danger {
   color: #842029;
   background-color: #f8d7da;
   border-color: #f5c2c7;
 }
+
+/* -------------------------------------------------------------------- */

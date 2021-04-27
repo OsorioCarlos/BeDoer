@@ -59,11 +59,7 @@
         <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksToDo }} </span>
       </a>
       <a (click)="getTasks(3)">
-<<<<<<< HEAD
         Haciendo <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksDoing }} </span>
-=======
-        Haciendo <span class="badge badge-light ml-2"  *ngIf="totalStates"> {{ totalStates.tasksDoing }} </span>
->>>>>>> 5a06d9aed75b365ecfd8abd4a30bb538d0bf1958
       </a>
       <a (click)="getTasks(4)">
         Hecho <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksDone }} </span>
@@ -94,11 +90,11 @@
     <div *ngIf="dataTasks != null">
       <div class="task-container" *ngFor="let task of dataTasks">
         <!-- Boton para abrir el modal-->
-        <a class="task task-left" type="button" (click)="openEditModal('edit-task-modal', task);">
+        <a class="task task-left" type="button" (click)="openModal('edit-task-modal', task);">
           {{ task.title }}
         </a>
         <span>
-          <a class="task task-right" type="button">
+          <a class="task task-right" type="button" (click)="openModal('change-state-task-modal')">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor"
                  xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd"
@@ -147,7 +143,8 @@
           <option value="3">Haciendo</option>
           <option value="4">Hecho</option>
         </datalist>
-        <div *ngIf="registerState_id.invalid && (registerState_id.dirty || registerState_id.touched)" class="alert danger">
+        <div *ngIf="registerState_id.invalid && (registerState_id.dirty || registerState_id.touched)"
+             class="alert danger">
           <li>Se requiere un estado.</li>
         </div>
       </div>
@@ -214,3 +211,4 @@
     </form>
   </div>
 </div>
+
