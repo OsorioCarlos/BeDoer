@@ -2,11 +2,13 @@
   <!-- navbar general de la web -->
   <nav class="navbar navbar-expand-lg navbar-light ">
     <div class="container-fluid">
-      <a class="navbar-brand" [routerLink]="'/'">BeDoer</a>
+      <a class="navbar-brand" [routerLink]="'/'"></a>
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link btn we-btn-primary ml-2" [routerLink]="['/login']" tabindex="-1" aria-disabled="true">Ingresar</a>
-          <button class="nav-link btn we-btn-primary ml-2" (click)="autoLogin();" [disabled]="disableButton">Auto Logeo</button>
+          <a class="nav-link btn we-btn-login-nav ml-2" [routerLink]="['/login']" tabindex="-1" aria-disabled="true">Ingresar</a>
+          <button class="nav-link btn we-btn-primary ml-2" (click)="autoLogin();" [disabled]="disableButton">Auto
+            Logeo
+          </button>
         </li>
       </ul>
     </div>
@@ -14,11 +16,12 @@
 
   <!-- body, descripcion del proyecto y formulario de registro -->
   <div class="container-fluid">
-    <div class="row">
+    <div class="row text-center">
       <div class="col">
-        <figure class="figure text-center">
-          <img src="https://www.tithink.com/wp-content/uploads/2018/05/practicas-desarollo-software.jpeg"
-               class="figure-img img-fluid rounded" alt="Imagen de desarrollo web">
+        <figure class="figure">
+          <img
+            src="https://image.freepik.com/vector-gratis/ilustracion-lista-verificacion-moderna_79603-146.jpg"
+            class="figure-img img-fluid rounded" alt="Imagen de desarrollo web">
         </figure>
         <h1 class="text-center">Motívate para alcanzar tus objetivos.</h1>
         <p class="text-center description-img">

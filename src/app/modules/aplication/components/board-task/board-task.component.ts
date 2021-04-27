@@ -62,8 +62,13 @@ export class BoardTaskComponent implements OnInit {
   // -------------------------------------------------------------------------------
   // Getter de registerForm.
   // -------------------------------------------------------------------------------
-  get registerState_id(): AbstractControl { return this.createTaskForm.get('state_id'); }
-  get editState_id(): AbstractControl { return this.editTaskForm.get('state_id'); }
+  get registerState_id(): AbstractControl {
+    return this.createTaskForm.get('state_id');
+  }
+
+  get editState_id(): AbstractControl {
+    return this.editTaskForm.get('state_id');
+  }
 
   // -------------------------------------------------------------------------------
   // Métodos del componente.
@@ -82,23 +87,20 @@ export class BoardTaskComponent implements OnInit {
     this.editTaskForm.reset();
   }
 
-  openModal(name: string): void {
-    const modal = document.getElementById(name);
-    modal.style.display = 'block';
-  }
-
-  openEditModal(name: string, data): void {
+  openModal(name: string, data?): void {
     const modal = document.getElementById(name);
     modal.style.display = 'block';
 
-    this.idTask = data.id;
+    if (data) {
+      this.idTask = data.id;
 
-    this.editTaskForm.patchValue({
-      title: data.title,
-      description: data.description,
-      expiration_date: data.expiration_date,
-      state_id: data.state_id
-    });
+      this.editTaskForm.patchValue({
+        title: data.title,
+        description: data.description,
+        expiration_date: data.expiration_date,
+        state_id: data.state_id
+      });
+    }
   }
 
   // Métodos CRUD de las tareas.
@@ -129,26 +131,34 @@ export class BoardTaskComponent implements OnInit {
 
   createTask(): void {
     console.log(this.createTaskForm.value);
-    this.appService.post('user-tasks', {
-      title: this.createTaskForm.value.title,
-      description: this.createTaskForm.value.description,
-      expiration_date: this.createTaskForm.value.expiration_date,
-      state_id: this.createTaskForm.value.state_id,
-    }).subscribe(
-      res => {
-        this.toastrService.success('', 'Tarea creada.', {
-          timeOut: 2000,
-          progressBar: true
-        });
-      },
-      error => {
-        console.log(error);
-        this.toastrService.error('error', 'Error con el servidor.', {
-          timeOut: 2000,
-          progressBar: true
-        });
-      }
-    );
+    if (this.createTaskForm.valid) {
+      this.appService.post('user-tasks', {
+        title: this.createTaskForm.value.title,
+        description: this.createTaskForm.value.description,
+        expiration_date: this.createTaskForm.value.expiration_date,
+        state_id: this.createTaskForm.value.state_id,
+      }).subscribe(
+        res => {
+          this.toastrService.success('', 'Tarea creada.', {
+            timeOut: 2000,
+            progressBar: true
+          });
+        },
+        error => {
+          console.log(error);
+          this.toastrService.error('error', 'Error con el servidor.', {
+            timeOut: 2000,
+            progressBar: true
+          });
+        }
+      );
+    } else {
+      this.toastrService.info('Rellene el formulario formularios', 'Sin datos.', {
+        timeOut: 2000,
+        progressBar: true
+      });
+    }
+
     this.closeModal('create-task-modal');
   }
 
@@ -160,7 +170,7 @@ export class BoardTaskComponent implements OnInit {
       state_id: this.editTaskForm.value.state_id,
     }).subscribe(
       res => {
-        this.toastrService.success('', 'Tarea creada.', {
+        this.toastrService.success('', 'Tarea editada.', {
           timeOut: 2000,
           progressBar: true
         });
@@ -185,7 +195,7 @@ export class BoardTaskComponent implements OnInit {
           progressBar: true
         });
       },
-        error => {
+      error => {
         console.log('entre a lo malo');
         console.log(error);
         this.toastrService.error('Error con el servidor.', 'error al borrar', {
@@ -198,6 +208,5 @@ export class BoardTaskComponent implements OnInit {
     this.closeModal('deleted-task-modal');
     this.idTask = undefined;
   }
-
 
 }
