@@ -241,4 +241,28 @@ export class BoardTaskTeamComponent implements OnInit {
     this.idTask = undefined;
     this.getTasks(this.stateTask);
   }
+
+  changeState(data, state): void {
+    this.appService.put('team-tasks/change-states', {
+      id: data.id,
+      state_id: state
+    }).subscribe(
+      res => {
+        console.log('entre a lo bueno');
+        this.toastrService.success('', 'Estado editado.', {
+          timeOut: 2000,
+          progressBar: true
+        });
+      },
+      error => {
+        console.log('entre a lo malo');
+        console.log(error);
+        this.toastrService.error('Error con el servidor.', 'error al editar estado', {
+          timeOut: 2000,
+          progressBar: true
+        });
+      }
+    );
+    this.getTasks(state);
+  }
 }

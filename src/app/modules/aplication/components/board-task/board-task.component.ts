@@ -23,7 +23,6 @@ export class BoardTaskComponent implements OnInit {
   public totalStates;
   private idTask;
   private stateTask;
-  public subcription: Subscription;
   categories: object = [];
 
   // -------------------------------------------------------------------------------
