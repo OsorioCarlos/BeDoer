@@ -3,9 +3,11 @@
   //////////////////////////////////////////////// Tablero ////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 -->
-<div class="board-task-container">
-  <!-- <div class="container-filters">
-    <div class="board-buscardor">
+<div class="we-container">
+  <div class="board-task-container">
+    <!-- ////////////////////// filtros, barra de buscar y boton de categorias //////////////////////-->    <div class="container-filters">
+    <!-- buscador -->
+    <!-- <div class="board-buscardor">
       <form>
         <input type="text" name="" placeholder="Buscar...">
         <button id="buscador" type="button">
@@ -18,17 +20,18 @@
           </svg>
         </button>
       </form>
-    </div>
-    <div class="dropdown-container">
-      <div class="dropdown">
-        <button class="dropdown-btn" id="categories" type="button">Categorías
+    </div> -->
+
+    <!-- botón para filtar por categorias -->
+    <!-- <div class="dropdown-container">
+      <div class="we-dropdown">
+        <button class="we-dropdown-btn" id="categories" type="button">Categorías
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-funnel-fill" fill="currentColor"
             xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
               d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z" />
           </svg>
         </button>
-
         <div>
           <div class="dropdown-content">
             <div *ngFor="let category of categories">
@@ -38,69 +41,85 @@
           </div>
         </div>
       </div>
-    </div>
-  </div> -->
-
-  <!-- ////////////////////// botones de estado de las categorias y crear //////////////////////-->
-  <div class="container-state">
-    <!-- contenedor de los botones de estados-->
-    <div class="states">
-      <a (click)="getTasks(1)">
-        Sin estado <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksNotState }} </span>
-      </a>
-      <a (click)="getTasks(2)">
-        Por hacer
-        <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksToDo }} </span>
-      </a>
-      <a (click)="getTasks(3)">
-        Haciendo <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksDoing }} </span>
-      </a>
-      <a (click)="getTasks(4)">
-        Hecho <span class="badge badge-light ml-2" *ngIf="totalStates"> {{ totalStates.tasksDone }} </span>
-      </a>
-    </div>
-    <!-- boton para crear tareas -->
-    <div class="create-state-btn">
-      <button type="button" (click)="openModal('create-task-modal')">
-        Crear
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-        </svg>
-      </button>
-    </div>
+    </div> -->
   </div>
 
-  <!-- ////////////////////// Tablero de tareas //////////////////////-->
-  <div class="board-container">
-    <!-- iamgen de noData => aparece cuando no hay datos -->
-    <div class="content" *ngIf="dataTasks.length === 0 || dataTasks === null">
-      <img alt="el usuario no tiene tareas" src="assets/imagenes/noData.jpg">
-    </div>
-
-    <!-- tareas -->
-    <div *ngIf="dataTasks != null">
-      <div class="task-container" *ngFor="let task of dataTasks">
-        <!-- Boton para abrir el modal-->
-        <!--        <a class="task task-left" type="button" (click)="openEditModal('edit-task-modal', task);">-->
-        <a class="task task-left" type="button" (click)="openModal('edit-task-modal', task);">
-          {{ task.title }}
+    <!-- ////////////////////// botones de estado de las categorias y crear //////////////////////-->
+    <div class="container-state">
+      <!-- contenedor de los botones de estados-->
+      <div class="states">
+        <a (click)="getTasks(1)">
+          Sin estado <span class="state-count" *ngIf="totalStates"> {{ totalStates.tasksNotState }} </span>
         </a>
-        <span>
-          <a class="task task-right" type="button">
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg">
+        <a (click)="getTasks(2)">
+          Por hacer
+          <span class="state-count" *ngIf="totalStates"> {{ totalStates.tasksToDo }} </span>
+        </a>
+        <a (click)="getTasks(3)">
+          Haciendo <span class="state-count" *ngIf="totalStates"> {{ totalStates.tasksDoing }} </span>
+        </a>
+        <a (click)="getTasks(4)">
+          Hecho <span class="state-count" *ngIf="totalStates"> {{ totalStates.tasksDone }} </span>
+        </a>
+      </div>
+      <!-- boton para crear tareas -->
+      <div class="create-state-btn">
+        <div class="states">
+          <button type="button" (click)="openModal('create-task-modal')"> Crear
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd"
-                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
             </svg>
-          </a>
-        </span>
+          </button>
+        </div>
       </div>
     </div>
 
-  </div>
+    <!-- ////////////////////// Tablero de tareas //////////////////////-->
+    <div class="scroll-board-container">
+      <!-- iamgen de noData => aparece cuando no hay datos -->
+      <div class="content" *ngIf="dataTasks.length === 0 || dataTasks === null">
+        <img alt="el usuario no tiene tareas" src="assets/imagenes/noData.jpg">
+      </div>
 
+      <!-- tareas -->
+      <div class="task-container" *ngIf="dataTasks != null">
+        <div class="task" *ngFor="let task of dataTasks">
+          <!-- Boton para abrir el modal-->
+          <a class="task-left" type="button" (click)="openModal('edit-task-modal', task);">
+            {{ task.title }}
+          </a>
+          <strong class="btn-change-state dropdown-change-state task-right">
+            <a  type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+              </svg>
+              <div class="dropdown-change-state-content text-left">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="state" id="notState" value="1" (click)="changeState(task, 1)">
+                  <label class="form-check-label" for="notState">Sin estado</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="state" id="to_do" value="2" (click)="changeState(task, 2)">
+                  <label class="form-check-label" for="to_do">Por hacer</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="state" id="doing" value="3" (click)="changeState(task, 3)">
+                  <label class="form-check-label" for="doing">Haciendo</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="state" id="done" value="4" (click)="changeState(task, 4)">
+                  <label class="form-check-label" for="done">Hecho</label>
+                </div>
+              </div>
+            </a>
+          </strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <!--

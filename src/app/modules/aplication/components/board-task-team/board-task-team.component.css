@@ -1,14 +1,19 @@
-/* --------------------------------------------------------- */
+.we-container{
+  position: absolute;
+  width: 100%;
+  z-index: -10;
+  overflow-y: auto;
+}
+
 /* Tablero */
-/* --------------------------------------------------------- */
 .board-task-container {
-  margin: 0 auto;
+  margin: 70px auto;
   width: 90%;
 }
 
-/* --------------------------------------------------------- */
+/* -----------------------------------------------*/
 /* filtros, barra de buscar y boton de categorias */
-/* --------------------------------------------------------- */
+/* -----------------------------------------------*/
 
 .container-filters {
   display: flex;
@@ -45,20 +50,20 @@
 }
 
 /* Botón para filtar por categorias */
-.dropdown {
+.we-dropdown {
   position: relative;
   background: var(--general);
   border-radius: 10px;
 }
 
-.dropdown:hover .dropdown-content {
+.we-dropdown:hover .dropdown-content {
   background: var(--we-purple-hover);
   display: flex;
   flex-direction: column;
-  padding: 0 30px;
+  padding: 0px 30px ;
 }
 
-.dropdown-btn {
+.we-dropdown-btn {
   background: var(--general);
   color: var(--we-white);
   border-radius: 5px;
@@ -84,38 +89,42 @@
 
 /* contenedor de los botones de estados */
 .container-state {
-  margin-top: 15px;
+  margin-top: 10px;
   display: flex;
 }
 
-.states a {
+.states{
+  display: flex;
   text-decoration: none;
-  padding: 9px;
-  border-top: 1px solid var(--general);
-  border-left: 1px solid var(--general);
 }
-
-.states a:hover {
-  background: var(--we-purple-hover);
+.states a{
+  padding: 10px;
+  cursor: pointer;
+  border: 2px solid var(--general);
+}
+.states a:hover{
+  background: var(--general);
   color: var(--we-white);
 }
 
 /* Estilos para el contador de las estados */
-.board-nav span {
-  background-color: var(--orange);
+.container-state .state-count {
+  background: var(--general);
   color: var(--we-white);
   border-radius: 50%;
+  padding: .375rem .75rem;
 }
 
 /* boton para crear tareas */
+
 .create-state-btn button {
   background: var(--general);
   color: var(--we-white);
   padding: 10px;
-  margin-left: 10px;
-  border: none;
+  margin-left: 20px;
+  border: solid var(--general);
   outline: none;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .create-state-btn button:hover {
@@ -123,41 +132,6 @@
   cursor: pointer;
 }
 
-/* --------------------------------------------------------- */
-/* Tablero de tareas */
-/* --------------------------------------------------------- */
-.board-container {
-  border: 1px solid var(--general);
-  box-shadow: 9px 9px 5px var(--we-shadow);
-  width: 100%;
-  height: 450px;
-}
-
-/* --------------------------------------------------------- */
-/* Media query */
-/* --------------------------------------------------------- */
-
-@media (max-width: 1000px) {
-  .container-filters {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .board-buscardor {
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  .dropdown-container {
-    width: 35%;
-  }
-
-  .board-container {
-    width: 100%;
-    height: 350px;
-  }
-}
 
 /* -------------------------------------------------------------------------------------------------- */
 /* Estilos para imagen de NoData */
@@ -177,12 +151,32 @@
 /* Estilos para las tasks */
 /* -------------------------------------------------------------------------------------------------- */
 .task-container {
-  display: inline-block;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
 }
 
-.task {
-  display: inline-block;
-  font-weight: 400;
+.task{
+  display: flex;
+  text-align: center;
+  width: 100%;
+}
+
+.task .task-left{
+  width: 70%;
+  margin: 10px 0px 10px 10px;
+  border: var(--general) solid ;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.task .task-right{
+  width: 30%;
+  margin: 10px 10px 10px 0px;
+}
+
+/* alguien me explica que hacia todo esto xD ATT: EL javi :v */
+
+/* .task {
   color: #212529;
   text-align: center;
   vertical-align: middle;
@@ -198,16 +192,12 @@
   border-radius: .25rem;
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   cursor: pointer;
-}
+} */
 
-.task-right {
-  color: var(--general);
+.task-right{
+  background: var(--general);
+  color: var(--we-white);
   border-radius: 0 10px 10px 0;
-}
-
-.task-right:hover {
-  background-color: var(--we-purple-hover-light);
-  color: #ffffff;
 }
 
 .task-left {
@@ -217,12 +207,12 @@
 }
 
 .task-left:hover {
-  background-color: var(--we-purple-hover-light);
-  color: #ffffff;
+  background-color: var(--we-purple-hover);
+  color: var(--we-white);
 }
 
 
-.alert{
+.alert {
   position: relative;
   padding: 1rem 1rem;
   margin-bottom: 1rem;
@@ -230,167 +220,112 @@
   border-radius: .25rem;
 }
 
-.danger{
+.danger {
   color: #842029;
   background-color: #f8d7da;
   border-color: #f5c2c7;
 }
 
 
-
-
-
-/*
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////// ni idea si serviran o no ////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-*/
-
 /* -------------------------------------------------------------------------------------------------- */
 /* propiedades del scroll */
 /* -------------------------------------------------------------------------------------------------- */
 
-.scroll {
-  overflow: auto;
-  height: 600px;
+.scroll-board-container {
+  border: var(--general) solid 2px;
+  margin: 10px auto;
+  overflow-y: visible;
+  height: 550px;
 }
 
-.scroll::-webkit-scrollbar {
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 0;
-  border-left: var(--secundary) solid 1px;
+.scroll-board-container::-webkit-scrollbar {
+  border-left: var(--general) solid 1px;
 }
 
-.scroll::-webkit-scrollbar-thumb {
-  border-right: 0;
-  border-top: 0;
-  border-bottom: var(--secundary) solid 1px;
-  border-left: var(--secundary) solid 1px;
-  background: var(--navbar);
+.scroll-board-container::-webkit-scrollbar-thumb {
+  border: var(--we-purple-hover) solid 1px;
+  background: var(--general);
 }
 
-.scroll::-webkit-scrollbar-thumb:hover {
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 0;
-  border-left: var(--secundary) solid 1px;
-  background: var(--navbar);
+/* -------------------------------------------------------------------------------------------------- */
+/* propiedades del dropdown btn de cambiar estado */
+/* -------------------------------------------------------------------------------------------------- */
+.dropdown-change-state{
+  position: relative;
+  display: inline-block;
 }
 
-.scroll::-webkit-scrollbar:horizontal {
+.dropdown-change-state-content {
   display: none;
+  position: absolute;
+  background: var(--we-purple-hover-light);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
 }
 
-/* -------------------------------------------------------------------------------------------------- */
-/* -------------------------------------- Estilos de ventanas modales ------------------------------- */
-/* -------------------------------------------------------------------------------------------------- */
-
-.we-modal-header {
-  border-bottom: none;
+.dropdown-change-state:hover .dropdown-change-state-content {
+  display: block;
 }
 
-.we-modal-footer {
-  border-top: none;
+/* --------------------------------------------------------- */
+/* Media query */
+/* --------------------------------------------------------- */
+
+@media (max-width: 1060px) {
+  .container-filters {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .board-buscardor {
+    width: 90%;
+  }
+
+  .dropdown-container {
+    width: 35%;
+  }
+
+  .board-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .container-state {
+    margin-top: 10px;
+    display: flex;
+  }
+
+  .states{
+    display: flex;
+    text-decoration: none;
+  }
+  .states a{
+    padding: 10px;
+    cursor: pointer;
+    border: 2px solid var(--general);
+  }
+  .states a:hover{
+    background: var(--general);
+    color: var(--we-white);
+  }
+  .container-state{
+    display: block;
+    text-align: center;
+  }
+  .create-state-btn{
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .task-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .scroll-board-container{
+    height: auto;
+  }
 }
 
-.we-btn-danger {
-  border: #FB3830 solid 2px;
-}
 
-.we-btn-success {
-  border: #40FB32 solid 2px;
-}
-
-.we-btn-secundary {
-  border: var(--secundary) solid 2px;
-}
-
-
-/* -------------------------------------------------------------------------------------------------- */
-/* Estilos para el crud de las etiquetas */
-/* -------------------------------------------------------------------------------------------------- */
-
-.we-form-group-tag {
-  width: 100%;
-}
-
-
-.we-form-group-tag .we-form-control-tag {
-  width: 80%;
-  float: left;
-  border: var(--we-blue) solid 1px;
-}
-
-.we-form-group-tag .we-btn-tag {
-  width: 20%;
-  float: right;
-  border: var(--we-blue) solid 1px;
-}
-
-/*Estilo para tag list*/
-
-.we-form-control-tag {
-  width: 100%;
-}
-
-.we-form-control-tag .we-btn-taglist {
-  width: 80%;
-  float: left;
-  border: var(--we-blue) solid 1px;
-  margin-bottom: 5px;
-  border-radius: 0px;
-  border-right: 0px;
-  text-align: left;
-}
-
-.we-btn-close-taglist {
-  border: #FB3830 solid 1px;
-  color: #FB3830;
-}
-
-.we-btn-create-taglist {
-  background: var(--boton);
-  color: white;
-  margin-bottom: 10px;
-}
-
-.we-btn-edit-tag {
-  border: var(--we-blue) solid 1px;
-  margin-bottom: 10px;
-  width: 10%;
-  border-radius: 0px;
-  border-right: 0px;
-  border-left: 0px;
-}
-
-.we-btn-delete-tag {
-  border: var(--we-blue) solid 1px;
-  margin-bottom: 10px;
-  width: 10%;
-  border-radius: 0px;
-  border-left: 0px;
-}
-
-.we-btn-edittag {
-  border: var(--we-blue) solid 1px;
-  border-radius: 0px;
-  width: 100%;
-  text-align: left;
-  margin-bottom: 10px;
-}
-
-.we-btn-save-edittag {
-  width: 100%;
-  border-radius: 0px;
-  border: #40FB32 solid 1px;
-  color: #40FB32;
-  margin-bottom: 10px;
-}
-
-.we-btn-cancel-edittag {
-  width: 100%;
-  border-radius: 0px;
-  border: #FB3830 solid 1px;
-  color: #FB3830;
-}
