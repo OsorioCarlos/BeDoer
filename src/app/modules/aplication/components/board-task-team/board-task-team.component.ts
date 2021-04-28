@@ -5,6 +5,7 @@ import {CategoryService} from '../../../../services/category.service';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
 import {AplicationService} from '../../../../services/aplication/aplication.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 declare let $: any;
 
@@ -39,6 +40,7 @@ export class BoardTaskTeamComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private location: Location,
+    private spinner: NgxSpinnerService
   ) {
     this.teamId = this.route.snapshot.paramMap.get('id');
   }
@@ -72,7 +74,7 @@ export class BoardTaskTeamComponent implements OnInit {
       ]]
     });
 
-    this.getCategories();
+    // this.getCategories();
     this.getTasks(1);
     console.log(this.teamId);
   }
@@ -80,11 +82,11 @@ export class BoardTaskTeamComponent implements OnInit {
   // -------------------------------------------------------------------------------
   // Métodos del componente.
   // -------------------------------------------------------------------------------
-  getCategories(): void {
-    this.categoryService.get().subscribe(res => {
-      this.categories = res['data'];
-    });
-  }
+  // getCategories(): void {
+  //   this.categoryService.get().subscribe(res => {
+  //     this.categories = res['data'];
+  //   });
+  // }
 
   // -------------------------------------------------------------------------------
   // Getter de registerForm.
@@ -127,10 +129,12 @@ export class BoardTaskTeamComponent implements OnInit {
   // CRUD del modal.
   // -------------------------------------------------------------------------------
   getTasks(state): void {
+    this.spinner.show();
     this.appService.get(`team-tasks/${this.teamId}/${state}`).subscribe(
       res => {
         this.dataTasks = res.data;
         this.totalStates = res.totalStates;
+        this.spinner.hide();
         if (this.dataTasks.length === (0 || null)) {
           this.toastrService.info('Has click en <strong>&quot;crear&quot;</strong> para crear una tarea', 'Sin tareas.', {
             progressBar: true,
@@ -142,6 +146,7 @@ export class BoardTaskTeamComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.spinner.hide();
         this.toastrService.error('error', 'Error con el servidor.', {
           timeOut: 2000,
           progressBar: true

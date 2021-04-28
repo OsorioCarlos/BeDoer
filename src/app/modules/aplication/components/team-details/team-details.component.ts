@@ -51,6 +51,9 @@ export class TeamDetailsComponent implements OnInit {
       this.leader = data['data']['team'].leader_id;
       this.members = data['data']['members'];
       this.spinner.hide();
+    }, () => {
+      this.spinner.hide();
+      this.router.navigate(['app/not-found']);
     });
   }
 

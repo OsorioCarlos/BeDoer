@@ -4,6 +4,7 @@ import {ToastrService} from 'ngx-toastr';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AplicationService} from '../../../../services/aplication/aplication.service';
 import {Subscription} from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -31,7 +32,8 @@ export class BoardTaskComponent implements OnInit {
   constructor(private categoryService: CategoryService,
               private appService: AplicationService,
               private toastrService: ToastrService,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private spinner: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
@@ -59,7 +61,7 @@ export class BoardTaskComponent implements OnInit {
       state_id: [''],
     });
 
-    this.getCategories();
+    // this.getCategories();
     this.getTasks(1);
   }
 
@@ -77,11 +79,11 @@ export class BoardTaskComponent implements OnInit {
   // -------------------------------------------------------------------------------
   // Métodos del componente.
   // -------------------------------------------------------------------------------
-  getCategories(): void {
-    this.categoryService.get().subscribe(res => {
-      this.categories = res['data'];
-    });
-  }
+  // getCategories(): void {
+  //   this.categoryService.get().subscribe(res => {
+  //     this.categories = res['data'];
+  //   });
+  // }
 
   // Métodos de lo modales.
   closeModal(name: string): void {
@@ -110,11 +112,13 @@ export class BoardTaskComponent implements OnInit {
 
   // Métodos CRUD de las tareas.
   getTasks(state): void {
+    this.spinner.show();
     this.appService.get(`user-tasks/index/${state}`).subscribe(
       res => {
         this.dataTasks = res.data;
         this.totalStates = res.totalStates;
         console.log(res.data);
+        this.spinner.hide();
         if (this.dataTasks.length === (0 || null)) {
           this.toastrService.info('Has click en <strong>&quot;crear&quot;</strong> para crear una tarea', 'Sin tareas.', {
             progressBar: true,
@@ -126,6 +130,7 @@ export class BoardTaskComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.spinner.hide();
         this.toastrService.error('error', 'Error con el servidor.', {
           timeOut: 2000,
           progressBar: true
