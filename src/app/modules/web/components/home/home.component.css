@@ -29,9 +29,18 @@ nav a{
 }
 
 /* boton de logeo*/
-.we-btn-login-nav{
-  display: inline-block;
+.login-btn{
   border: none;
   background: #e9e9ee;
   color: var(--general);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  outline: none;
+  cursor: pointer;
+}
+.login-btn:hover{
+  background: var(--we-purple-hover-light);
+  color: var(--we-white);
+
 }
