@@ -1,4 +1,4 @@
-.background{
+.we-container{
   background: rgb(128,0,32);
   background: linear-gradient(180deg, rgba(128,0,32,1) 10%, rgba(252,176,69,1) 100%);
   position: absolute;
@@ -6,39 +6,38 @@
   top: 0;
   bottom: 0;
   z-index: -10;
-
+  overflow-y: auto;
 }
-
 /* ------------------ */
 /* Contenedor general */
 /* ------------------ */
 .member-details-container{
-margin: 0 auto;
+margin: 70px auto;
 display: flex;
 width: 90%;
 }
 
 .member-details-col{
   display: flex;
-  border: 3px solid var(--we-white);
+  border: var(--we-white) 3px solid ;
   border-radius: 10px;
   width: 50%;
-  margin: 35px 15px;
+  margin: 20px;
 }
 
 /* ----------------- */
 /* imagen del equipo */
 /* ----------------- */
 .img-container{
-  border: 2px solid var(--we-white);
+  border: var(--we-white) 1px solid;
   border-radius: 10px;
   text-align:  center;
 }
 
 .img-container img{
   margin: 5px;
-  width: 180px;
-  height: 180px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
 }
 
@@ -50,7 +49,7 @@ width: 90%;
   border-radius: 10px;
   display: flex;
   width: 100%;
-  margin: 30px;
+  margin: 10px;
 }
 
 form{
@@ -187,15 +186,18 @@ svg{
   background-color: var(--general);
 }
 
-@media(max-width: 1000px){
+
+@media(max-width: 1060px){
+  .we-container{
+    bottom: auto;
+  }
+
   .member-details-container{
     display: block;
     }
 
   .member-details-col{
     width: 100%;
-    margin-top: 30px;
-    box-shadow: 9px 9px 5px var(--we-shadow);
   }
 
   .input-team-details{

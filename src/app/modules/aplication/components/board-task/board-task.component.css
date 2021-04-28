@@ -1,6 +1,13 @@
+.we-container{
+  position: absolute;
+  width: 100%;
+  z-index: -10;
+  overflow-y: auto;
+}
+
 /* Tablero */
 .board-task-container {
-  margin: 0 auto;
+  margin: 70px auto;
   width: 90%;
 }
 
