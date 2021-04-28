@@ -1,14 +1,12 @@
-/* --------------------------------------------------------- */
 /* Tablero */
-/* --------------------------------------------------------- */
 .board-task-container {
   margin: 0 auto;
   width: 90%;
 }
 
-/* --------------------------------------------------------- */
+/* -----------------------------------------------*/
 /* filtros, barra de buscar y boton de categorias */
-/* --------------------------------------------------------- */
+/* -----------------------------------------------*/
 
 .container-filters {
   display: flex;
@@ -45,20 +43,20 @@
 }
 
 /* Botón para filtar por categorias */
-.dropdown {
+.we-dropdown {
   position: relative;
   background: var(--general);
   border-radius: 10px;
 }
 
-.dropdown:hover .dropdown-content {
+.we-dropdown:hover .dropdown-content {
   background: var(--we-purple-hover);
   display: flex;
   flex-direction: column;
-  padding: 0 30px;
+  padding: 0px 30px ;
 }
 
-.dropdown-btn {
+.we-dropdown-btn {
   background: var(--general);
   color: var(--we-white);
   border-radius: 5px;
@@ -84,38 +82,41 @@
 
 /* contenedor de los botones de estados */
 .container-state {
-  margin-top: 15px;
+  margin-top: 10px;
   display: flex;
 }
 
-.states a {
+.states{
+  display: flex;
   text-decoration: none;
-  padding: 9px;
-  border-top: 1px solid var(--general);
-  border-left: 1px solid var(--general);
 }
-
-.states a:hover {
-  background: var(--we-purple-hover);
+.states a{
+  padding: 10px;
+  cursor: pointer;
+  border: 2px solid var(--general);
+}
+.states a:hover{
+  background: var(--general);
   color: var(--we-white);
 }
 
 /* Estilos para el contador de las estados */
-.board-nav span {
-  background-color: var(--orange);
+.container-state span {
+  background: var(--general);
   color: var(--we-white);
-  border-radius: 50%;
+  font-size: 15px;
 }
 
 /* boton para crear tareas */
+
 .create-state-btn button {
   background: var(--general);
   color: var(--we-white);
   padding: 10px;
-  margin-left: 10px;
-  border: none;
+  margin-left: 20px;
+  border: solid var(--general);
   outline: none;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .create-state-btn button:hover {
@@ -124,29 +125,17 @@
 }
 
 /* --------------------------------------------------------- */
-/* Tablero de tareas */
-/* --------------------------------------------------------- */
-.board-container {
-  border: 1px solid var(--general);
-  box-shadow: 9px 9px 5px var(--we-shadow);
-  width: 100%;
-  height: 450px;
-}
-
-/* --------------------------------------------------------- */
 /* Media query */
 /* --------------------------------------------------------- */
 
-@media (max-width: 1000px) {
+@media (max-width: 750px) {
   .container-filters {
     display: flex;
-    flex-direction: column;
-    width: 100%;
+    flex-direction: row;
   }
 
   .board-buscardor {
-    width: 100%;
-    border-radius: 10px;
+    width: 90%;
   }
 
   .dropdown-container {
@@ -155,7 +144,35 @@
 
   .board-container {
     width: 100%;
-    height: 350px;
+    height: auto;
+  }
+
+
+  .container-state {
+    margin-top: 10px;
+    display: flex;
+  }
+  
+  .states{
+    display: flex;
+    text-decoration: none;
+  }
+  .states a{
+    padding: 10px;
+    cursor: pointer;
+    border: 2px solid var(--general);
+  }
+  .states a:hover{
+    background: var(--general);
+    color: var(--we-white);
+  }
+  .container-state{
+    display: block;
+    text-align: center;
+  }
+  .create-state-btn{
+    margin-top: 10px;
+    width: 100%;
   }
 }
 
@@ -177,12 +194,19 @@
 /* Estilos para las tasks */
 /* -------------------------------------------------------------------------------------------------- */
 .task-container {
-  display: inline-block;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  margin: 10px;
+}
+.prueba-task{
+  display: flex;
+  margin: 10px;
 }
 
-.task {
-  display: inline-block;
-  font-weight: 400;
+.task-left{
+  width: 70%;
+  align-items: center;
   color: #212529;
   text-align: center;
   vertical-align: middle;
@@ -200,12 +224,49 @@
   cursor: pointer;
 }
 
-.task-right {
+span{
+  width: 30%;
+  align-items: center;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid var(--general);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  cursor: pointer;
+}
+
+/* .task {
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid var(--general);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  cursor: pointer;
+} */
+
+.span{
   color: var(--general);
   border-radius: 0 10px 10px 0;
 }
 
-.task-right:hover {
+span:hover {
   background-color: var(--we-purple-hover-light);
   color: #ffffff;
 }
@@ -218,8 +279,8 @@
 
 .task-left:hover {
   background-color: var(--we-purple-hover-light);
-  color: #ffffff;
-}
+  color: var(--we-white);
+} 
 
 
 .alert {
@@ -236,4 +297,31 @@
   border-color: #f5c2c7;
 }
 
-/* -------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------------------------------- */
+/* propiedades del scroll */
+/* -------------------------------------------------------------------------------------------------- */
+
+.scroll-board-container {
+  border: var(--general) solid 2px;
+  margin-top: 10px;
+  overflow: auto;
+  height: 500px;
+}
+
+.scroll-board-container::-webkit-scrollbar {
+  border: var(--general) solid 1px;
+}
+
+.scroll-board-container::-webkit-scrollbar-thumb {
+  border: var(--we-purple-hover) solid 1px;
+  background: var(--general);
+}
+
+.scroll-board-container::-webkit-scrollbar-thumb:hover {
+  border: var(--we-purple-hover-light) solid 1px;
+  background: var(--we-purple-hover-light);
+}
+
+
+

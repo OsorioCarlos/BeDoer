@@ -1,7 +1,6 @@
 <!-- UI de equipos -->
 <div class="team-container">
   <div class="team-col">
-
     <div class="team-header">
       <h4>Equipos creados por mi</h4>
       <div class="pruba">
@@ -15,34 +14,34 @@
         </button>
       </div>
     </div>
-
-    <br>
-
-    <ul>
-      <li *ngFor="let team of myTeams">
-        <div>
-          {{team.name}}
-        </div>
-        <div class="team-icon">
-          <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-kanban-fill" fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg" routerLink="/app/tareas-equipo/{{team.id}}">
-            <path fill-rule="evenodd"
-              d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-1z" />
-          </svg>
-          <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg" routerLink="/app/detalles-equipos/{{team.id}}">
-            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-            <path fill-rule="evenodd"
-              d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
-          </svg>
-          <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg" (click)="deleteTeam(team)">
-            <path fill-rule="evenodd"
-              d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
-          </svg>
-        </div>
-      </li>
-    </ul>
+    <br >
+    <div class="scroll-team">
+      <ul>
+        <li *ngFor="let team of myTeams">
+          <div>
+            {{team.name}}
+          </div>
+          <div class="team-icon">
+            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-kanban-fill" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg" routerLink="/app/tareas-equipo/{{team.id}}">
+              <path fill-rule="evenodd"
+                d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-1z" />
+            </svg>
+            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg" routerLink="/app/detalles-equipos/{{team.id}}">
+              <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+              <path fill-rule="evenodd"
+                d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+            </svg>
+            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg" (click)="deleteTeam(team)">
+              <path fill-rule="evenodd"
+                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
+            </svg>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <div class="team-col">
@@ -50,23 +49,25 @@
       <h4>Equipos a los que pertenezco</h4>
     </div>
     <br>
-    <ul>
-      <li *ngFor="let team of otherTeams">
-        <div class="p-2 flex-grow-1">{{team.name}}</div>
-        <div class="team-icon">
-          <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-kanban-fill" fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg" routerLink="/app/tareas-equipo/{{team.id}}">
-            <path fill-rule="evenodd"
-              d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-1z" />
-          </svg>
-          <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg" (click)="deleteUser(team)">
-            <path fill-rule="evenodd"
-              d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
-          </svg>
-        </div>
-      </li>
-    </ul>
+    <div class="scroll-team">
+      <ul>
+        <li *ngFor="let team of otherTeams">
+          <div class="p-2 flex-grow-1">{{team.name}}</div>
+          <div class="team-icon">
+            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-kanban-fill" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg" routerLink="/app/tareas-equipo/{{team.id}}">
+              <path fill-rule="evenodd"
+                d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-1z" />
+            </svg>
+            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg" (click)="deleteUser(team)">
+              <path fill-rule="evenodd"
+                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
+            </svg>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 

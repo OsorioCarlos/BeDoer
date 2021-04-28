@@ -127,17 +127,21 @@ h4{
 /* estilos para el scroll */
 /* ---------------------- */
 
-.content{
+.scroll-team-details{
   margin: 10px;
   height: 350px;
   border: 2px solid var(--we-white);
 	border-radius: 10px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
-.content::-webkit-scrollbar {
-   display: none;
-   border-radius: 0px 10px 10px 0px; 
+.scroll-team-details::-webkit-scrollbar {
+  border-left: var(--we-white) solid 1px;
+}
+
+.scroll-team-details::-webkit-scrollbar-thumb {
+  border: var(--we-white) solid 1px;
+  background: var(--general);
 }
 
 
