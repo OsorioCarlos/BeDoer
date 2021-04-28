@@ -22,7 +22,7 @@ export class BoardTaskComponent implements OnInit {
   public totalStates;
   private idTask;
   private stateTask;
-  public  subcription: Subscription;
+  public subcription: Subscription;
   categories: object = [];
 
   // -------------------------------------------------------------------------------
@@ -216,4 +216,26 @@ export class BoardTaskComponent implements OnInit {
     this.getTasks(this.stateTask);
   }
 
+  changeState(data, state): void {
+    this.appService.put('team-tasks/change-states', {
+      id: data.id,
+      state_id: state
+    }).subscribe(
+      res => {
+        console.log('entre a lo bueno');
+        this.toastrService.success('', 'Estado editado.', {
+          timeOut: 2000,
+          progressBar: true
+        });
+      },
+      error => {
+        console.log('entre a lo malo');
+        console.log(error);
+        this.toastrService.error('Error con el servidor.', 'error al editar estado', {
+          timeOut: 2000,
+          progressBar: true
+        });
+      }
+    );
+  }
 }
