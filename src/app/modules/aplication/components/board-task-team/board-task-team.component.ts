@@ -24,6 +24,7 @@ export class BoardTaskTeamComponent implements OnInit {
   public createTasksForm: FormGroup;
   public editTaskForm: FormGroup;
   private idTask;
+  private stateTask;
   taskDate: Date;
   categories: object = [];
 
@@ -105,6 +106,7 @@ export class BoardTaskTeamComponent implements OnInit {
 
     if (data) {
       this.idTask = data.id;
+      this.stateTask = data.state_id;
 
       this.editTaskForm.patchValue({
         title: data.title,
@@ -180,6 +182,7 @@ export class BoardTaskTeamComponent implements OnInit {
       });
     }
 
+    this.getTasks(this.createTasksForm.value.state_id);
     this.createTasksForm.reset();
     this.closeModal('create-task-modal');
   }
@@ -206,6 +209,7 @@ export class BoardTaskTeamComponent implements OnInit {
         });
       }
     );
+    this.getTasks(this.editTaskForm.value.state_id);
     this.closeModal('edit-task-modal');
   }
 
@@ -230,5 +234,6 @@ export class BoardTaskTeamComponent implements OnInit {
     this.closeModal('edit-task-modal');
     this.closeModal('deleted-task-modal');
     this.idTask = undefined;
+    this.getTasks(this.stateTask);
   }
 }
