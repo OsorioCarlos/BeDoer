@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../../services/authentication/auth.service';
 import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,9 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private formBuilder: FormBuilder,
-              private toastrService: ToastrService) { }
+              private toastrService: ToastrService,
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -32,17 +35,41 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     console.log(this.loginForm.value);
-    this.authService.login(this.loginForm.value);
-    this.toastrService.success('Iniciando, un momento por favor.', 'Sesión iniciada.', {
-      timeOut: 1300,
-      progressBar: true
+    this.authService.login('login/', {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password
+    }).subscribe(res => {
+      console.log(res);
+      if (res == null) {
+        this.toastrService.info('Usuario no encontrado.', 'Credenciales incorrectas', {
+          timeOut: 1300,
+          progressBar: true
+        });
+      } else {
+        this.toastrService.success('Iniciando, un momento por favor.', 'Sesión iniciada.', {
+          timeOut: 1300,
+          progressBar: true
+        });
+        localStorage.setItem('token', res.token);
+        this.router.navigate(['/app']);
+      }
+    }, error => {
+      console.log(error);
+      this.toastrService.error('', 'Error con el servidor', {
+        timeOut: 1300,
+        progressBar: true
+      });
     });
     this.loginForm.reset();
   }
 
   // getters del loginForm
-  get email(): AbstractControl { return this.loginForm.get('email'); }
+  get email(): AbstractControl {
+    return this.loginForm.get('email');
+  }
 
-  get password(): AbstractControl { return this.loginForm.get('password'); }
+  get password(): AbstractControl {
+    return this.loginForm.get('password');
+  }
 
 }

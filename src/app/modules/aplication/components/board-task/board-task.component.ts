@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CategoryService} from 'src/app/services/category.service';
 import {ToastrService} from 'ngx-toastr';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AplicationService} from '../../../../services/aplication/aplication.service';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -20,6 +21,8 @@ export class BoardTaskComponent implements OnInit {
   public dataTasks = [];
   public totalStates;
   private idTask;
+  private stateTask;
+  public  subcription: Subscription;
   categories: object = [];
 
   // -------------------------------------------------------------------------------
@@ -55,6 +58,7 @@ export class BoardTaskComponent implements OnInit {
       expiration_date: [''],
       state_id: [''],
     });
+
     this.getCategories();
     this.getTasks(1);
   }
@@ -93,6 +97,7 @@ export class BoardTaskComponent implements OnInit {
 
     if (data) {
       this.idTask = data.id;
+      this.stateTask = data.state_id;
 
       this.editTaskForm.patchValue({
         title: data.title,
@@ -158,7 +163,7 @@ export class BoardTaskComponent implements OnInit {
         progressBar: true
       });
     }
-
+    this.getTasks(this.createTaskForm.value.state_id);
     this.closeModal('create-task-modal');
   }
 
@@ -183,6 +188,7 @@ export class BoardTaskComponent implements OnInit {
         });
       }
     );
+    this.getTasks(this.editTaskForm.value.state_id);
     this.closeModal('edit-task-modal');
   }
 
@@ -207,6 +213,7 @@ export class BoardTaskComponent implements OnInit {
     this.closeModal('edit-task-modal');
     this.closeModal('deleted-task-modal');
     this.idTask = undefined;
+    this.getTasks(this.stateTask);
   }
 
 }
