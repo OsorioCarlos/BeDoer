@@ -129,7 +129,7 @@ export class BoardTaskTeamComponent implements OnInit {
   // CRUD del modal.
   // -------------------------------------------------------------------------------
   getTasks(state): void {
-    this.spinner.show()
+    this.spinner.show();
     this.appService.get(`team-tasks/${this.teamId}/${state}`).subscribe(
       res => {
         this.dataTasks = res.data;
