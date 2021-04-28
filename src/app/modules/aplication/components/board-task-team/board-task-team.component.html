@@ -4,17 +4,17 @@
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 -->
 <div class="board-task-container">
-  <div class="container-filters">
+  <!-- <div class="container-filters">
     <div class="board-buscardor">
       <form>
         <input type="text" name="" placeholder="Buscar...">
         <button id="buscador" type="button">
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
-               xmlns="http://www.w3.org/2000/svg">
+            xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
-                  d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+              d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
             <path fill-rule="evenodd"
-                  d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+              d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
           </svg>
         </button>
       </form>
@@ -23,13 +23,12 @@
       <div class="dropdown">
         <button class="dropdown-btn" id="categories" type="button">Categorías
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-funnel-fill" fill="currentColor"
-               xmlns="http://www.w3.org/2000/svg">
+            xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd"
-                  d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+              d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z" />
           </svg>
         </button>
 
-        <!--Categorías-->
         <div>
           <div class="dropdown-content">
             <div *ngFor="let category of categories">
@@ -40,7 +39,8 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+  
   <!-- ////////////////////// botones de estado de las categorias y crear //////////////////////-->
   <div class="container-state">
     <!-- contenedor de los botones de estados-->
@@ -64,9 +64,9 @@
       <button type="button" (click)="openModal('create-task-modal')">
         Crear
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor"
-             xmlns="http://www.w3.org/2000/svg">
+          xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
-                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
         </svg>
       </button>
     </div>
@@ -90,9 +90,9 @@
         <span>
           <a class="task task-right" type="button">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor"
-                 xmlns="http://www.w3.org/2000/svg">
+              xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd"
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
             </svg>
           </a>
         </span>
@@ -110,8 +110,32 @@
 -->
 
 <!-- Modal de la Tarea-->
+<<<<<<< HEAD
+<!--<div class="modal fade" id="tarea" data-backdrop="static" data-keyboard="false" tabindex="-1"-->
+<!--     aria-labelledby="staticBackdropLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="container ">-->
+<!--        <div class="modal-body text-center">-->
+<!--          <h4>-->
+<!--            <u>Nombre de la tarea?</u>-->
+<!--          </h4>-->
+<!--          <p class="font-wight-light text-justify">-->
+<!--            Aqui va el formulario con el contenido de la tarea del usuario-->
+<!--          </p>-->
+<!--          <div class="container text-center">-->
+<!--            <button class="btn btn-outline-warning colorName3" type="button">Editar</button>-->
+<!--            <button class="btn btn-outline-warning colorName3" type="button">Cancelar</button>-->
+<!--            <button class="btn btn-outline-warning colorName3" type="button">Borrar</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+=======
 <div class="modal fade" id="tarea" data-backdrop="static" data-keyboard="false" tabindex="-1"
-     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="container ">
@@ -132,6 +156,7 @@
     </div>
   </div>
 </div>
+>>>>>>> 45e15a970fdbbedbf22588d6c98413b44ae8f4a2
 
 
 <!-- modal para crear usuario -->
@@ -164,7 +189,7 @@
           <option value="4">Hecho</option>
         </datalist>
         <div *ngIf="registerState_id.invalid && (registerState_id.dirty || registerState_id.touched)"
-             class="alert danger">
+          class="alert danger">
           <li>Se requiere un estado.</li>
         </div>
       </div>
