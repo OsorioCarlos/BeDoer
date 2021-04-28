@@ -49,17 +49,17 @@
       <!-- contenedor de los botones de estados-->
       <div class="states">
         <a (click)="getTasks(1)">
-          Sin estado <span *ngIf="totalStates"> {{ totalStates.tasksNotState }} </span>
+          Sin estado <span class="state-count" *ngIf="totalStates"> {{ totalStates.tasksNotState }} </span>
         </a>
         <a (click)="getTasks(2)">
           Por hacer
-          <span *ngIf="totalStates"> {{ totalStates.tasksToDo }} </span>
+          <span class="state-count" *ngIf="totalStates"> {{ totalStates.tasksToDo }} </span>
         </a>
         <a (click)="getTasks(3)">
-          Haciendo <span *ngIf="totalStates"> {{ totalStates.tasksDoing }} </span>
+          Haciendo <span class="state-count" *ngIf="totalStates"> {{ totalStates.tasksDoing }} </span>
         </a>
         <a (click)="getTasks(4)">
-          Hecho <span *ngIf="totalStates"> {{ totalStates.tasksDone }} </span>
+          Hecho <span class="state-count" *ngIf="totalStates"> {{ totalStates.tasksDone }} </span>
         </a>
       </div>
       <!-- boton para crear tareas -->

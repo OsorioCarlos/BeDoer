@@ -108,9 +108,10 @@
 }
 
 /* Estilos para el contador de las estados */
-.container-state span {
+.container-state .state-count {
   background: var(--general);
   color: var(--we-white);
+  border-radius: 50%;
   font-size: 15px;
 }
 
