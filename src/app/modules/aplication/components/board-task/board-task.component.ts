@@ -242,5 +242,6 @@ export class BoardTaskComponent implements OnInit {
         });
       }
     );
+    this.getTasks(state);
   }
 }
