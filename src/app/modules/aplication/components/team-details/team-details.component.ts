@@ -6,7 +6,8 @@ import { Location } from '@angular/common';
 // Servicios
 import { MemberService } from 'src/app/services/member.service';
 import { TeamService } from 'src/app/services/team.service';
-import { NgxSpinnerService } from "ngx-spinner";
+import { NgxSpinnerService } from 'ngx-spinner';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-team-details',
@@ -22,10 +23,11 @@ export class TeamDetailsComponent implements OnInit {
   leader: number;
   
   userEmail: string;
-  members: object[];
+  members: any[];
 
   constructor(
     private spinner: NgxSpinnerService,
+    private toast: ToastrService,
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
@@ -52,13 +54,33 @@ export class TeamDetailsComponent implements OnInit {
   }
 
   addUser(): void {
-    this.spinner.show();
-    this.memberService.post({team_id: this.team.id, user_email: this.userEmail}).subscribe(() => {
-      this.closeModal('add-user-modal');
-      this.spinner.hide();
-      this.getMembers();
+    let userRepeted: boolean = false;
+    this.members.find(member => {
+      if (member.email == this.userEmail) userRepeted = true;
     });
-    this.userEmail = '';
+
+    if (userRepeted) {
+      this.toast.error('El usuario que desea agregar ya está en su equipo', 'Usuario duplicado', {
+        timeOut: 2500,
+        progressBar: true
+      });
+    } else {
+      this.spinner.show();
+      this.memberService.post({team_id: this.team.id, user_email: this.userEmail}).subscribe(()=> {
+        // Petición completada
+        this.closeModal('add-user-modal');
+        this.spinner.hide();
+        this.getMembers();
+      }, () => {
+        // Error en la petición
+        this.spinner.hide();
+        this.toast.error('El correo que has ingresado es incorrecto o no existe', 'Correo inválido', {
+          timeOut: 2500,
+          progressBar: true
+        });
+      });
+      this.userEmail = '';
+    }
   }
 
   deleteUser(member?: object): void {
