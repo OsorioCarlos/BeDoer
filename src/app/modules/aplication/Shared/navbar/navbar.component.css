@@ -7,8 +7,6 @@ nav {
     background-color: var(--general);
     justify-content: space-between;
     padding: 10px;
-    /* borrar esto despues :) */
-    border-bottom: var(--we-white) solid 1px;
 }
 
 nav .nav-item{

@@ -8,8 +8,8 @@
           <img src="./../../../../../assets/imagenes/ex-image.png">
         </div>
         <div>
-          <input type="name"   [(ngModel)]="team.name" [ngModelOptions]="{standalone: true}">
-          <textarea type="description"  rows="5" [(ngModel)]="team.description" [ngModelOptions]="{standalone: true}">{{team.description}}</textarea>
+            <input  type="name"   [(ngModel)]="team.name" [ngModelOptions]="{standalone: true}">
+            <textarea type="description"  rows="5" [(ngModel)]="team.description" [ngModelOptions]="{standalone: true}">{{team.description}}</textarea>
           <button type="button" class="we-btn-update" (click)="updateTeam()">Actualizar</button>
           <button type="button" class="we-btn-delete" (click)="openModal('delete-team-modal')">Eliminar Equipo</button>
         </div>

@@ -112,7 +112,7 @@
   background: var(--general);
   color: var(--we-white);
   border-radius: 50%;
-  font-size: 15px;
+  padding: .375rem .75rem;
 }
 
 /* boton para crear tareas */
@@ -132,11 +132,148 @@
   cursor: pointer;
 }
 
+
+/* -------------------------------------------------------------------------------------------------- */
+/* Estilos para imagen de NoData */
+/* -------------------------------------------------------------------------------------------------- */
+.content {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.content img {
+  height: 100%;
+  vertical-align: middle;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* Estilos para las tasks */
+/* -------------------------------------------------------------------------------------------------- */
+.task-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.task{
+  display: flex;
+  text-align: center;
+  width: 100%;
+}
+
+.task .task-left{
+  width: 70%;
+  margin: 10px 0px 10px 10px;
+  border: var(--general) solid ;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.task .task-right{
+  width: 30%;
+  margin: 10px 10px 10px 0px;
+}
+
+/* alguien me explica que hacia todo esto xD ATT: EL javi :v */
+
+/* .task {
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid var(--general);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  cursor: pointer;
+} */
+
+.task-right{
+  background: var(--general);
+  color: var(--we-white);
+  border-radius: 0 10px 10px 0;
+}
+
+.task-left {
+  border-radius: 10px 0 0 10px;
+  font-weight: lighter;
+  color: #131313;
+}
+
+.task-left:hover {
+  background-color: var(--we-purple-hover);
+  color: var(--we-white);
+}
+
+
+.alert {
+  position: relative;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+
+.danger {
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+}
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* propiedades del scroll */
+/* -------------------------------------------------------------------------------------------------- */
+
+.scroll-board-container {
+  border: var(--general) solid 2px;
+  margin: 10px auto;
+  overflow-y: visible;
+  height: 550px;
+}
+
+.scroll-board-container::-webkit-scrollbar {
+  border-left: var(--general) solid 1px;
+}
+
+.scroll-board-container::-webkit-scrollbar-thumb {
+  border: var(--we-purple-hover) solid 1px;
+  background: var(--general);
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* propiedades del dropdown btn de cambiar estado */
+/* -------------------------------------------------------------------------------------------------- */
+.dropdown-change-state{
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-change-state-content {
+  display: none;
+  position: absolute;
+  background: var(--we-purple-hover-light);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown-change-state:hover .dropdown-change-state-content {
+  display: block;
+}
+
 /* --------------------------------------------------------- */
 /* Media query */
 /* --------------------------------------------------------- */
 
-@media (max-width: 750px) {
+@media (max-width: 1060px) {
   .container-filters {
     display: flex;
     flex-direction: row;
@@ -154,7 +291,6 @@
     width: 100%;
     height: auto;
   }
-
 
   .container-state {
     margin-top: 10px;
@@ -182,172 +318,14 @@
     margin-top: 10px;
     width: 100%;
   }
+
+  .task-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .scroll-board-container{
+    height: auto;
+  }
 }
-
-/* -------------------------------------------------------------------------------------------------- */
-/* Estilos para imagen de NoData */
-/* -------------------------------------------------------------------------------------------------- */
-.content {
-  height: 100%;
-  width: 100%;
-  text-align: center;
-}
-
-.content img {
-  height: 100%;
-  vertical-align: middle;
-}
-
-/* -------------------------------------------------------------------------------------------------- */
-/* Estilos para las tasks */
-/* -------------------------------------------------------------------------------------------------- */
-.task-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  text-align: center;
-  margin: 10px;
-}
-.prueba-task{
-  display: flex;
-  margin: 10px;
-}
-
-.task-left{
-  width: 70%;
-  align-items: center;
-  color: #212529;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-color: transparent;
-  border: 1px solid var(--general);
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  cursor: pointer;
-}
-
-span{
-  width: 30%;
-  align-items: center;
-  color: #212529;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-color: transparent;
-  border: 1px solid var(--general);
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  cursor: pointer;
-}
-
-/* .task {
-  color: #212529;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-color: transparent;
-  border: 1px solid var(--general);
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  cursor: pointer;
-} */
-
-.span{
-  color: var(--general);
-  border-radius: 0 10px 10px 0;
-}
-
-span:hover {
-  background-color: var(--we-purple-hover-light);
-  color: #ffffff;
-}
-
-.task-left {
-  border-radius: 10px 0 0 10px;
-  font-weight: lighter;
-  color: #131313;
-}
-
-.task-left:hover {
-  background-color: var(--we-purple-hover-light);
-  color: var(--we-white);
-}
-
-
-.alert {
-  position: relative;
-  padding: 1rem 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid transparent;
-  border-radius: .25rem;
-}
-
-.danger {
-  color: #842029;
-  background-color: #f8d7da;
-  border-color: #f5c2c7;
-}
-
-
-/* -------------------------------------------------------------------------------------------------- */
-/* propiedades del scroll */
-/* -------------------------------------------------------------------------------------------------- */
-
-.scroll-board-container {
-  border: var(--general) solid 2px;
-  margin-top: 10px;
-  overflow: auto;
-  height: 500px;
-}
-
-.scroll-board-container::-webkit-scrollbar {
-  border-left: var(--general) solid 1px;
-}
-
-.scroll-board-container::-webkit-scrollbar-thumb {
-  border: var(--we-purple-hover) solid 1px;
-  background: var(--general);
-}
-
-/* -------------------------------------------------------------------------------------------------- */
-/* propiedades del dropdown btn de cambiar estado */
-/* -------------------------------------------------------------------------------------------------- */
-.dropdown-change-state{
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-change-state-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
-}
-
-.dropdown-change-state:hover .dropdown-change-state-content {
-  display: block;
-}
-
-
 
 

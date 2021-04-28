@@ -8,7 +8,6 @@ import { MemberService } from 'src/app/services/member.service';
 import { TeamService } from 'src/app/services/team.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {ToastrService} from 'ngx-toastr';
-import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-team-details',
@@ -35,6 +34,7 @@ export class TeamDetailsComponent implements OnInit {
     private memberService: MemberService,
     private teamService: TeamService
   ) { }
+
 
   ngOnInit(): void {
     this.getMembers();
@@ -106,6 +106,12 @@ export class TeamDetailsComponent implements OnInit {
     this.spinner.show();
     this.teamService.put(this.team).subscribe(() => {
       this.spinner.hide();
+    },() => {
+      this.spinner.hide();
+      this.toast.error('llenes los campos corectamente', 'Error de llenado', {
+        timeOut: 2500,
+        progressBar: true
+      })
     });
   }
 
