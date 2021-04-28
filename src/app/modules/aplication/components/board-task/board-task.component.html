@@ -91,7 +91,7 @@
       <div class="task-container" *ngIf="dataTasks != null">
         <div class="prueba-task" *ngFor="let task of dataTasks">
           <!-- Boton para abrir el modal-->
-          <a class="task task-left" type="button" (click)="openEditModal('edit-task-modal', task);">
+          <a class="task task-left" type="button" (click)="openModal('edit-task-modal', task);">
             {{ task.title }}
           </a>
           <span>

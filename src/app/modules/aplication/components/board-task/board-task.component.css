@@ -310,7 +310,7 @@ span:hover {
 }
 
 .scroll-board-container::-webkit-scrollbar {
-  border: var(--general) solid 1px;
+  border-left: var(--general) solid 1px;
 }
 
 .scroll-board-container::-webkit-scrollbar-thumb {
@@ -318,10 +318,6 @@ span:hover {
   background: var(--general);
 }
 
-.scroll-board-container::-webkit-scrollbar-thumb:hover {
-  border: var(--we-purple-hover-light) solid 1px;
-  background: var(--we-purple-hover-light);
-}
 
 
 
