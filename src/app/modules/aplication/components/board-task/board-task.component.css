@@ -107,6 +107,12 @@
   color: var(--we-white);
 }
 
+#state-selected {
+  cursor: default;
+  background: var(--general);
+  color: var(--we-white);
+}
+
 /* Estilos para el contador de las estados */
 .container-state .state-count {
   background: var(--general);

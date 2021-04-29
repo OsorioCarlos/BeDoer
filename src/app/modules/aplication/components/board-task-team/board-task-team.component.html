@@ -48,7 +48,7 @@
     <div class="container-state">
       <!-- contenedor de los botones de estados-->
       <div class="states">
-        <a (click)="getTasks(1)">
+        <a (click)="getTasks(1)" id="state-selected">
           Sin estado <span class="state-count" *ngIf="totalStates"> {{ totalStates.tasksNotState }} </span>
         </a>
         <a (click)="getTasks(2)">

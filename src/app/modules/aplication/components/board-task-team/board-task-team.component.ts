@@ -1,13 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {CategoryService} from '../../../../services/category.service';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
 import {AplicationService} from '../../../../services/aplication/aplication.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-
-declare let $: any;
 
 @Component({
   selector: 'app-board-task-team',
@@ -26,6 +24,7 @@ export class BoardTaskTeamComponent implements OnInit {
   public editTaskForm: FormGroup;
   private idTask;
   private stateTask;
+  private currentState: number;
   taskDate: Date;
   categories: object = [];
 
@@ -40,6 +39,7 @@ export class BoardTaskTeamComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private location: Location,
+    private router: Router,
     private spinner: NgxSpinnerService
   ) {
     this.teamId = this.route.snapshot.paramMap.get('id');
@@ -76,7 +76,6 @@ export class BoardTaskTeamComponent implements OnInit {
 
     // this.getCategories();
     this.getTasks(1);
-    console.log(this.teamId);
   }
 
   // -------------------------------------------------------------------------------
@@ -128,8 +127,9 @@ export class BoardTaskTeamComponent implements OnInit {
   // -------------------------------------------------------------------------------
   // CRUD del modal.
   // -------------------------------------------------------------------------------
-  getTasks(state): void {
+  getTasks(state: number): void {
     this.spinner.show();
+    this.stateSelected(state);
     this.appService.get(`team-tasks/${this.teamId}/${state}`).subscribe(
       res => {
         this.dataTasks = res.data;
@@ -144,13 +144,9 @@ export class BoardTaskTeamComponent implements OnInit {
           });
         }
       },
-      error => {
-        console.log(error);
+      () => {
         this.spinner.hide();
-        this.toastrService.error('error', 'Error con el servidor.', {
-          timeOut: 2000,
-          progressBar: true
-        });
+        this.router.navigate(['app/not-found']);
       }
     );
   }
@@ -264,5 +260,13 @@ export class BoardTaskTeamComponent implements OnInit {
       }
     );
     this.getTasks(state);
+  }
+
+  stateSelected(state: number) {
+    if (this.currentState == undefined) document.querySelector('.states a:nth-child(1)').removeAttribute('id');
+    else document.querySelector(`.states a:nth-child(${this.currentState})`).removeAttribute('id');
+
+    this.currentState = state;
+    document.querySelector(`.states a:nth-child(${this.currentState})`).setAttribute('id', 'state-selected');
   }
 }

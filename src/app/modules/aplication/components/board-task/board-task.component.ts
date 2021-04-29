@@ -23,6 +23,7 @@ export class BoardTaskComponent implements OnInit {
   public totalStates;
   private idTask;
   private stateTask;
+  private currentState: number;
   categories: object = [];
 
   // -------------------------------------------------------------------------------
@@ -110,7 +111,8 @@ export class BoardTaskComponent implements OnInit {
   }
 
   // Métodos CRUD de las tareas.
-  getTasks(state): void {
+  getTasks(state: number): void {
+    this.stateSelected(state);
     this.spinner.show();
     this.appService.get(`user-tasks/index/${state}`).subscribe(
       res => {
@@ -242,5 +244,13 @@ export class BoardTaskComponent implements OnInit {
       }
     );
     this.getTasks(state);
+  }
+
+  stateSelected(state: number) {
+    if (this.currentState == undefined) document.querySelector('.states a:nth-child(1)').removeAttribute('id');
+    else document.querySelector(`.states a:nth-child(${this.currentState})`).removeAttribute('id');
+
+    this.currentState = state;
+    document.querySelector(`.states a:nth-child(${this.currentState})`).setAttribute('id', 'state-selected');
   }
 }
